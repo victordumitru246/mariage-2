@@ -1960,6 +1960,76 @@ img:not([loading]){
   }
 }
 
+
+/* =========================================================
+   FIX DEFINITIF MENU MOBILE — DROPDOWN AU-DESSUS DE TOUT
+   ========================================================= */
+@media(max-width:760px){
+  header,
+  nav{
+    overflow:visible!important;
+    transform:none!important;
+  }
+
+  .mv-mobile-menu{
+    display:block!important;
+    position:absolute!important;
+    left:50%!important;
+    top:50%!important;
+    transform:translate(-50%,-50%)!important;
+    z-index:2147483646!important;
+    pointer-events:auto!important;
+  }
+
+  .menu-toggle{
+    z-index:2147483647!important;
+    position:relative!important;
+    pointer-events:auto!important;
+  }
+
+  .menu-dropdown{
+    display:block!important;
+    position:fixed!important;
+    top:64px!important;
+    left:50%!important;
+    width:min(260px, calc(100vw - 32px))!important;
+    min-width:0!important;
+    max-width:calc(100vw - 32px)!important;
+    transform:translateX(-50%) translateY(-8px)!important;
+    opacity:0!important;
+    visibility:hidden!important;
+    pointer-events:none!important;
+    z-index:2147483647!important;
+    background:rgba(255,250,243,.98)!important;
+    backdrop-filter:blur(18px)!important;
+    -webkit-backdrop-filter:blur(18px)!important;
+    border:1px solid rgba(169,149,116,.32)!important;
+    border-radius:22px!important;
+    box-shadow:0 28px 90px rgba(42,34,26,.22)!important;
+    padding:10px 0!important;
+  }
+
+  body.menu-open .menu-dropdown,
+  .menu-dropdown.open{
+    opacity:1!important;
+    visibility:visible!important;
+    pointer-events:auto!important;
+    transform:translateX(-50%) translateY(0)!important;
+  }
+
+  .menu-dropdown a{
+    display:block!important;
+    opacity:1!important;
+    visibility:visible!important;
+    pointer-events:auto!important;
+    padding:13px 20px!important;
+    margin:0!important;
+    text-align:center!important;
+    color:#4e473f!important;
+    background:transparent!important;
+  }
+}
+
 </style>
   <!-- Direction artistique typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2968,21 +3038,30 @@ img:not([loading]){
 
 
 
+
 <script id="mv-mobile-menu-js">
 (function(){
-  function getEls(){
+  function els(){
     return {
       toggle: document.getElementById("menuToggle"),
       menu: document.getElementById("mobileMenuDropdown")
     };
   }
 
+  function moveDropdownToBody(){
+    const { menu } = els();
+    if(menu && menu.parentElement !== document.body){
+      document.body.appendChild(menu);
+    }
+  }
+
   function setOpen(open){
-    const els = getEls();
-    if(!els.toggle || !els.menu) return;
-    els.menu.classList.toggle("open", open);
+    moveDropdownToBody();
+    const { toggle, menu } = els();
+    if(!toggle || !menu) return;
     document.body.classList.toggle("menu-open", open);
-    els.toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    menu.classList.toggle("open", open);
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
   }
 
   window.mvToggleMobileMenu = function(event){
@@ -2990,47 +3069,31 @@ img:not([loading]){
       event.preventDefault();
       event.stopPropagation();
     }
-    const els = getEls();
-    if(!els.menu) return false;
-    setOpen(!els.menu.classList.contains("open"));
+    moveDropdownToBody();
+    const { menu } = els();
+    setOpen(!(menu && menu.classList.contains("open")));
     return false;
   };
 
   function init(){
-    const els = getEls();
-    if(!els.toggle || !els.menu) return;
+    moveDropdownToBody();
+    const { toggle, menu } = els();
+    if(!toggle || !menu) return;
 
-    // Remove duplicate handlers by cloning button events is not necessary; this is safe.
-    ["click","touchstart"].forEach(function(evt){
-      els.toggle.addEventListener(evt, function(e){
-        window.mvToggleMobileMenu(e);
-      }, {passive:false});
-    });
+    toggle.onclick = window.mvToggleMobileMenu;
+    toggle.ontouchstart = window.mvToggleMobileMenu;
 
-    els.menu.querySelectorAll("a").forEach(function(link){
-      link.addEventListener("click", function(){
-        setOpen(false);
-      });
-      link.addEventListener("touchstart", function(){
-        setOpen(false);
-      }, {passive:true});
+    menu.querySelectorAll("a").forEach(function(link){
+      link.addEventListener("click", function(){ setOpen(false); });
     });
 
     document.addEventListener("click", function(e){
-      const current = getEls();
-      if(!current.menu || !current.toggle) return;
-      if(!current.menu.contains(e.target) && !current.toggle.contains(e.target)){
+      const { toggle, menu } = els();
+      if(!toggle || !menu) return;
+      if(!toggle.contains(e.target) && !menu.contains(e.target)){
         setOpen(false);
       }
-    });
-
-    document.addEventListener("touchstart", function(e){
-      const current = getEls();
-      if(!current.menu || !current.toggle) return;
-      if(!current.menu.contains(e.target) && !current.toggle.contains(e.target)){
-        setOpen(false);
-      }
-    }, {passive:true});
+    }, true);
 
     document.addEventListener("keydown", function(e){
       if(e.key === "Escape") setOpen(false);
