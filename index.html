@@ -1909,6 +1909,57 @@ img:not([loading]){
   }
 }
 
+
+/* =========================================================
+   FIX MENU MOBILE — SAFARI / IPHONE
+   ========================================================= */
+@media(max-width:760px){
+  .mv-mobile-menu{
+    display:block!important;
+    position:absolute!important;
+    left:50%!important;
+    top:50%!important;
+    transform:translate(-50%,-50%)!important;
+    z-index:100002!important;
+    pointer-events:auto!important;
+  }
+
+  .menu-toggle{
+    position:relative!important;
+    z-index:100003!important;
+    pointer-events:auto!important;
+    -webkit-tap-highlight-color:transparent!important;
+    touch-action:manipulation!important;
+  }
+
+  .menu-dropdown{
+    position:fixed!important;
+    top:58px!important;
+    left:50%!important;
+    right:auto!important;
+    transform:translateX(-50%) translateY(-8px) scale(.98)!important;
+    opacity:0!important;
+    visibility:hidden!important;
+    pointer-events:none!important;
+    z-index:100001!important;
+    min-width:230px!important;
+    max-width:calc(100vw - 36px)!important;
+  }
+
+  .menu-dropdown.open,
+  body.menu-open .menu-dropdown{
+    opacity:1!important;
+    visibility:visible!important;
+    transform:translateX(-50%) translateY(0) scale(1)!important;
+    pointer-events:auto!important;
+  }
+
+  .menu-dropdown a{
+    display:block!important;
+    pointer-events:auto!important;
+  }
+}
+
 </style>
   <!-- Direction artistique typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1965,7 +2016,7 @@ img:not([loading]){
   <nav>
     <div class="brand">M / V</div>
     <div class="mv-mobile-menu">
-      <button type="button" id="menuToggle" class="menu-toggle" aria-expanded="false" aria-controls="mobileMenuDropdown">
+      <button type="button" id="menuToggle" class="menu-toggle" aria-expanded="false" aria-controls="mobileMenuDropdown" onclick="window.mvToggleMobileMenu && window.mvToggleMobileMenu(event)">
         Menu
       </button>
       <div id="mobileMenuDropdown" class="menu-dropdown" aria-label="Navigation mobile">
@@ -2916,39 +2967,78 @@ img:not([loading]){
 </script>
 
 
+
 <script id="mv-mobile-menu-js">
 (function(){
-  function initMobileMenu(){
-    const toggle = document.getElementById("menuToggle");
-    const menu = document.getElementById("mobileMenuDropdown");
-    if(!toggle || !menu) return;
+  function getEls(){
+    return {
+      toggle: document.getElementById("menuToggle"),
+      menu: document.getElementById("mobileMenuDropdown")
+    };
+  }
 
-    function closeMenu(){
-      menu.classList.remove("open");
-      toggle.setAttribute("aria-expanded", "false");
+  function setOpen(open){
+    const els = getEls();
+    if(!els.toggle || !els.menu) return;
+    els.menu.classList.toggle("open", open);
+    document.body.classList.toggle("menu-open", open);
+    els.toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+
+  window.mvToggleMobileMenu = function(event){
+    if(event){
+      event.preventDefault();
+      event.stopPropagation();
     }
+    const els = getEls();
+    if(!els.menu) return false;
+    setOpen(!els.menu.classList.contains("open"));
+    return false;
+  };
 
-    toggle.addEventListener("click", function(e){
-      e.stopPropagation();
-      const isOpen = menu.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  function init(){
+    const els = getEls();
+    if(!els.toggle || !els.menu) return;
+
+    // Remove duplicate handlers by cloning button events is not necessary; this is safe.
+    ["click","touchstart"].forEach(function(evt){
+      els.toggle.addEventListener(evt, function(e){
+        window.mvToggleMobileMenu(e);
+      }, {passive:false});
     });
 
-    menu.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", closeMenu);
+    els.menu.querySelectorAll("a").forEach(function(link){
+      link.addEventListener("click", function(){
+        setOpen(false);
+      });
+      link.addEventListener("touchstart", function(){
+        setOpen(false);
+      }, {passive:true});
     });
 
     document.addEventListener("click", function(e){
-      if(!menu.contains(e.target) && !toggle.contains(e.target)) closeMenu();
+      const current = getEls();
+      if(!current.menu || !current.toggle) return;
+      if(!current.menu.contains(e.target) && !current.toggle.contains(e.target)){
+        setOpen(false);
+      }
     });
 
+    document.addEventListener("touchstart", function(e){
+      const current = getEls();
+      if(!current.menu || !current.toggle) return;
+      if(!current.menu.contains(e.target) && !current.toggle.contains(e.target)){
+        setOpen(false);
+      }
+    }, {passive:true});
+
     document.addEventListener("keydown", function(e){
-      if(e.key === "Escape") closeMenu();
+      if(e.key === "Escape") setOpen(false);
     });
   }
 
-  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", initMobileMenu);
-  else initMobileMenu();
+  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
 })();
 </script>
 
