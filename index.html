@@ -1917,21 +1917,36 @@ nav a{
 
 
 
-<style id="mv-rsvp-googleforms-css">
-.rsvp-fr,.rsvp-pt{transition:opacity .2s ease}
-.rsvp-pt{display:none!important}
-body.pt .rsvp-fr{display:none!important}
-body.pt .rsvp-pt{display:block!important}
-.rsvp-google-status{width:100%;margin-top:14px;font-family:"Inter","Aptos",Arial,sans-serif;font-size:13px;line-height:1.5;text-align:center;color:#6f675a}
-.rsvp-google-status.sending{color:#9b8a6b}
-.rsvp-google-status.success{color:#5d6b52;background:rgba(159,168,144,.13);border:1px solid rgba(159,168,144,.28);border-radius:999px;padding:10px 16px}
-.rsvp-google-status.error{color:#8a4c42;background:rgba(181,111,92,.10);border:1px solid rgba(181,111,92,.22);border-radius:999px;padding:10px 16px}
-.premium-rsvp-submit:disabled{opacity:.55;cursor:wait}
+<style id="mv-remove-reserve-data-bug-css">
+[data-reserve-bug], .reserve-data-bug{display:none!important}
 </style>
 
 
-<style id="mv-remove-reserve-data-bug-css">
-[data-reserve-bug], .reserve-data-bug{display:none!important}
+<style id="mv-rsvp-appscript-css">
+.rsvp-google-status{
+width:100%;
+margin-top:14px;
+font-family:"Inter","Aptos",Arial,sans-serif;
+font-size:13px;
+line-height:1.5;
+text-align:center;
+color:#6f675a
+}
+.rsvp-google-status.sending{color:#9b8a6b}
+.rsvp-google-status.success{
+color:#5d6b52;
+background:rgba(159,168,144,.13);
+border:1px solid rgba(159,168,144,.28);
+border-radius:999px;
+padding:10px 16px
+}
+.rsvp-google-status.error{
+color:#8a4c42;
+background:rgba(181,111,92,.10);
+border:1px solid rgba(181,111,92,.22);
+border-radius:999px;
+padding:10px 16px
+}
 </style>
 
 </head>
@@ -3117,118 +3132,6 @@ body.pt .rsvp-pt{display:block!important}
 </script>
 
 
-<script id="mv-rsvp-googleforms-js">
-(function(){
-  const FORM_IDS = {
-    fr: "1FAIpQLSe-EgCn5Xn9r_SfWxCWH__c1x1LksYiGYCqpW6g8pxBZeSOqA",
-    pt: "1FAIpQLScb2vTpblhoUc6v7FjaOyX_vm35SnHj6KgCZpH3EckeoLQDlw"
-  };
-  const TEXT = {
-    fr: {sending:"Envoi en cours…", success:"Merci, votre réponse a bien été envoyée.", error:"L’envoi n’a pas pu être confirmé. Merci d’utiliser le lien Google Form ci-dessous.", yes:"Oui, bien sûr !", no:"Non, malheureusement"},
-    pt: {sending:"Enviando…", success:"Obrigado, a sua resposta foi enviada com sucesso.", error:"Não foi possível confirmar o envio. Use o link do Google Form abaixo.", yes:"Sim, claro !", no:"Não, infelizmente"}
-  };
-  const ENTRY = {
-    name:"entry.1968566590",
-    email:"entry.1323237796",
-    presence:"entry.212572698",
-    number:"entry.207871058",
-    guests:"entry.1376210953",
-    sizes:"entry.1018875850",
-    message:"entry.322849469"
-  };
-
-  function val(form,names){
-    for(const n of names){
-      const el=form.querySelector('[name="'+n+'"]');
-      if(el) return (el.value||"").trim();
-    }
-    return "";
-  }
-  function status(form){
-    let s=form.querySelector(".rsvp-google-status");
-    if(!s){
-      s=document.createElement("div");
-      s.className="rsvp-google-status";
-      (form.querySelector(".rsvp-submit-row")||form).appendChild(s);
-    }
-    return s;
-  }
-  function presence(raw,lang){
-    const r=(raw||"").toLowerCase();
-    if(r.includes("oui")||r.includes("sim")||r==="yes") return TEXT[lang].yes;
-    if(r.includes("non")||r.includes("não")||r.includes("nao")||r==="no") return TEXT[lang].no;
-    return raw||"";
-  }
-  function params(form,lang){
-    const p=new URLSearchParams();
-    p.append(ENTRY.name, val(form,["nom_complet","nome_completo","nom","nome"]));
-    p.append(ENTRY.email, val(form,["email"]));
-    p.append(ENTRY.presence, presence(val(form,["presence","presenca"]), lang));
-    p.append(ENTRY.number, val(form,["nombre_accompagnants","numero_acompanhantes","acompanhantes_quantidade"]));
-    p.append(ENTRY.guests, val(form,["accompagnants","acompanhantes","nomes_acompanhantes"]));
-    p.append(ENTRY.sizes, val(form,["pointures","numero_sapato","calcados","pointure"]));
-    p.append(ENTRY.message, val(form,["message_aux_maries","mensagem_para_os_noivos","mensagem_aos_noivos","message"]));
-    p.append("fvv","1");
-    p.append("pageHistory","0");
-    return p;
-  }
-  async function send(form,lang){
-    const b=form.querySelector(".premium-rsvp-submit");
-    const s=status(form);
-    s.className="rsvp-google-status sending";
-    s.textContent=TEXT[lang].sending;
-    if(b) b.disabled=true;
-    try{
-      await fetch("https://docs.google.com/forms/d/e/"+FORM_IDS[lang]+"/formResponse",{
-        method:"POST",
-        mode:"no-cors",
-        headers:{"Content-Type":"application/x-www-form-urlencoded"},
-        body:params(form,lang).toString(),
-        keepalive:true
-      });
-      s.className="rsvp-google-status success";
-      s.textContent=TEXT[lang].success;
-      form.reset();
-    }catch(e){
-      s.className="rsvp-google-status error";
-      s.textContent=TEXT[lang].error;
-    }finally{
-      if(b) b.disabled=false;
-    }
-  }
-  function attach(){
-    [
-      {form:document.querySelector('form[name="rsvp-mirna-victor-fr"],#rsvpFormFR'), lang:"fr"},
-      {form:document.querySelector('form[name="rsvp-mirna-victor-pt"],#rsvpFormPT'), lang:"pt"}
-    ].forEach(({form,lang})=>{
-      if(!form || form.dataset.rsvpFetchConnected==="1") return;
-      form.dataset.rsvpFetchConnected="1";
-      form.setAttribute("action","javascript:void(0)");
-      form.removeAttribute("target");
-      form.addEventListener("submit",function(e){
-        e.preventDefault();
-        e.stopPropagation();
-        send(form,lang);
-        return false;
-      },true);
-      const b=form.querySelector(".premium-rsvp-submit");
-      if(b){
-        b.addEventListener("click",function(e){
-          if(form.reportValidity && !form.reportValidity()) return;
-          e.preventDefault();
-          e.stopPropagation();
-          send(form,lang);
-          return false;
-        },true);
-      }
-    });
-  }
-  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",attach);
-  else attach();
-})();
-</script>
-
-
 <script id="mv-remove-reserve-data-bug-js">
 (function(){
   function cleanReserveBug(){
@@ -3269,6 +3172,114 @@ body.pt .rsvp-pt{display:block!important}
 
   const obs = new MutationObserver(schedule);
   if(document.body) obs.observe(document.body, {childList:true, subtree:true, attributes:true, attributeFilter:["class"]});
+})();
+</script>
+
+
+<script id="mv-rsvp-appscript-js">
+(function(){
+const ENDPOINT="https://script.google.com/macros/s/AKfycbzijtR6LMAS_bKEWQo7fSqLAAFia3nQ7PMF3uOy0WMTTdk2YDcA5izH_otQEZ-SU2hxpw/exec";
+
+const TEXT={
+fr:{
+sending:"Envoi en cours…",
+success:"Merci, votre réponse a bien été envoyée.",
+error:"Une erreur est survenue lors de l’envoi."
+},
+pt:{
+sending:"Enviando…",
+success:"Obrigado, a sua resposta foi enviada com sucesso.",
+error:"Ocorreu um erro durante o envio."
+}
+};
+
+function val(form,names){
+for(const n of names){
+const el=form.querySelector('[name="'+n+'"]');
+if(el) return (el.value||"").trim();
+}
+return "";
+}
+
+function getStatus(form){
+let s=form.querySelector(".rsvp-google-status");
+if(!s){
+s=document.createElement("div");
+s.className="rsvp-google-status";
+(form.querySelector(".rsvp-submit-row")||form).appendChild(s);
+}
+return s;
+}
+
+async function send(form,lang){
+const status=getStatus(form);
+const button=form.querySelector(".premium-rsvp-submit");
+
+status.className="rsvp-google-status sending";
+status.textContent=TEXT[lang].sending;
+
+if(button) button.disabled=true;
+
+const payload={
+langue:lang,
+nom:val(form,["nom_complet","nome_completo","nom","nome"]),
+email:val(form,["email"]),
+presence:val(form,["presence","presenca"]),
+nombre_accompagnants:val(form,["nombre_accompagnants","numero_acompanhantes","acompanhantes_quantidade"]),
+accompagnants:val(form,["accompagnants","acompanhantes","nomes_acompanhantes"]),
+pointures:val(form,["pointures","numero_sapato","calcados","pointure"]),
+message:val(form,["message_aux_maries","mensagem_para_os_noivos","mensagem_aos_noivos","message"])
+};
+
+try{
+await fetch(ENDPOINT,{
+method:"POST",
+mode:"no-cors",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify(payload)
+});
+
+status.className="rsvp-google-status success";
+status.textContent=TEXT[lang].success;
+form.reset();
+
+}catch(e){
+status.className="rsvp-google-status error";
+status.textContent=TEXT[lang].error;
+}
+
+if(button) button.disabled=false;
+}
+
+function attach(){
+[
+{form:document.querySelector('form[name="rsvp-mirna-victor-fr"],#rsvpFormFR'),lang:"fr"},
+{form:document.querySelector('form[name="rsvp-mirna-victor-pt"],#rsvpFormPT'),lang:"pt"}
+].forEach(({form,lang})=>{
+if(!form || form.dataset.appscript==="1") return;
+form.dataset.appscript="1";
+
+form.addEventListener("submit",function(e){
+e.preventDefault();
+e.stopPropagation();
+send(form,lang);
+return false;
+},true);
+
+const button=form.querySelector(".premium-rsvp-submit");
+if(button){
+button.addEventListener("click",function(e){
+e.preventDefault();
+e.stopPropagation();
+send(form,lang);
+return false;
+},true);
+}
+});
+}
+
+if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",attach);
+else attach();
 })();
 </script>
 
