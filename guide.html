@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guide invités — Fortaleza & Aquiraz</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f1e8;
+  --paper:#fffbf4;
+  --ink:#3f3932;
+  --muted:#7e7468;
+  --gold:#a99574;
+  --line:rgba(169,149,116,.28);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Inter, Arial, sans-serif;
+}
+a{color:inherit}
+.hero{
+  min-height:68vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:90px 24px;
+  background:
+    linear-gradient(rgba(40,34,27,.28),rgba(40,34,27,.34)),
+    url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2200&auto=format&fit=crop") center/cover;
+  color:white;
+}
+.hero-inner{max-width:860px}
+.kicker{
+  text-transform:uppercase;
+  letter-spacing:.28em;
+  font-size:11px;
+  color:rgba(255,255,255,.82);
+}
+h1{
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:clamp(48px,8vw,92px);
+  font-weight:400;
+  line-height:.95;
+  margin:22px 0 18px;
+}
+.hero p{
+  max-width:680px;
+  margin:0 auto;
+  font-size:16px;
+  line-height:1.85;
+  color:rgba(255,255,255,.88);
+}
+.topbar{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:20;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 28px;
+  background:rgba(246,241,232,.78);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(169,149,116,.18);
+}
+.brand{
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:25px;
+  letter-spacing:.12em;
+}
+.back{
+  font-size:11px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  text-decoration:none;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:10px 16px;
+  background:rgba(255,251,244,.56);
+}
+main{padding:72px 22px 90px}
+.wrap{max-width:1120px;margin:auto}
+.section{
+  margin:0 auto 82px;
+}
+.eyebrow{
+  text-align:center;
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:.25em;
+  font-size:11px;
+  margin-bottom:12px;
+}
+h2{
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:clamp(34px,5vw,58px);
+  font-weight:400;
+  line-height:1;
+  text-align:center;
+  margin:0 0 24px;
+}
+.lead{
+  max-width:820px;
+  margin:0 auto 40px;
+  text-align:center;
+  color:var(--muted);
+  line-height:1.85;
+  font-size:15px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:24px;
+}
+.card{
+  background:rgba(255,251,244,.72);
+  border:1px solid var(--line);
+  border-radius:30px;
+  overflow:hidden;
+  box-shadow:0 26px 70px rgba(75,66,56,.07);
+}
+.card img{
+  width:100%;
+  height:230px;
+  object-fit:cover;
+  display:block;
+}
+.card-content{padding:24px}
+.card h3{
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:30px;
+  font-weight:400;
+  line-height:1.05;
+  margin:0 0 10px;
+}
+.card p{
+  color:var(--muted);
+  font-size:13.5px;
+  line-height:1.75;
+  margin:0 0 16px;
+}
+.price{
+  display:block;
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.btn{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  min-height:38px;
+  padding:10px 15px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  text-decoration:none;
+  font-size:10px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#5f574d;
+  background:rgba(255,255,255,.38);
+}
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px;
+}
+.info{
+  background:rgba(255,251,244,.68);
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:28px;
+}
+.info h3{
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:28px;
+  font-weight:400;
+  margin:0 0 12px;
+}
+.info ul{
+  margin:0;
+  padding-left:18px;
+  color:var(--muted);
+  line-height:1.8;
+  font-size:14px;
+}
+.note{
+  margin-top:28px;
+  padding:22px 26px;
+  border:1px solid var(--line);
+  border-radius:26px;
+  background:rgba(255,251,244,.54);
+  color:var(--muted);
+  line-height:1.75;
+  font-size:13px;
+}
+.footer{
+  text-align:center;
+  padding:50px 22px 70px;
+  color:#9a8d7d;
+  font-size:12px;
+}
+@media(max-width:900px){
+  .grid,.info-grid{grid-template-columns:1fr}
+  .topbar{padding:14px 16px}
+  .brand{font-size:20px}
+  .back{font-size:10px;padding:9px 12px}
+  main{padding-top:56px}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">M&nbsp;&amp;&nbsp;V</div>
+  <a class="back" href="index.html">Retour au site</a>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Guide invités</div>
+    <h1>Fortaleza & Aquiraz</h1>
+    <p>Une sélection simple, élégante et pratique pour organiser votre séjour autour du mariage du 5 novembre 2027.</p>
+  </div>
+</section>
+
+<main>
+  <div class="wrap">
+
+    <section class="section" id="hebergements">
+      <div class="eyebrow">Où séjourner</div>
+      <h2>Porto das Dunas & Beach Park</h2>
+      <p class="lead">
+        Pour profiter pleinement du week-end, nous recommandons de loger à Porto das Dunas ou autour de Beach Park :
+        c’est beau, pratique, proche de la plage, et plus confortable pour les invités qui souhaitent prolonger le séjour.
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1400&auto=format&fit=crop" alt="Beach Park Resort Suites">
+          <div class="card-content">
+            <h3>Beach Park Resort Suites</h3>
+            <p>Un choix très cohérent pour les invités : résidence agréable, accès plage, proximité du parc et ambiance vacances.</p>
+            <span class="price">Airbnb autour du 5 nov. 2027 · env. 700–1 100 € / semaine pour 2</span>
+            <div class="actions">
+              <a class="btn" target="_blank" rel="noopener" href="https://www.airbnb.fr/s/Beach-Park--Aquiraz--Cear%C3%A1--Br%C3%A9sil/homes">Voir sur Airbnb</a>
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Beach%20Park%20Resort%20Suites%20Aquiraz">Carte</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?q=80&w=1400&auto=format&fit=crop" alt="Wellness Beach Park Resort">
+          <div class="card-content">
+            <h3>Wellness Beach Park Resort</h3>
+            <p>Plus calme et sophistiqué, idéal pour les couples qui veulent une atmosphère détente et un peu plus premium.</p>
+            <span class="price">Airbnb autour du 5 nov. 2027 · env. 800–1 300 € / semaine pour 2</span>
+            <div class="actions">
+              <a class="btn" target="_blank" rel="noopener" href="https://www.airbnb.fr/s/Wellness-Beach-Park-Resort--Aquiraz--Cear%C3%A1--Br%C3%A9sil/homes">Voir sur Airbnb</a>
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Wellness%20Beach%20Park%20Resort%20Aquiraz">Carte</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=1400&auto=format&fit=crop" alt="Acqua Beach Park Resort">
+          <div class="card-content">
+            <h3>Acqua Beach Park Resort</h3>
+            <p>Très beau compromis pour couples et familles, avec piscines, appartements et accès facile à Porto das Dunas.</p>
+            <span class="price">Airbnb autour du 5 nov. 2027 · env. 650–1 000 € / semaine pour 2</span>
+            <div class="actions">
+              <a class="btn" target="_blank" rel="noopener" href="https://www.airbnb.fr/s/Acqua-Beach-Park-Resort--Aquiraz--Cear%C3%A1--Br%C3%A9sil/homes">Voir sur Airbnb</a>
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Acqua%20Beach%20Park%20Resort%20Aquiraz">Carte</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1400&auto=format&fit=crop" alt="Beach Living Porto das Dunas">
+          <div class="card-content">
+            <h3>Beach Living</h3>
+            <p>Résidence très pratique près de Beach Park, souvent proposée en appartements confortables et bien équipés.</p>
+            <span class="price">Airbnb autour du 5 nov. 2027 · env. 500–900 € / semaine pour 2</span>
+            <div class="actions">
+              <a class="btn" target="_blank" rel="noopener" href="https://www.airbnb.fr/s/Beach-Living--Porto-das-Dunas--Aquiraz--Cear%C3%A1--Br%C3%A9sil/homes">Voir sur Airbnb</a>
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Beach%20Living%20Porto%20das%20Dunas%20Aquiraz">Carte</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=1400&auto=format&fit=crop" alt="Golf Ville Resort">
+          <div class="card-content">
+            <h3>Golf Ville Resort</h3>
+            <p>Option plus haut de gamme, avec grands appartements, espace, piscine, lagune et cadre très élégant.</p>
+            <span class="price">Airbnb autour du 5 nov. 2027 · env. 1 000–1 800 € / semaine selon logement</span>
+            <div class="actions">
+              <a class="btn" target="_blank" rel="noopener" href="https://www.airbnb.fr/s/Golf-Ville-Resort--Aquiraz--Cear%C3%A1--Br%C3%A9sil/homes">Voir sur Airbnb</a>
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Golf%20Ville%20Resort%20Aquiraz">Carte</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1400&auto=format&fit=crop" alt="Appartements Porto das Dunas">
+          <div class="card-content">
+            <h3>Appartements Porto das Dunas</h3>
+            <p>Beaucoup d’appartements Airbnb très agréables existent autour de Beach Park : pratique pour les familles et petits groupes.</p>
+            <span class="price">Airbnb autour du 5 nov. 2027 · souvent env. 500–900 € / semaine pour 2</span>
+            <div class="actions">
+              <a class="btn" target="_blank" rel="noopener" href="https://www.airbnb.fr/s/Porto-das-Dunas--Aquiraz--Cear%C3%A1--Br%C3%A9sil/homes">Voir sur Airbnb</a>
+              <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Porto%20das%20Dunas%20Aquiraz%20Cear%C3%A1">Carte</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="note">
+        Les prix sont donnés comme repères indicatifs pour une semaine autour du 5 novembre 2027, pour deux personnes.
+        Ils peuvent varier selon les dates exactes, les frais Airbnb, les conditions d’annulation et la taille du logement.
+      </div>
+    </section>
+
+    
+    <section class="section" id="saveurs">
+      <div class="eyebrow">Saveurs locales</div>
+      <h2>À goûter à Fortaleza</h2>
+      <p class="lead">
+        Le Nordeste possède une cuisine généreuse et conviviale, entre grillades, poissons frais,
+        fruits tropicaux, spécialités de manioc et douceurs de bord de mer.
+      </p>
+
+      <div class="info-grid">
+        <div class="info">
+          <h3>Le matin</h3>
+          <ul>
+            <li><strong>Pão de queijo</strong> : petits pains au fromage, parfaits avec un café.</li>
+            <li><strong>Café brasileiro</strong> : café fort, souvent servi très chaud.</li>
+            <li><strong>Tapioca</strong> : galette légère de manioc, salée ou sucrée.</li>
+            <li><strong>Fruits tropicaux</strong> : mangue, papaye, goyave, ananas, cajou.</li>
+          </ul>
+        </div>
+
+        <div class="info">
+          <h3>À la plage</h3>
+          <ul>
+            <li><strong>Peixe grelhado</strong> : poisson grillé frais, simple et délicieux.</li>
+            <li><strong>Queijo coalho</strong> : fromage grillé, très apprécié dans le Nordeste.</li>
+            <li><strong>Água de coco</strong> : eau de coco fraîche, idéale avec la chaleur.</li>
+            <li><strong>Açaí</strong> : très agréable en journée, avec fruits ou granola.</li>
+          </ul>
+        </div>
+
+        <div class="info">
+          <h3>Pour déjeuner ou dîner</h3>
+          <ul>
+            <li><strong>Churrasco</strong> : grillades brésiliennes, conviviales et généreuses.</li>
+            <li><strong>Carne de sol</strong> : spécialité du Nordeste, souvent servie avec manioc.</li>
+            <li><strong>Frutos do mar</strong> : crevettes, poissons et fruits de mer de la côte.</li>
+            <li><strong>Moqueca</strong> : plat mijoté de poisson ou crevettes au lait de coco.</li>
+          </ul>
+        </div>
+
+        <div class="info">
+          <h3>Le soir</h3>
+          <ul>
+            <li><strong>Caïpirinha</strong> : cocktail emblématique à base de cachaça et citron vert.</li>
+            <li><strong>Petiscos</strong> : petites assiettes à partager entre amis.</li>
+            <li><strong>Cajuína</strong> : boisson typique à base de cajou, douce et locale.</li>
+            <li><strong>Brigadeiro</strong> : douceur brésilienne au chocolat, très populaire.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="note">
+        Pour une expérience simple et très locale, choisissez une <em>barraca</em> à Praia do Futuro pour déjeuner :
+        poisson grillé, queijo coalho, eau de coco et vue sur l’océan.
+      </div>
+    </section>
+
+
+    <section class="section" id="conseils">
+      <div class="eyebrow">Conseils pratiques</div>
+      <h2>Arriver sereinement</h2>
+      <div class="info-grid">
+        <div class="info">
+          <h3>Transports</h3>
+          <ul>
+            <li>Privilégier Uber ou chauffeur pour les trajets du soir.</li>
+            <li>Prévoir un transfert aéroport si vous arrivez tard ou avec beaucoup de bagages.</li>
+            <li>Louer une voiture peut être pratique pour une semaine complète à Aquiraz.</li>
+            <li>Le jour du mariage, prévoir une marge confortable pour rejoindre la cérémonie.</li>
+          </ul>
+        </div>
+        <div class="info">
+          <h3>Tenues</h3>
+          <ul>
+            <li>Prévoir des vêtements légers : le climat est chaud et humide.</li>
+            <li>Pour le mariage : tenue élégante, confortable et adaptée à la chaleur.</li>
+            <li>Chaussures stables recommandées pour circuler facilement.</li>
+            <li>Prendre aussi une tenue de plage, lunettes, chapeau et crème solaire.</li>
+          </ul>
+        </div>
+        <div class="info">
+          <h3>Sécurité</h3>
+          <ul>
+            <li>Éviter de marcher tard le soir dans les rues isolées.</li>
+            <li>Garder téléphone et objets de valeur discrets.</li>
+            <li>Privilégier les zones touristiques et les trajets en application.</li>
+            <li>Conserver une copie numérique du passeport.</li>
+          </ul>
+        </div>
+        <div class="info">
+          <h3>À prévoir</h3>
+          <ul>
+            <li>WhatsApp installé pour les échanges sur place.</li>
+            <li>Carte bancaire internationale et un peu de marge sur le plafond.</li>
+            <li>Répulsif moustiques, pharmacie simple, assurance voyage.</li>
+            <li>Adresse du logement et lieux du mariage sauvegardés hors ligne.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  Mirna & Victor · Guide invités · Fortaleza, Brésil
+</footer>
+</body>
+</html>
