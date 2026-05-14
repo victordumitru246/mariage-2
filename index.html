@@ -1922,6 +1922,7 @@ nav a{
 </style>
 
 
+
 <style id="mv-rsvp-appscript-css">
 .rsvp-google-status{
 width:100%;
@@ -1947,6 +1948,7 @@ border:1px solid rgba(181,111,92,.22);
 border-radius:999px;
 padding:10px 16px
 }
+.premium-rsvp-submit:disabled{opacity:.55;cursor:wait}
 </style>
 
 </head>
@@ -3176,6 +3178,7 @@ padding:10px 16px
 </script>
 
 
+
 <script id="mv-rsvp-appscript-js">
 (function(){
 const ENDPOINT="https://script.google.com/macros/s/AKfycbyBk_ncBklgmEezTmlhobKxvE3KLA8aEybi_pXV-EiT1mOnjLGiKWxmtz946MW313IIjA/exec";
@@ -3184,12 +3187,12 @@ const TEXT={
 fr:{
 sending:"Envoi en cours…",
 success:"Merci, votre réponse a bien été envoyée.",
-error:"Une erreur est survenue lors de l’envoi."
+error:"Une erreur est survenue lors de l’envoi. Merci d’utiliser le lien Google en secours."
 },
 pt:{
 sending:"Enviando…",
 success:"Obrigado, a sua resposta foi enviada com sucesso.",
-error:"Ocorreu um erro durante o envio."
+error:"Ocorreu um erro durante o envio. Use o link do Google como alternativa."
 }
 };
 
@@ -3211,32 +3214,38 @@ s.className="rsvp-google-status";
 return s;
 }
 
+function buildParams(form,lang){
+const params=new URLSearchParams();
+params.append("langue",lang);
+params.append("nom",val(form,["nom_complet","nome_completo","nom","nome"]));
+params.append("email",val(form,["email"]));
+params.append("presence",val(form,["presence","presenca"]));
+params.append("nombre_accompagnants",val(form,["nombre_accompagnants","numero_acompanhantes","acompanhantes_quantidade"]));
+params.append("accompagnants",val(form,["accompagnants","acompanhantes","nomes_acompanhantes"]));
+params.append("pointures",val(form,["pointures","numero_sapato","calcados","pointure"]));
+params.append("message",val(form,["message_aux_maries","mensagem_para_os_noivos","mensagem_aos_noivos","message"]));
+params.append("source","site_mariage");
+return params;
+}
+
 async function send(form,lang){
+if(form.dataset.sending==="1") return;
+form.dataset.sending="1";
+
 const status=getStatus(form);
 const button=form.querySelector(".premium-rsvp-submit");
 
 status.className="rsvp-google-status sending";
 status.textContent=TEXT[lang].sending;
-
 if(button) button.disabled=true;
-
-const payload={
-langue:lang,
-nom:val(form,["nom_complet","nome_completo","nom","nome"]),
-email:val(form,["email"]),
-presence:val(form,["presence","presenca"]),
-nombre_accompagnants:val(form,["nombre_accompagnants","numero_acompanhantes","acompanhantes_quantidade"]),
-accompagnants:val(form,["accompagnants","acompanhantes","nomes_acompanhantes"]),
-pointures:val(form,["pointures","numero_sapato","calcados","pointure"]),
-message:val(form,["message_aux_maries","mensagem_para_os_noivos","mensagem_aos_noivos","message"])
-};
 
 try{
 await fetch(ENDPOINT,{
 method:"POST",
 mode:"no-cors",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify(payload)
+headers:{"Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"},
+body:buildParams(form,lang).toString(),
+keepalive:true
 });
 
 status.className="rsvp-google-status success";
@@ -3246,9 +3255,10 @@ form.reset();
 }catch(e){
 status.className="rsvp-google-status error";
 status.textContent=TEXT[lang].error;
-}
-
+}finally{
+form.dataset.sending="0";
 if(button) button.disabled=false;
+}
 }
 
 function attach(){
@@ -3256,12 +3266,15 @@ function attach(){
 {form:document.querySelector('form[name="rsvp-mirna-victor-fr"],#rsvpFormFR'),lang:"fr"},
 {form:document.querySelector('form[name="rsvp-mirna-victor-pt"],#rsvpFormPT'),lang:"pt"}
 ].forEach(({form,lang})=>{
-if(!form || form.dataset.appscript==="1") return;
-form.dataset.appscript="1";
+if(!form || form.dataset.appscriptFormencoded==="1") return;
+form.dataset.appscriptFormencoded="1";
+form.setAttribute("action","javascript:void(0)");
+form.removeAttribute("target");
 
 form.addEventListener("submit",function(e){
 e.preventDefault();
 e.stopPropagation();
+if(form.reportValidity && !form.reportValidity()) return false;
 send(form,lang);
 return false;
 },true);
@@ -3271,6 +3284,7 @@ if(button){
 button.addEventListener("click",function(e){
 e.preventDefault();
 e.stopPropagation();
+if(form.reportValidity && !form.reportValidity()) return false;
 send(form,lang);
 return false;
 },true);
