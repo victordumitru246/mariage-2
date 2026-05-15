@@ -1840,7 +1840,7 @@ a[href*="sejour"],
   margin-right:auto!important;
 }
 
-/* Navigation : garder Faire-part propre */
+/* Navigation : garder  propre */
 nav a[href="#faire-part"],
 nav a[href*="faire"],
 nav a{
@@ -2264,6 +2264,99 @@ section,
     animation-iteration-count:1!important;
     transition-duration:.001ms!important;
     scroll-behavior:auto!important;
+  }
+}
+</style>
+
+
+<style id="welcome-couple-style">
+.welcome-couple-section{
+  position:relative;
+  min-height:100svh;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#111;
+}
+
+.welcome-couple-image{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.welcome-overlay{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.38)),
+    radial-gradient(circle at center, rgba(0,0,0,.08), rgba(0,0,0,.48));
+  z-index:1;
+}
+
+.welcome-couple-content{
+  position:relative;
+  z-index:2;
+  max-width:760px;
+  padding:120px 34px 90px;
+  text-align:center;
+  color:#f6f0e8;
+}
+
+.welcome-small{
+  text-transform:uppercase;
+  letter-spacing:.38em;
+  font-size:11px;
+  margin-bottom:18px;
+  opacity:.86;
+}
+
+.welcome-couple-content h1{
+  font-family:"Cormorant Garamond", serif;
+  font-size:clamp(68px,11vw,130px);
+  line-height:.9;
+  font-weight:400;
+  margin:0;
+  letter-spacing:.01em;
+}
+
+.welcome-divider{
+  width:90px;
+  height:1px;
+  background:rgba(255,255,255,.6);
+  margin:28px auto;
+}
+
+.welcome-text{
+  max-width:560px;
+  margin:0 auto;
+  font-size:18px;
+  line-height:1.9;
+  color:rgba(255,255,255,.9);
+}
+
+.welcome-signature{
+  margin-top:34px;
+  font-family:"Cormorant Garamond", serif;
+  font-size:42px;
+  color:#f2e4d0;
+}
+
+@media(max-width:768px){
+  .welcome-couple-content{
+    padding:110px 24px 80px;
+  }
+
+  .welcome-text{
+    font-size:15px;
+    line-height:1.8;
+  }
+
+  .welcome-signature{
+    font-size:34px;
   }
 }
 </style>
@@ -3426,7 +3519,7 @@ section,
       if(el.children.length) return;
       const t = (el.textContent || "").trim();
 
-      if(/wedding invitation/i.test(t)) el.textContent = isPT ? "Convite" : "Faire-part";
+      if(/wedding invitation/i.test(t)) el.textContent = isPT ? "Convite" : "";
       if(/^$/i.test(t)) el.textContent = "";
 
       if(/Nous avons imaginé cette journée comme une rencontre/i.test(t)){
