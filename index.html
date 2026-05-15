@@ -2267,58 +2267,9 @@ section,
   }
 }
 </style>
-
-
-
-
-<style id="mv-paper-texture-style">
-/* =========================================================
-   FOND PAPIER  — BEIGE TEXTURÉ
-   ========================================================= */
-html, body{
-  background-color:#f2e6d0!important;
-  background-image:
-    radial-gradient(rgba(92,72,48,.070) .8px, transparent .8px),
-    radial-gradient(rgba(255,255,255,.26) .9px, transparent .9px),
-    linear-gradient(90deg, rgba(88,67,41,.035), rgba(255,255,255,.10), rgba(88,67,41,.025)),
-    linear-gradient(0deg, rgba(88,67,41,.028), rgba(255,255,255,.12), rgba(88,67,41,.018));
-  background-size:22px 22px, 17px 17px, 100% 100%, 100% 100%;
-  background-position:0 0, 8px 6px, 0 0, 0 0;
-  background-attachment:fixed;
-}
-
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  pointer-events:none;
-  opacity:.38;
-  background:
-    repeating-linear-gradient(88deg, rgba(76,55,34,.020) 0 1px, transparent 1px 9px),
-    repeating-linear-gradient(2deg, rgba(255,255,255,.040) 0 1px, transparent 1px 7px);
-  mix-blend-mode:multiply;
-}
-
-/* Texture subtile sur les sections claires */
-section:not(.mv-luxe-intro):not(.lux-intro):not(.welcome-couple-section)::before,
-.card::before,
-.timeline-card::before,
-.info::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  opacity:.10;
-  background-image:radial-gradient(rgba(89,68,45,.08) .65px, transparent .65px);
-  background-size:15px 15px;
-  mix-blend-mode:multiply;
-}
-</style>
-
 <style id="welcome-couple-style">
 /* =========================================================
-   ACCUEIL COUPLE — UNE SEULE SECTION, PHOTO NON COUPÉE
+   ACCUEIL PHOTO COUPLE — VERSION PAPIER ÉLÉGANTE
    ========================================================= */
 .welcome-pt{display:none!important}
 body.pt .welcome-fr{display:none!important}
@@ -2328,25 +2279,37 @@ body.pt .welcome-pt{display:block!important}
   position:relative;
   min-height:100svh;
   display:grid;
-  grid-template-columns:minmax(300px, 42%) minmax(300px, 52%);
-  gap:clamp(32px,6vw,78px);
+  grid-template-columns:minmax(280px, 43%) minmax(320px, 54%);
+  gap:clamp(30px,6vw,80px);
   align-items:center;
-  padding:clamp(88px,9vw,130px) clamp(24px,6vw,88px) clamp(80px,8vw,110px);
+  padding:clamp(88px,9vw,132px) clamp(26px,6vw,86px) clamp(76px,8vw,110px);
   background:transparent!important;
-  border-bottom:1px solid rgba(169,149,116,.20);
   overflow:hidden;
+  border-bottom:1px solid rgba(169,149,116,.22);
+}
+
+.welcome-couple-section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 10% 15%, rgba(255,255,255,.20), transparent 34%),
+    radial-gradient(circle at 88% 92%, rgba(169,149,116,.12), transparent 38%);
+  z-index:0;
 }
 
 .welcome-couple-content{
   position:relative;
   z-index:2;
+  color:#2f2923;
+  align-self:center;
   max-width:560px;
-  color:#332c25;
 }
 
 .welcome-small{
   margin:0 0 22px!important;
-  font-family:"Inter","Aptos",Arial,sans-serif!important;
+  font-family:"Inter", "Aptos", Arial, sans-serif!important;
   text-transform:uppercase;
   letter-spacing:.28em;
   font-size:11px!important;
@@ -2357,8 +2320,8 @@ body.pt .welcome-pt{display:block!important}
   margin:0!important;
   text-align:left!important;
   font-family:"Cormorant Garamond", Georgia, serif!important;
-  font-size:clamp(52px,7.2vw,94px)!important;
-  line-height:.92!important;
+  font-size:clamp(52px,7.3vw,96px)!important;
+  line-height:.90!important;
   font-weight:400!important;
   color:#332c25!important;
   letter-spacing:-.015em!important;
@@ -2367,8 +2330,9 @@ body.pt .welcome-pt{display:block!important}
 .welcome-couple-content h2 em{
   display:block;
   font-style:italic;
-  font-size:.60em;
+  font-size:.62em;
   color:#a3875c;
+  letter-spacing:.005em;
   margin-top:8px;
 }
 
@@ -2382,7 +2346,7 @@ body.pt .welcome-pt{display:block!important}
 .welcome-text{
   margin:0!important;
   max-width:480px;
-  font-family:"Inter","Aptos",Arial,sans-serif!important;
+  font-family:"Inter", "Aptos", Arial, sans-serif!important;
   font-size:16px!important;
   line-height:1.85!important;
   color:#50483f!important;
@@ -2398,27 +2362,38 @@ body.pt .welcome-pt{display:block!important}
 .welcome-photo-wrap{
   position:relative;
   z-index:2;
+  width:min(100%, 620px);
   justify-self:center;
-  width:min(100%, 560px);
-  margin:0;
-  padding:0;
-  background:rgba(255,251,244,.42);
-  border:1px solid rgba(80,59,37,.18);
+  background:#f7ead7;
   box-shadow:0 30px 90px rgba(61,48,34,.12);
-  overflow:visible;
+  border:1px solid rgba(80,59,37,.18);
+  overflow:hidden;
 }
 
-/* IMPORTANT : photo affichée entière, sans crop ni bande */
+.welcome-photo-wrap::before{
+  content:"";
+  display:block;
+  aspect-ratio:4/5.6;
+}
+
+/* Photo rectangulaire nette, sans bande noire/triangulaire autour */
 .welcome-couple-image{
-  display:block!important;
-  position:relative!important;
-  width:100%!important;
-  height:auto!important;
-  max-height:78svh!important;
-  object-fit:contain!important;
-  object-position:center!important;
-  transform:none!important;
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
   filter:saturate(.98) contrast(1.02);
+  transform:none!important;
+}
+
+.welcome-photo-wrap::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
 }
 
 .welcome-discover{
@@ -2428,7 +2403,7 @@ body.pt .welcome-pt{display:block!important}
   transform:translateX(-50%);
   z-index:4;
   text-align:center;
-  font-family:"Inter","Aptos",Arial,sans-serif!important;
+  font-family:"Inter", "Aptos", Arial, sans-serif!important;
   font-size:11px;
   letter-spacing:.24em;
   text-transform:uppercase;
@@ -2449,7 +2424,7 @@ body.pt .welcome-pt{display:block!important}
     grid-template-columns:1fr;
     min-height:auto;
     padding:84px 22px 92px;
-    gap:34px;
+    gap:36px;
   }
 
   .welcome-couple-content{
@@ -2474,7 +2449,7 @@ body.pt .welcome-pt{display:block!important}
 
   .welcome-photo-wrap{
     order:2;
-    width:min(100%, 430px);
+    width:min(100%, 420px);
   }
 
   .welcome-discover{
@@ -2485,8 +2460,352 @@ body.pt .welcome-pt{display:block!important}
     transform:none;
     grid-column:1;
     order:3;
-    margin-top:4px;
+    margin-top:8px;
   }
+}
+</style>
+
+
+<style id="mv-fix-photo-timeline">
+/* Photo du couple : affichage réel depuis le dossier assets */
+.welcome-photo-wrap{
+  overflow:hidden!important;
+  background:#f4e5cf!important;
+  border-radius:0!important;
+  min-height:420px!important;
+}
+
+.welcome-photo-wrap::before{
+  aspect-ratio:4/5.25!important;
+}
+
+.welcome-couple-image{
+  display:block!important;
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center 40%!important;
+  opacity:1!important;
+  visibility:visible!important;
+  transform:none!important;
+}
+
+/* Timeline : pictogrammes masqués sans casser la grille */
+.timeline-icon{
+  visibility:hidden!important;
+  opacity:0!important;
+  pointer-events:none!important;
+}
+.timeline-icon svg{
+  display:none!important;
+}
+.timeline-item{
+  grid-template-columns:1fr 70px 1fr!important;
+}
+
+@media(max-width:768px){
+  .timeline-icon{
+    display:none!important;
+  }
+  .timeline-line{
+    left:18px!important;
+  }
+  .timeline-item{
+    grid-template-columns:64px 1fr!important;
+    gap:16px!important;
+  }
+  .timeline-time,
+  .timeline-item:nth-child(odd) .timeline-time,
+  .timeline-item:nth-child(even) .timeline-time{
+    grid-column:1!important;
+    grid-row:1!important;
+    text-align:left!important;
+    font-size:26px!important;
+  }
+  .timeline-card,
+  .timeline-item:nth-child(odd) .timeline-card,
+  .timeline-item:nth-child(even) .timeline-card{
+    grid-column:2!important;
+    grid-row:1!important;
+  }
+}
+</style>
+
+<link rel="preload" as="image" href="assets/welcome-couple.jpg">
+
+<style id="mv-paper-background-realistic">
+/* =========================================================
+   FOND PAPIER TEXTURÉ FINAL — IMAGE FOURNIE
+   ========================================================= */
+
+html{
+  background:#eee7d8!important;
+}
+
+body{
+  background:
+    linear-gradient(
+      rgba(246,241,231,.74),
+      rgba(246,241,231,.74)
+    ),
+    url("assets/paper-texture.jpg") center center / cover fixed no-repeat!important;
+
+  background-color:#eee7d8!important;
+  color:#3c332b!important;
+}
+
+/* voile très léger pour garder une lecture élégante */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  opacity:.16;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255,255,255,.25), transparent 34%),
+    radial-gradient(circle at 82% 82%, rgba(145,115,78,.06), transparent 42%);
+  mix-blend-mode:multiply;
+}
+
+/* Le papier doit être visible partout */
+main,
+section,
+.welcome-couple-section,
+.wrap,
+.normal,
+.mv-extra-section{
+  background:transparent!important;
+}
+
+/* Header intégré au même papier */
+header{
+  background:
+    linear-gradient(
+      rgba(246,241,231,.82),
+      rgba(246,241,231,.76)
+    ),
+    url("assets/paper-texture.jpg") center center / cover fixed no-repeat!important;
+
+  backdrop-filter:blur(10px)!important;
+  -webkit-backdrop-filter:blur(10px)!important;
+
+  border-bottom:1px solid rgba(120,95,66,.16)!important;
+}
+
+/* Cartes lisibles mais translucides */
+.card,
+.timeline-card,
+.resort-card,
+.photo-card,
+.premium-rsvp-shell,
+.mv-count-box,
+.mv-phrase-card,
+.info{
+  background:rgba(255,251,244,.58)!important;
+  backdrop-filter:blur(3px)!important;
+  -webkit-backdrop-filter:blur(3px)!important;
+}
+
+/* Cadre photo conservé, plus premium sur le papier */
+.welcome-photo-wrap{
+  background:rgba(238,226,204,.62)!important;
+  border:1px solid rgba(88,68,44,.18)!important;
+  box-shadow:0 30px 80px rgba(62,48,32,.16)!important;
+}
+
+/* Supprimer les fonds plats qui masquent le papier */
+.lux-sticky,
+.lux-stage,
+.sticky-scene{
+  background:transparent!important;
+}
+</style>
+
+
+<style id="mv-paper-background-zoom-fix">
+/* =========================================================
+   FOND PAPIER — TEXTURE DÉZOOMÉE / PLUS FINE / PLUS HD
+   ========================================================= */
+
+body{
+  background:
+    linear-gradient(
+      rgba(246,241,231,.78),
+      rgba(246,241,231,.78)
+    ),
+    url("assets/paper-texture.jpg") center center / 520px auto repeat fixed !important;
+}
+
+/* Header avec la même texture plus fine */
+header{
+  background:
+    linear-gradient(
+      rgba(246,241,231,.86),
+      rgba(246,241,231,.80)
+    ),
+    url("assets/paper-texture.jpg") center center / 520px auto repeat fixed !important;
+}
+
+/* Mobile : texture encore un peu plus fine */
+@media(max-width:768px){
+  body{
+    background:
+      linear-gradient(
+        rgba(246,241,231,.80),
+        rgba(246,241,231,.80)
+      ),
+      url("assets/paper-texture.jpg") center center / 420px auto repeat fixed !important;
+  }
+
+  header{
+    background:
+      linear-gradient(
+        rgba(246,241,231,.88),
+        rgba(246,241,231,.82)
+      ),
+      url("assets/paper-texture.jpg") center center / 420px auto repeat fixed !important;
+  }
+}
+</style>
+
+
+
+
+
+<style id="mv-paper-seamless-fix">
+/* =========================================================
+   FIX SEAMLESS PAPER BACKGROUND
+   ========================================================= */
+
+html{
+  background:#eee7d8!important;
+}
+
+body{
+  background:
+    linear-gradient(
+      rgba(246,241,231,.80),
+      rgba(246,241,231,.80)
+    ),
+    url("assets/paper-texture.jpg") center top / cover no-repeat fixed !important;
+
+  background-color:#eee7d8!important;
+}
+
+/* voile très léger */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+
+  background:
+    radial-gradient(circle at 20% 15%, rgba(255,255,255,.12), transparent 35%),
+    radial-gradient(circle at 80% 70%, rgba(120,96,68,.03), transparent 40%);
+}
+
+/* Header harmonisé sans repeat */
+header{
+  background:
+    linear-gradient(
+      rgba(246,241,231,.88),
+      rgba(246,241,231,.82)
+    ),
+    url("assets/paper-texture.jpg") center top / cover no-repeat fixed !important;
+
+  border-bottom:1px solid rgba(120,95,66,.10)!important;
+}
+
+/* Évite les lignes générées par certaines sections */
+section,
+main,
+.wrap,
+.normal,
+.mv-extra-section,
+.lux-stage,
+.sticky-scene{
+  border:none!important;
+  outline:none!important;
+  box-shadow:none!important;
+}
+</style>
+
+
+<style id="mv-snell-font-style">
+/* =========================================================
+   STYLE TYPOGRAPHIQUE ÉLÉGANT
+   ========================================================= */
+
+.welcome-couple-content h2,
+.welcome-signature,
+.hero-title,
+.intro-title,
+.script-font{
+  font-family:
+    "Snell Roundhand",
+    "Snell Roundhand Script",
+    "Apple Chancery",
+    "Zapfino",
+    "Cormorant Garamond",
+    cursive !important;
+
+  font-weight:400!important;
+  letter-spacing:.01em!important;
+}
+</style>
+
+
+<style id="mv-stable-language-css">
+.programme-pt,.rsvp-pt,.welcome-pt,.guide-pt,.liste-pt,.sejour-pt,.transports-pt,.carte-pt,.countdown-pt{
+  display:none!important;
+}
+body.pt .programme-fr,body.pt .rsvp-fr,body.pt .welcome-fr,body.pt .guide-fr,body.pt .liste-fr,body.pt .sejour-fr,body.pt .transports-fr,body.pt .carte-fr,body.pt .countdown-fr{
+  display:none!important;
+}
+body.pt .programme-pt,body.pt .rsvp-pt,body.pt .welcome-pt,body.pt .guide-pt,body.pt .liste-pt,body.pt .sejour-pt,body.pt .transports-pt,body.pt .carte-pt,body.pt .countdown-pt{
+  display:block!important;
+}
+</style>
+
+
+<style id="mv-audio-phrases-style">
+.mv-phrase-card{
+  position:relative;
+}
+
+.mv-audio-btn{
+  position:absolute;
+  top:14px;
+  right:14px;
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  border:1px solid rgba(120,95,66,.18);
+  background:rgba(255,255,255,.55);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:all .25s ease;
+  opacity:.88;
+}
+
+.mv-audio-btn:hover{
+  transform:scale(1.06);
+  background:rgba(255,255,255,.82);
+  border-color:rgba(120,95,66,.28);
+}
+
+.mv-audio-btn svg{
+  width:14px;
+  height:14px;
+  stroke:#6e5a45;
 }
 </style>
 
@@ -2533,7 +2852,7 @@ body.pt .welcome-pt{display:block!important}
           <div class="lux-cover-left"></div>
           <div class="lux-cover-right"></div>
           <div class="lux-monogram logo-signature" aria-hidden="true"><img decoding="async" loading="lazy" id="heroMvLogo" src="" alt="MV"></div>
-          
+          <p class="lux-overline"></p>
           <h1 class="lux-title">Mirna<br>&amp; Victor</h1>
           <div class="lux-line"></div>
           <p class="lux-subtitle">Fortaleza, Brésil</p>
@@ -2550,7 +2869,7 @@ body.pt .welcome-pt{display:block!important}
       <p class="welcome-small welcome-pt">5 de novembro de 2027</p>
 
       <h2 class="welcome-fr">Bienvenue <em>à tous nos proches</em></h2>
-      <h2 class="welcome-pt">Bem-vindos <em>a todos os nossos queridos</em></h2>
+      <h2 class="welcome-pt">Bem-vindos <em>a todos os nossos queridos amigos e família.</em></h2>
 
       <div class="welcome-divider"></div>
 
@@ -2571,22 +2890,6 @@ body.pt .welcome-pt{display:block!important}
     <a class="welcome-discover welcome-fr" href="#programme">Découvrir le mariage<span>⌄</span></a>
     <a class="welcome-discover welcome-pt" href="#programme">Descobrir o casamento<span>⌄</span></a>
   </section>
-
-
-<section class="section-story" data-scroll-panel>
-    <div class="story-sticky">
-      <div class="story-wrap">
-        <div class="story-copy">
-          <p class="eyebrow">Mirna & Victor</p>
-          <h2 style="text-align:left">Un mariage entre deux cultures, sous la lumière du Brésil</h2>
-          <p>Nous serions ravis de vous retrouver au Brésil pour partager notre joie avec vous.</p>
-        </div>
-        <div class="story-visual"></div>
-      </div>
-    </div>
-  </section>
-
-  
 <section class="normal" id="programme">
     <div class="wrap">
       <p class="eyebrow programme-fr" style="text-align:center">5 novembre 2027</p>
@@ -2596,7 +2899,7 @@ body.pt .welcome-pt{display:block!important}
       <h2 class="programme-pt">Programa do dia</h2>
 
       <p class="center programme-fr programme-intro">
-        Une journée pensée comme une progression douce : la cérémonie, le cocktail, le dîner, puis la fête.
+        
       </p>
       <p class="center programme-pt programme-intro">
         Um dia pensado como uma sequência suave: a cerimônia, o coquetel, o jantar e a celebração.
@@ -2653,7 +2956,7 @@ body.pt .welcome-pt{display:block!important}
         </article>
 
         <article class="timeline-item">
-          <div class="timeline-time">20h30</div>
+          <div class="timeline-time">21h00</div>
           <div class="timeline-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M9 18V5l10-2v13M9 18a3 3 0 1 1-2-2.83M19 16a3 3 0 1 1-2-2.83"/></svg>
           </div>
@@ -2668,7 +2971,7 @@ body.pt .welcome-pt{display:block!important}
         </article>
 
         <article class="timeline-item">
-          <div class="timeline-time">23h30</div>
+          <div class="timeline-time">1h00</div>
           <div class="timeline-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"/></svg>
           </div>
@@ -2690,7 +2993,7 @@ body.pt .welcome-pt{display:block!important}
     <div class="wrap">
       <p class="eyebrow" style="text-align:center">Les lieux</p>
       <h2>Fortaleza, Beach Park et le littoral</h2>
-      <p class="center" style="margin-bottom:38px">Une sélection d’ambiances autour de Fortaleza et Porto das Dunas : grands espaces, horizon marin, palmiers et douceur du Nordeste.</p>
+      <p class="center" style="margin-bottom:38px">lumière dorée, brise marine, jardins tropicaux et élégance paisible du Nordeste.</p>
     </div>
     <div class="photo-grid">
       <div class="photo-large">
@@ -2740,7 +3043,7 @@ body.pt .welcome-pt{display:block!important}
     <div class="wrap">
       <p class="eyebrow" style="text-align:center">Carte</p>
       <h2>Se repérer facilement</h2>
-      <p class="center">Tous les lieux importants sont regroupés sur cette carte Google My Maps : aéroport, cérémonie, réception, Beach Park et zone recommandée pour loger.</p>
+      <p class="center"></p>
     </div>
     <div class="map-frame">
       <iframe src="https://www.google.com/maps/d/embed?mid=1ntIw40iPLIDIqDw8cqcPUxUOHxkaWus&ehbc=2E312F" loading="lazy"></iframe>
@@ -2957,7 +3260,7 @@ body.pt .welcome-pt{display:block!important}
       <p class="eyebrow" style="text-align:center">5 novembre 2027</p>
       <h2 class="mv-extra-title">Fortaleza nous attend</h2>
       <div class="mv-divider"></div>
-      <p class="center">Un compte à rebours discret avant de nous retrouver au Brésil.</p>
+      <p class="center">Un compte à rebours  avant de nous retrouver au Brésil.</p>
       <div class="mv-countdown-grid" aria-label="Compte à rebours">
         <div class="mv-count-box"><strong id="mvDays">—</strong><span>jours</span></div>
         <div class="mv-count-box"><strong id="mvHours">—</strong><span>heures</span></div>
@@ -3000,7 +3303,7 @@ body.pt .welcome-pt{display:block!important}
       <div class="mv-extra-actions">
         <a href="guide.html" class="btn" >Ouvrir le guide</a>
       </div>
-      <p class="mv-extra-note">Le document sera ajouté lorsque les dernières informations pratiques seront confirmées.</p>
+      <p class="mv-extra-note">.</p>
     </div>
   </section>
 
@@ -3078,143 +3381,6 @@ body.pt .welcome-pt{display:block!important}
   setInterval(updateMvCountdown, 30000);
 })();
 </script>
-
-
-
-<script id="mv-language-switch-js">
-(function(){
-  const dict = {"Cadeaux": "Presentes", "Liste de mariage": "Lista de presentes", "Votre présence à nos côtés sera déjà le plus beau des cadeaux. Pour ceux qui souhaitent nous faire plaisir, voici quelques expériences et projets qui accompagneront le début de notre vie à deux.": "A presença de vocês ao nosso lado já será o presente mais bonito. Para quem desejar nos presentear, aqui estão algumas experiências e projetos que acompanharão o início da nossa vida a dois.", "Voyage de noces": "Lua de mel", "Participer à quelques jours hors du temps, entre mer, découverte et souvenirs à deux.": "Participar de alguns dias fora do tempo, entre mar, descobertas e lembranças a dois.", "Participation libre": "Contribuição livre", "Dîner face à l’océan": "Jantar de frente para o oceano", "Un moment simple et précieux, les pieds presque dans le sable, pour prolonger la magie du Brésil.": "Um momento simples e precioso, quase com os pés na areia, para prolongar a magia do Brasil.", "À partir de 80 €": "A partir de 80 €", "Excursion dans les dunes": "Passeio pelas dunas", "Une échappée lumineuse dans les paysages du Nordeste, entre sable, lagunes et horizon.": "Uma escapada luminosa pelas paisagens do Nordeste, entre areia, lagoas e horizonte.", "À partir de 120 €": "A partir de 120 €", "Notre futur chez-nous": "Nosso futuro lar", "Nous aider à construire un intérieur chaleureux, pensé pour recevoir famille et amis.": "Nos ajudar a construir um lar acolhedor, pensado para receber família e amigos.", "Moment bien-être": "Momento de bem-estar", "Une parenthèse spa ou détente après les festivités, pour savourer doucement les premiers jours.": "Uma pausa de spa ou descanso depois das celebrações, para aproveitar com calma os primeiros dias.", "À partir de 60 €": "A partir de 60 €", "Souvenir symbolique": "Lembrança simbólica", "Un objet ou une attention qui restera comme une trace délicate de cette célébration au Brésil.": "Um objeto ou gesto que ficará como uma lembrança delicada desta celebração no Brasil.", "Montant libre": "Valor livre", "Participer à la liste": "Participar da lista", "Programme": "Programa", "Lieux": "Locais", "Séjour": "Estadia", "Transports": "Transportes", "Carte": "Mapa", "RSVP": "RSVP", "Liste": "Presentes", "": "Convite de casamento", "Fortaleza, Brésil": "Fortaleza, Brasil", "Découvrir": "Descobrir", "Un mariage entre deux cultures, sous la lumière du Brésil": "Um casamento entre duas culturas, sob a luz do Brasil", "Nous serions ravis de vous retrouver au Brésil pour partager notre joie avec vous.": "Teremos muita alegria em recebê-los no Brasil para compartilhar a nossa felicidade com vocês.", "5 novembre 2027": "5 de novembro de 2027", "Programme de la journée": "Programa do dia", "Cérémonie": "Cerimônia", "Cocktail au coucher du soleil": "Coquetel ao pôr do sol", "Dîner": "Jantar", "Soirée & danse": "Festa e dança", "Fortaleza nous attend": "Fortaleza nos espera", "Un compte à rebours discret avant de nous retrouver au Brésil.": "Uma contagem regressiva discreta antes de nos encontrarmos no Brasil.", "jours": "dias", "heures": "horas", "minutes": "minutos", "Mini guide français / portugais": "Mini guia francês / português", "Quelques mots utiles": "Algumas palavras úteis", "Quelques phrases simples pour se repérer, commander, remercier et profiter du séjour au Brésil.": "Algumas frases simples para se orientar, pedir, agradecer e aproveitar a estadia no Brasil.", "Informations pratiques": "Informações práticas", "Préparer le séjour": "Preparar a estadia", "Un guide pratique sera disponible ici pour organiser le voyage : hébergement, transferts, conseils sur place et informations utiles.": "Um guia prático estará disponível aqui para organizar a viagem: hospedagem, transfers, dicas no local e informações úteis.", "Ouvrir le guide": "Abrir o guia", "Le document sera ajouté lorsque les dernières informations pratiques seront confirmées.": "O documento será adicionado quando as últimas informações práticas forem confirmadas.", "Réponse": "Resposta", "Carte interactive": "Mapa interativo", "Voir sur Google Maps": "Ver no Google Maps", "Zone recommandée pour loger →": "Área recomendada para hospedagem →", "Zone balnéaire →": "Área à beira-mar →", "Aéroport →": "Aeroporto →", "Lieu de célébration →": "Local da celebração →", "Hébergement": "Hospedagem", "Transport": "Transporte", "Merci de confirmer votre présence avant le": "Por favor, confirme a sua presença até", "Ouvrir le formulaire RSVP": "Abrir formulário RSVP"};
-  const reverse = Object.fromEntries(Object.entries(dict).map(([fr, pt]) => [pt, fr]));
-
-  function norm(s) {
-    return (s || '').replace(/\s+/g, ' ').trim();
-  }
-
-  function isSkippable(node) {
-    const el = node.nodeType === 1 ? node : node.parentElement;
-    if (!el) return true;
-    if (el.closest('script,style,noscript')) return true;
-    // Keep RSVP forms fixed because there is a dedicated FR form and PT form.
-    if (el.closest('.premium-rsvp-shell')) return true;
-    // Keep phrase cards fixed because they intentionally show French + Portuguese side by side.
-    if (el.closest('#mots-utiles .mv-phrase-grid')) return true;
-    return false;
-  }
-
-  function walk(callback) {
-    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
-      acceptNode(node) {
-        if (isSkippable(node)) return NodeFilter.FILTER_REJECT;
-        if (!norm(node.nodeValue)) return NodeFilter.FILTER_REJECT;
-        return NodeFilter.FILTER_ACCEPT;
-      }
-    });
-    const nodes = [];
-    while (walker.nextNode()) nodes.push(walker.currentNode);
-    nodes.forEach(callback);
-  }
-
-  function prepare() {
-    walk(node => {
-      const text = norm(node.nodeValue);
-      if (!node.__mvOriginal) node.__mvOriginal = node.nodeValue;
-      if (dict[text] && node.parentElement && !node.parentElement.dataset.fr) {
-        node.parentElement.dataset.fr = text;
-        node.parentElement.dataset.pt = dict[text];
-      }
-    });
-  }
-
-  function replaceInTextNode(node, lang) {
-    const original = node.__mvOriginal || node.nodeValue;
-    const originalNorm = norm(original);
-
-    if (lang === 'pt') {
-      if (dict[originalNorm]) {
-        node.nodeValue = original.replace(originalNorm, dict[originalNorm]);
-        return;
-      }
-      let value = original;
-      Object.keys(dict)
-        .sort((a,b) => b.length - a.length)
-        .forEach(fr => {
-          value = value.replaceAll(fr, dict[fr]);
-        });
-      node.nodeValue = value;
-    } else {
-      node.nodeValue = original;
-    }
-  }
-
-  function applyLang(lang) {
-    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'fr';
-    document.body.classList.toggle('pt', lang === 'pt');
-
-    // Element-level exact translations
-    document.querySelectorAll('[data-fr][data-pt]').forEach(el => {
-      if (isSkippable(el)) return;
-      el.textContent = lang === 'pt' ? el.dataset.pt : el.dataset.fr;
-    });
-
-    // Text-node translations
-    walk(node => replaceInTextNode(node, lang));
-
-    document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.langToggle === lang);
-    });
-
-    localStorage.setItem('mv-lang', lang);
-  }
-
-  function init() {
-    prepare();
-    document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
-      btn.addEventListener('click', () => applyLang(btn.dataset.langToggle));
-    });
-    applyLang(localStorage.getItem('mv-lang') || 'fr');
-  }
-
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
-
-  window.mvApplyLang = applyLang;
-})();
-</script>
-
-<script id="mv-no-translate-fix">
-(function(){
-  const phraseHTML = `
-        <div class="mv-phrase-card"><strong>Bonjour / Salut</strong><span>Olá</span></div>
-        <div class="mv-phrase-card"><strong>Merci</strong><span>Obrigado <em>(homme)</em> / Obrigada <em>(femme)</em></span></div>
-        <div class="mv-phrase-card"><strong>S’il vous plaît</strong><span>Por favor</span></div>
-        <div class="mv-phrase-card"><strong>Excusez-moi</strong><span>Com licença</span></div>
-        <div class="mv-phrase-card"><strong>Parlez-vous anglais ?</strong><span>Você fala inglês?</span></div>
-        <div class="mv-phrase-card"><strong>Je ne comprends pas</strong><span>Não entendo</span></div>
-        <div class="mv-phrase-card"><strong>Combien ça coûte ?</strong><span>Quanto custa?</span></div>
-        <div class="mv-phrase-card"><strong>Où est la plage ?</strong><span>Onde fica a praia?</span></div>
-        <div class="mv-phrase-card"><strong>Une bière, s’il vous plaît</strong><span>Uma cerveja, por favor</span></div>
-        <div class="mv-phrase-card"><strong>L’addition, s’il vous plaît</strong><span>A conta, por favor</span></div>
-        <div class="mv-phrase-card"><strong>Tout va bien ?</strong><span>Tudo bem?</span></div>
-        <div class="mv-phrase-card"><strong>À bientôt</strong><span>Até logo</span></div>`;
-  function restorePhraseCards(){
-    const grid = document.querySelector('#mots-utiles .mv-phrase-grid');
-    if(grid){
-      grid.setAttribute('data-no-translate','');
-      grid.innerHTML = phraseHTML;
-    }
-  }
-  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', restorePhraseCards);
-  else restorePhraseCards();
-  document.addEventListener('click', function(e){
-    if(e.target && e.target.matches('[data-lang-toggle]')){
-      setTimeout(restorePhraseCards, 0);
-      setTimeout(restorePhraseCards, 80); if(window.mvApplyLang){ setTimeout(() => window.mvApplyLang(localStorage.getItem('mv-lang') || 'fr'), 120); }
-    }
-  });
-})();
-</script>
-
-
 <script id="mv-gift-card-selection-js">
 (function(){
   function initGiftCards(){
@@ -3307,107 +3473,6 @@ body.pt .welcome-pt{display:block!important}
   });
 })();
 </script>
-
-
-<script id="mv-final-translation-js">
-(function(){
-  const dict = {"Mariage Mirna & Victor": "Casamento Mirna & Victor", "Fortaleza · Brésil": "Fortaleza · Brasil", "Entrer": "Entrar", "Programme": "Programa", "Lieux": "Locais", "Séjour": "Estadia", "Transports": "Transportes", "Carte": "Mapa", "Liste": "Presentes", "": "Convite de casamento", "Fortaleza, Brésil": "Fortaleza, Brasil", "Découvrir": "Descobrir", "Un mariage entre deux cultures, sous la lumière du Brésil": "Um casamento entre duas culturas, sob a luz do Brasil", "Nous serions ravis de vous retrouver au Brésil pour partager notre joie avec vous.": "Teremos muita alegria em recebê-los no Brasil para compartilhar a nossa felicidade com vocês.", "5 novembre 2027": "5 de novembro de 2027", "Programme de la journée": "Programa do dia", "Cérémonie religieuse": "Cerimônia religiosa", "Messe à 14h30": "Missa às 14h30", "📍 Voir l’église": "📍 Ver a igreja", "Réception": "Recepção", "16h30 à 23h30": "16h30 às 23h30", "📍 Voir la réception": "📍 Ver a recepção", "Cérémonie religieuse à l’église": "Cerimônia religiosa na igreja", "Accueil des invités & cocktail à Maison C’est Si Bon": "Recepção dos convidados e coquetel na Maison C’est Si Bon", "Dîner": "Jantar", "Soirée & danse": "Festa e dança", "Fin de la réception": "Fim da recepção", "Les lieux": "Os locais", "Fortaleza, Beach Park et le littoral": "Fortaleza, Beach Park e o litoral", "Une sélection d’ambiances autour de Fortaleza et Porto das Dunas : grands espaces, horizon marin, palmiers et douceur du Nordeste.": "Uma seleção de ambientes ao redor de Fortaleza e Porto das Dunas: grandes espaços, horizonte do mar, palmeiras e a suavidade do Nordeste.", "Un rivage clair, des horizons ouverts et cette lumière douce qui donne au séjour son rythme de vacances.": "Uma orla clara, horizontes abertos e uma luz suave que dá à estadia um ritmo de férias.", "Cocotiers": "Coqueiros", "Des palmiers, le vent de mer et une atmosphère tropicale simple, élégante et naturellement chaleureuse.": "Palmeiras, brisa do mar e uma atmosfera tropical simples, elegante e naturalmente acolhedora.", "Un écrin balnéaire entre jardins, piscines et mer turquoise, pensé pour prolonger la fête en douceur.": "Um refúgio à beira-mar entre jardins, piscinas e mar turquesa, pensado para prolongar a festa com suavidade.", "Séjour recommandé": "Estadia recomendada", "Où loger ?": "Onde se hospedar?", "Nous recommandons aux invités de privilégier la zone de": "Recomendamos que os convidados deem preferência à região de", ". C’est une zone agréable pour profiter de belles plages, de logements confortables et d’un cadre plus calme, tout en restant accessible pour les événements du mariage.": ". É uma região agradável para aproveitar belas praias, hospedagens confortáveis e um ambiente mais tranquilo, mantendo fácil acesso aos eventos do casamento.", "Idéal pour ceux qui veulent profiter de la plage, rester dans une ambiance vacances et éviter d’être au centre-ville.": "Ideal para quem deseja aproveitar a praia, ficar em clima de férias e evitar o centro da cidade.", "📍 Voir la zone": "📍 Ver a região", "Logements": "Hospedagens", "On y trouve des appartements, résidences avec piscine, resorts et logements familiaux adaptés aux séjours de plusieurs jours.": "Há apartamentos, condomínios com piscina, resorts e hospedagens familiares adequadas para estadias de vários dias.", "Plages": "Praias", "La zone est appréciée pour ses grandes plages, ses cocotiers et une ambiance plus balnéaire, parfaite pour prolonger le séjour autour du mariage.": "A região é apreciada por suas praias amplas, coqueiros e atmosfera litorânea, perfeita para prolongar a estadia em torno do casamento.", "Se déplacer": "Como se deslocar", "Voiture de location ou Uber": "Carro alugado ou Uber", "Pour être autonome pendant le séjour, nous recommandons soit de louer une voiture, soit d’utiliser Uber pour les trajets principaux. La voiture est pratique si vous restez plusieurs jours, si vous logez vers Beach Park ou si vous souhaitez visiter les plages autour de Fortaleza.": "Para ter autonomia durante a estadia, recomendamos alugar um carro ou usar Uber para os principais trajetos. O carro é prático se vocês ficarem vários dias, se estiverem hospedados perto do Beach Park ou se quiserem visitar as praias ao redor de Fortaleza.", "Location de voiture": "Aluguel de carro", "Solution confortable pour les familles et les invités qui veulent visiter les environs. Enseignes à regarder :": "Uma solução confortável para famílias e convidados que desejam visitar os arredores. Empresas para consultar:", "et agences à l’aéroport de Fortaleza.": "e agências no aeroporto de Fortaleza.", "Ordre de prix indicatif : environ": "Estimativa de preço: cerca de", "pour une économique ou compacte,": "para um carro econômico ou compacto,", "pour un SUV simple, et davantage pour les grands véhicules.": "para um SUV simples, e mais para veículos maiores.", "📍 Voir l’aéroport": "📍 Ver o aeroporto", "Uber / chauffeur": "Uber / motorista", "Solution simple si vous ne voulez pas conduire. Idéal pour les trajets hôtel ↔ cérémonie ↔ réception, ou pour les invités qui restent surtout près de leur logement.": "Uma solução simples se vocês não quiserem dirigir. Ideal para os trajetos hotel ↔ cerimônia ↔ recepção, ou para convidados que ficarão principalmente perto da hospedagem.", "À privilégier le soir du mariage pour rentrer tranquillement, sans se soucier du stationnement ou de la conduite.": "Recomendado na noite do casamento para voltar com tranquilidade, sem se preocupar com estacionamento ou direção.", "Notre recommandation": "Nossa recomendação", "Pour un séjour court : Uber peut suffire. Pour un séjour de plusieurs jours à Beach Park, avec sorties et plages : une voiture de location sera plus pratique.": "Para uma estadia curta, Uber pode ser suficiente. Para vários dias no Beach Park, com passeios e praias, um carro alugado será mais prático.", "Se repérer facilement": "Localizar-se facilmente", "Tous les lieux importants sont regroupés sur cette carte Google My Maps : aéroport, cérémonie, réception, Beach Park et zone recommandée pour loger.": "Todos os locais importantes estão reunidos neste Google My Maps: aeroporto, cerimônia, recepção, Beach Park e região recomendada para hospedagem.", "Aéroport de Fortaleza": "Aeroporto de Fortaleza", "Ouvrir dans Google Maps →": "Abrir no Google Maps →", "Cérémonie": "Cerimônia", "Igreja Matriz de São João Eudes →": "Igreja Matriz de São João Eudes →", "Maison C’est Si Bon →": "Maison C’est Si Bon →", "Zone balnéaire →": "Região à beira-mar →", "Zone recommandée pour loger →": "Região recomendada para hospedagem →", "Réponse": "Resposta", "Nous serions ravis de vous compter parmi nous pour célébrer notre mariage à Fortaleza le": "Será uma grande alegria contar com a sua presença para celebrar o nosso casamento em Fortaleza no dia", "Merci de bien vouloir confirmer votre présence avant le": "Por favor, confirme a sua presença até", "Ne pas remplir": "Não preencher", "Nom complet": "Nome completo", "Serez-vous présent ?": "Você estará presente?", "Choisir": "Escolher", "Oui, bien sûr !": "Sim, claro!", "Non, malheureusement": "Não, infelizmente", "Nombre d’accompagnant(s)": "Número de acompanhantes", "Accompagnant(s) — nom(s) et prénom(s)": "Acompanhante(s) — nome completo", "Pointure(s)": "Número de sapato", "Message aux mariés": "Mensagem para os noivos", "Confirmer ma réponse": "Confirmar resposta", "Ouvrir le formulaire Google": "Abrir formulário Google", "Votre réponse est envoyée directement via le formulaire sécurisé. Le lien Google reste disponible en secours.": "A sua resposta é enviada diretamente pelo formulário seguro. O link do Google fica disponível como alternativa.", "Cadeaux": "Presentes", "Liste de mariage": "Lista de presentes", "Votre présence à nos côtés sera déjà le plus beau des cadeaux. Pour ceux qui souhaitent nous faire plaisir,\n        voici quelques expériences et projets qui accompagneront le début de notre vie à deux.": "A presença de vocês ao nosso lado já será o presente mais bonito. Para quem desejar nos presentear, aqui estão algumas experiências e projetos que acompanharão o início da nossa vida a dois.", "Votre présence à nos côtés sera déjà le plus beau des cadeaux. Pour ceux qui souhaitent nous faire plaisir, voici quelques expériences et projets qui accompagneront le début de notre vie à deux.": "A presença de vocês ao nosso lado já será o presente mais bonito. Para quem desejar nos presentear, aqui estão algumas experiências e projetos que acompanharão o início da nossa vida a dois.", "Voyage de noces": "Lua de mel", "Participer à quelques jours hors du temps, entre mer, découverte et souvenirs à deux.": "Participar de alguns dias fora do tempo, entre mar, descobertas e lembranças a dois.", "Participation libre": "Contribuição livre", "Dîner face à l’océan": "Jantar de frente para o oceano", "Un moment simple et précieux, les pieds presque dans le sable, pour prolonger la magie du Brésil.": "Um momento simples e precioso, quase com os pés na areia, para prolongar a magia do Brasil.", "À partir de 80 €": "A partir de 80 €", "Excursion dans les dunes": "Passeio pelas dunas", "Une échappée lumineuse dans les paysages du Nordeste, entre sable, lagunes et horizon.": "Uma escapada luminosa pelas paisagens do Nordeste, entre areia, lagoas e horizonte.", "À partir de 120 €": "A partir de 120 €", "Notre futur chez-nous": "Nosso futuro lar", "Nous aider à construire un intérieur chaleureux, pensé pour recevoir famille et amis.": "Nos ajudar a construir um lar acolhedor, pensado para receber família e amigos.", "Moment bien-être": "Momento de bem-estar", "Une parenthèse spa ou détente après les festivités, pour savourer doucement les premiers jours.": "Uma pausa de spa ou descanso depois das celebrações, para aproveitar com calma os primeiros dias.", "À partir de 60 €": "A partir de 60 €", "Souvenir symbolique": "Lembrança simbólica", "Un objet ou une attention qui restera comme une trace délicate de cette célébration au Brésil.": "Um objeto ou gesto que ficará como uma lembrança delicada desta celebração no Brasil.", "Montant libre": "Valor livre", "Participer à la liste": "Participar da lista", "Fortaleza nous attend": "Fortaleza nos espera", "Un compte à rebours discret avant de nous retrouver au Brésil.": "Uma contagem regressiva discreta antes de nos encontrarmos no Brasil.", "jours": "dias", "heures": "horas", "minutes": "minutos", "Mini guide français / portugais": "Mini guia francês / português", "Quelques mots utiles": "Algumas palavras úteis", "Quelques phrases simples pour se repérer, commander, remercier et profiter du séjour au Brésil.": "Algumas frases simples para se orientar, pedir, agradecer e aproveitar a estadia no Brasil.", "Bonjour / Salut": "Olá / Oi", "Merci": "Obrigado / Obrigada", "(homme)": "(homem)", "(femme)": "(mulher)", "S’il vous plaît": "Por favor", "Excusez-moi": "Com licença", "Parlez-vous anglais ?": "Você fala inglês?", "Je ne comprends pas": "Não entendo", "Combien ça coûte ?": "Quanto custa?", "Où est la plage ?": "Onde fica a praia?", "Une bière, s’il vous plaît": "Uma cerveja, por favor", "L’addition, s’il vous plaît": "A conta, por favor", "Tout va bien ?": "Tudo bem?", "À bientôt": "Até logo", "Informations pratiques": "Informações práticas", "Préparer le séjour": "Preparar a estadia", "Un guide pratique sera disponible ici pour organiser le voyage : hébergement, transferts, conseils sur place et informations utiles.": "Um guia prático estará disponível aqui para organizar a viagem: hospedagem, transfers, dicas no local e informações úteis.", "Ouvrir le guide": "Abrir o guia", "Le document sera ajouté lorsque les dernières informations pratiques seront confirmées.": "O documento será adicionado quando as últimas informações práticas forem confirmadas.", "Avec amour — Mirna & Victor": "Com amor — Mirna & Victor"};
-  const reverse = Object.fromEntries(Object.entries(dict).map(([fr, pt]) => [pt, fr]));
-  const frKeys = Object.keys(dict).sort((a,b) => b.length - a.length);
-  const ptKeys = Object.keys(reverse).sort((a,b) => b.length - a.length);
-
-  function norm(s) {
-    return (s || '').replace(/\s+/g, ' ').trim();
-  }
-
-  function shouldSkip(node) {
-    const el = node.nodeType === 1 ? node : node.parentElement;
-    if(!el) return true;
-    if(el.closest('script, style, noscript')) return true;
-    return false;
-  }
-
-  function allTextNodes() {
-    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
-      acceptNode(node) {
-        if(shouldSkip(node)) return NodeFilter.FILTER_REJECT;
-        if(!norm(node.nodeValue)) return NodeFilter.FILTER_REJECT;
-        return NodeFilter.FILTER_ACCEPT;
-      }
-    });
-    const nodes = [];
-    while(walker.nextNode()) nodes.push(walker.currentNode);
-    return nodes;
-  }
-
-  function translateValue(value, lang) {
-    let out = value;
-    if(lang === 'pt') {
-      frKeys.forEach(fr => {
-        out = out.split(fr).join(dict[fr]);
-      });
-    } else {
-      ptKeys.forEach(pt => {
-        out = out.split(pt).join(reverse[pt]);
-      });
-    }
-    return out;
-  }
-
-  function translateAttributes(lang) {
-    document.querySelectorAll('[placeholder]').forEach(el => {
-      if(!el.dataset.mvPlaceholderFr) {
-        const ph = el.getAttribute('placeholder') || '';
-        el.dataset.mvPlaceholderFr = reverse[ph] || ph;
-      }
-      const base = el.dataset.mvPlaceholderFr;
-      el.setAttribute('placeholder', lang === 'pt' ? translateValue(base, 'pt') : base);
-    });
-  }
-
-  function apply(lang) {
-    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'fr';
-    document.body.classList.toggle('pt', lang === 'pt');
-
-    allTextNodes().forEach(node => {
-      if(!node.__mvFrText) {
-        const current = node.nodeValue;
-        node.__mvFrText = translateValue(current, 'fr');
-      }
-      node.nodeValue = lang === 'pt' ? translateValue(node.__mvFrText, 'pt') : node.__mvFrText;
-    });
-
-    translateAttributes(lang);
-
-    document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.langToggle === lang);
-    });
-
-    localStorage.setItem('mv-lang', lang);
-  }
-
-  function init() {
-    const initial = localStorage.getItem('mv-lang') || (document.body.classList.contains('pt') ? 'pt' : 'fr');
-    apply(initial);
-    document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const lang = btn.dataset.langToggle;
-        setTimeout(() => apply(lang), 0);
-        setTimeout(() => apply(lang), 120);
-        setTimeout(() => apply(lang), 300);
-      });
-    });
-  }
-
-  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
-
-  window.mvForceLang = apply;
-})();
-</script>
-
-
-
 <script id="mv-gift-interaction-js">
 (function(){
   const giftText = {
@@ -3544,83 +3609,6 @@ body.pt .welcome-pt{display:block!important}
   });
 })();
 </script>
-
-
-<script id="mv-force-phrase-translations-js">
-(function(){
-  const frCards = [
-    ["Bonjour / Salut", "Olá / Oi"],
-    ["Merci", "Obrigado <em>(homme)</em> / Obrigada <em>(femme)</em>"],
-    ["S’il vous plaît", "Por favor"],
-    ["Excusez-moi", "Com licença"],
-    ["Parlez-vous anglais ?", "Você fala inglês?"],
-    ["Je ne comprends pas", "Não entendo"],
-    ["Combien ça coûte ?", "Quanto custa?"],
-    ["Où est la plage ?", "Onde fica a praia?"],
-    ["Une bière, s’il vous plaît", "Uma cerveja, por favor"],
-    ["L’addition, s’il vous plaît", "A conta, por favor"],
-    ["Tout va bien ?", "Tudo bem?"],
-    ["À bientôt", "Até logo"]
-  ];
-
-  const ptCards = [
-    ["Olá / Oi", "Bonjour / Salut"],
-    ["Obrigado / Obrigada", "Merci <em>(homme / femme)</em>"],
-    ["Por favor", "S’il vous plaît"],
-    ["Com licença", "Excusez-moi"],
-    ["Você fala inglês?", "Parlez-vous anglais ?"],
-    ["Não entendo", "Je ne comprends pas"],
-    ["Quanto custa?", "Combien ça coûte ?"],
-    ["Onde fica a praia?", "Où est la plage ?"],
-    ["Uma cerveja, por favor", "Une bière, s’il vous plaît"],
-    ["A conta, por favor", "L’addition, s’il vous plaît"],
-    ["Tudo bem?", "Tout va bien ?"],
-    ["Até logo", "À bientôt"]
-  ];
-
-  function isPT(){ return document.body.classList.contains("pt"); }
-
-  function forcePhrases(){
-    const pt = isPT();
-    const eyebrow = document.getElementById("phraseEyebrow");
-    const title = document.getElementById("phraseTitle");
-    const intro = document.getElementById("phraseIntro");
-    if(eyebrow) eyebrow.textContent = pt ? "Mini guia português / francês" : "Mini guide français / portugais";
-    if(title) title.textContent = pt ? "Algumas palavras úteis" : "Quelques mots utiles";
-    if(intro) intro.textContent = pt
-      ? "Algumas frases simples para se orientar, pedir, agradecer e aproveitar a estadia."
-      : "Quelques phrases simples pour se repérer, commander, remercier et profiter du séjour au Brésil.";
-
-    const cards = document.querySelectorAll("#phraseGrid .mv-phrase-card");
-    const data = pt ? ptCards : frCards;
-    cards.forEach((card, i) => {
-      if(!data[i]) return;
-      card.innerHTML = "<strong>" + data[i][0] + "</strong><span>" + data[i][1] + "</span>";
-    });
-  }
-
-  function scheduleForce(){
-    forcePhrases();
-    setTimeout(forcePhrases, 80);
-    setTimeout(forcePhrases, 250);
-    setTimeout(forcePhrases, 600);
-  }
-
-  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", scheduleForce);
-  else scheduleForce();
-
-  document.addEventListener("click", function(e){
-    if(e.target && (e.target.matches("[data-lang-toggle], .mv-lang-btn") || e.target.closest("[data-lang-toggle], .mv-lang-btn"))){
-      scheduleForce();
-    }
-  }, true);
-
-  const observer = new MutationObserver(() => scheduleForce());
-  if(document.body) observer.observe(document.body, { attributes:true, attributeFilter:["class"] });
-})();
-</script>
-
-
 <script id="mv-location-clickable-js">
 (function(){
   const links = {
@@ -3724,100 +3712,6 @@ body.pt .welcome-pt{display:block!important}
   if(document.body) obs.observe(document.body, {attributes:true, attributeFilter:["class"]});
 })();
 </script>
-
-
-
-
-<script id="mv-final-audit-lang-fix-js">
-(function(){
-  function isPT(){ return document.body.classList.contains("pt"); }
-
-  function forceLangUI(){
-    const pt = isPT();
-
-    // RSVP visibility is controlled by CSS, but this helps if older scripts leave inline styles.
-    document.querySelectorAll(".rsvp-fr").forEach(el => { el.style.display = pt ? "none" : ""; });
-    document.querySelectorAll(".rsvp-pt").forEach(el => { el.style.display = pt ? "" : "none"; });
-
-    // Gift button text/link consistency.
-    const giftBtn = document.getElementById("giftListButton");
-    if(giftBtn){
-      giftBtn.textContent = pt ? "Participar da lista" : "Participer à la liste";
-      giftBtn.href = "https://www.millemercismariage.com/mirnaetvictor/liste.html";
-    }
-
-    // Useful phrases are forced by their own script; call it indirectly by toggling nothing.
-    if(window.mvForceLang && typeof window.mvForceLang === "function"){
-      try { window.mvForceLang(pt ? "pt" : "fr"); } catch(e) {}
-    }
-  }
-
-  function schedule(){
-    forceLangUI();
-    setTimeout(forceLangUI, 120);
-    setTimeout(forceLangUI, 400);
-  }
-
-  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", schedule);
-  else schedule();
-
-  document.addEventListener("click", function(e){
-    if(e.target && (e.target.matches("[data-lang-toggle], .mv-lang-btn") || e.target.closest("[data-lang-toggle], .mv-lang-btn"))){
-      schedule();
-    }
-  }, true);
-
-  const obs = new MutationObserver(schedule);
-  if(document.body) obs.observe(document.body, {attributes:true, attributeFilter:["class"]});
-})();
-</script>
-
-
-<script id="mv-remove-reserve-data-bug-js">
-(function(){
-  function cleanReserveBug(){
-    const badPatterns = [
-      /^reserve a data$/i,
-      /reserve a datareserve a data/i,
-      /^[a-z]?reserve a data[a-z]?reserve a data/i,
-      /data[a-z]?reserve/i
-    ];
-
-    document.querySelectorAll("body *").forEach(el => {
-      if(el.children.length) return;
-      const text = (el.textContent || "").trim();
-      if(!text) return;
-
-      if(badPatterns.some(rx => rx.test(text)) || (text.match(//g) || []).length >= 1){
-        el.textContent = "";
-        el.style.display = "none";
-      }
-    });
-  }
-
-  function schedule(){
-    cleanReserveBug();
-    setTimeout(cleanReserveBug, 80);
-    setTimeout(cleanReserveBug, 250);
-    setTimeout(cleanReserveBug, 600);
-  }
-
-  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", schedule);
-  else schedule();
-
-  document.addEventListener("click", function(e){
-    if(e.target && (e.target.matches("[data-lang-toggle], .mv-lang-btn") || e.target.closest("[data-lang-toggle], .mv-lang-btn"))){
-      schedule();
-    }
-  }, true);
-
-  const obs = new MutationObserver(schedule);
-  if(document.body) obs.observe(document.body, {childList:true, subtree:true, attributes:true, attributeFilter:["class"]});
-})();
-</script>
-
-
-
 <script id="mv-rsvp-appscript-js">
 (function(){
 const ENDPOINT="https://script.google.com/macros/s/AKfycbybThE6h2kqbz3kzxcwivoT7PDlrlRcFmXwqeyoi__GFc3b0l7MhsH4fCBHJJwgvFCN4A/exec";
@@ -3936,6 +3830,8 @@ else attach();
 })();
 </script>
 
+
+
 <script id="mv-remove-fairepart-intro-js">
 (function(){
   function cleanIntroWords(){
@@ -3952,12 +3848,266 @@ else attach();
   else cleanIntroWords();
   document.addEventListener("click", function(e){
     if(e.target && (e.target.matches("[data-lang-toggle], .mv-lang-btn") || e.target.closest("[data-lang-toggle], .mv-lang-btn"))){
-      setTimeout(cleanIntroWords,80);
-      setTimeout(cleanIntroWords,300);
+      setTimeout(cleanIntroWords, 80);
+      setTimeout(cleanIntroWords, 300);
     }
   }, true);
 })();
 </script>
+
+<script id="mv-stable-language-and-phrases">
+(function(){
+  const dict = {"Cadeaux": "Presentes", "Liste de mariage": "Lista de presentes", "Votre présence à nos côtés sera déjà le plus beau des cadeaux. Pour ceux qui souhaitent nous faire plaisir, voici quelques expériences et projets qui accompagneront le début de notre vie à deux.": "A presença de vocês ao nosso lado já será o presente mais bonito. Para quem desejar nos presentear, aqui estão algumas experiências e projetos que acompanharão o início da nossa vida a dois.", "Voyage de noces": "Lua de mel", "Participer à quelques jours hors du temps, entre mer, découverte et souvenirs à deux.": "Participar de alguns dias fora do tempo, entre mar, descobertas e lembranças a dois.", "Participation libre": "Contribuição livre", "Dîner face à l’océan": "Jantar de frente para o oceano", "Un moment simple et précieux, les pieds presque dans le sable, pour prolonger la magie du Brésil.": "Um momento simples e precioso, quase com os pés na areia, para prolongar a magia do Brasil.", "À partir de 80 €": "A partir de 80 €", "Excursion dans les dunes": "Passeio pelas dunas", "Une échappée lumineuse dans les paysages du Nordeste, entre sable, lagunes et horizon.": "Uma escapada luminosa pelas paisagens do Nordeste, entre areia, lagoas e horizonte.", "À partir de 120 €": "A partir de 120 €", "Notre futur chez-nous": "Nosso futuro lar", "Nous aider à construire un intérieur chaleureux, pensé pour recevoir famille et amis.": "Nos ajudar a construir um lar acolhedor, pensado para receber família e amigos.", "Moment bien-être": "Momento de bem-estar", "Une parenthèse spa ou détente après les festivités, pour savourer doucement les premiers jours.": "Uma pausa de spa ou descanso depois das celebrações, para aproveitar com calma os primeiros dias.", "À partir de 60 €": "A partir de 60 €", "Souvenir symbolique": "Lembrança simbólica", "Un objet ou une attention qui restera comme une trace délicate de cette célébration au Brésil.": "Um objeto ou gesto que ficará como uma lembrança delicada desta celebração no Brasil.", "Montant libre": "Valor livre", "Participer à la liste": "Participar da lista", "Programme": "Programa", "Lieux": "Locais", "Séjour": "Estadia", "Transports": "Transportes", "Carte": "Mapa", "RSVP": "RSVP", "Liste": "Presentes", "Fortaleza, Brésil": "Fortaleza, Brasil", "Découvrir": "Descobrir", "Un mariage entre deux cultures, sous la lumière du Brésil": "Um casamento entre duas culturas, sob a luz do Brasil", "Nous serions ravis de vous retrouver au Brésil pour partager notre joie avec vous.": "Teremos muita alegria em recebê-los no Brasil para compartilhar a nossa felicidade com vocês.", "5 novembre 2027": "5 de novembro de 2027", "Programme de la journée": "Programa do dia", "Cérémonie": "Cerimônia", "Cocktail au coucher du soleil": "Coquetel ao pôr do sol", "Dîner": "Jantar", "Soirée & danse": "Festa e dança", "Fortaleza nous attend": "Fortaleza nos espera", "Un compte à rebours  avant de nous retrouver au Brésil.": "Uma contagem regressiva a antes de nos encontrarmos no Brasil.", "jours": "dias", "heures": "horas", "minutes": "minutos", "Mini guide français / portugais": "Mini guia francês / português", "Quelques mots utiles": "Algumas palavras úteis", "Quelques phrases simples pour se repérer, commander, remercier et profiter du séjour au Brésil.": "Algumas frases simples para se orientar, pedir, agradecer e aproveitar a estadia no Brasil.", "Informations pratiques": "Informações práticas", "Préparer le séjour": "Preparar a estadia", "Un guide pratique sera disponible ici pour organiser le voyage : hébergement, transferts, conseils sur place et informations utiles.": "Um guia prático estará disponível aqui para organizar a viagem: hospedagem, transfers, dicas no local e informações úteis.", "Ouvrir le guide": "Abrir o guia", "Réponse": "Resposta", "Carte interactive": "Mapa interativo", "Voir sur Google Maps": "Ver no Google Maps", "Zone recommandée pour loger →": "Região recomendada para hospedagem →", "Zone balnéaire →": "Região à beira-mar →", "Aéroport →": "Aeroporto →", "Lieu de célébration →": "Local da celebração →", "Hébergement": "Hospedagem", "Transport": "Transporte", "Merci de confirmer votre présence avant le": "Por favor, confirme a sua presença até", "Ouvrir le formulaire RSVP": "Abrir formulário RSVP", "Mariage Mirna & Victor": "Casamento Mirna & Victor", "Fortaleza · Brésil": "Fortaleza · Brasil", "Entrer": "Entrar", "Cérémonie religieuse": "Cerimônia religiosa", "Messe à 14h30": "Missa às 14h30", "📍 Voir l’église": "📍 Ver a igreja", "Réception": "Recepção", "16h30 à 1h00": "16h30 às 1h00", "📍 Voir la réception": "📍 Ver a recepção", "Cérémonie religieuse à l’église": "Cerimônia religiosa na igreja", "Accueil des invités & cocktail à Maison C’est Si Bon": "Recepção dos convidados e coquetel na Maison C’est Si Bon", "Fin de la réception": "Fim da recepção", "Les lieux": "Os locais", "Fortaleza, Beach Park et le littoral": "Fortaleza, Beach Park e o litoral", "lumière dorée, brise marine, jardins tropicaux et élégance paisible du Nordeste.": "luz dourada, brisa do mar, jardins tropicais e elegância serena do Nordeste.", "Un rivage clair, des horizons ouverts et cette lumière douce qui donne au séjour son rythme de vacances.": "Uma orla clara, horizontes abertos e uma luz suave que dá à estadia um ritmo de férias.", "Cocotiers": "Coqueiros", "Des palmiers, le vent de mer et une atmosphère tropicale simple, élégante et naturellement chaleureuse.": "Palmeiras, brisa do mar e uma atmosfera tropical simples, elegante e naturalmente acolhedora.", "Un écrin balnéaire entre jardins, piscines et mer turquoise, pensé pour prolonger la fête en douceur.": "Um refúgio à beira-mar entre jardins, piscinas e mar turquesa, pensado para prolongar a festa com suavidade.", "Séjour recommandé": "Estadia recomendada", "Où loger ?": "Onde se hospedar?", "Nous recommandons aux invités de privilégier la zone de": "Recomendamos que os convidados deem preferência à região de", ". C’est une zone agréable pour profiter de belles plages, de logements confortables et d’un cadre plus calme, tout en restant accessible pour les événements du mariage.": ". É uma região agradável para aproveitar belas praias, hospedagens confortáveis e um ambiente mais tranquilo, mantendo fácil acesso aos eventos do casamento.", "Idéal pour ceux qui veulent profiter de la plage, rester dans une ambiance vacances et éviter d’être au centre-ville.": "Ideal para quem deseja aproveitar a praia, ficar em clima de férias e evitar o centro da cidade.", "📍 Voir la zone": "📍 Ver a região", "Logements": "Hospedagens", "On y trouve des appartements, résidences avec piscine, resorts et logements familiaux adaptés aux séjours de plusieurs jours.": "Há apartamentos, condomínios com piscina, resorts e hospedagens familiares adequadas para estadias de vários dias.", "Plages": "Praias", "La zone est appréciée pour ses grandes plages, ses cocotiers et une ambiance plus balnéaire, parfaite pour prolonger le séjour autour du mariage.": "A região é apreciada por suas praias amplas, coqueiros e atmosfera litorânea, perfeita para prolongar a estadia em torno do casamento.", "Se déplacer": "Como se deslocar", "Voiture de location ou Uber": "Carro alugado ou Uber", "Pour être autonome pendant le séjour, nous recommandons soit de louer une voiture, soit d’utiliser Uber pour les trajets principaux. La voiture est pratique si vous restez plusieurs jours, si vous logez vers Beach Park ou si vous souhaitez visiter les plages autour de Fortaleza.": "Para ter autonomia durante a estadia, recomendamos alugar um carro ou usar Uber para os principais trajetos. O carro é prático se vocês ficarem vários dias, se estiverem hospedados perto do Beach Park ou se quiserem visitar as praias ao redor de Fortaleza.", "Location de voiture": "Aluguel de carro", "Solution confortable pour les familles et les invités qui veulent visiter les environs. Enseignes à regarder :": "Uma solução confortável para famílias e convidados que desejam visitar os arredores. Empresas para consultar:", "et agences à l’aéroport de Fortaleza.": "e agências no aeroporto de Fortaleza.", "Ordre de prix indicatif : environ": "Estimativa de preço: cerca de", "pour une économique ou compacte,": "para um carro econômico ou compacto,", "pour un SUV simple, et davantage pour les grands véhicules.": "para um SUV simples, e mais para veículos maiores.", "📍 Voir l’aéroport": "📍 Ver o aeroporto", "Uber / chauffeur": "Uber / motorista", "Solution simple si vous ne voulez pas conduire. Idéal pour les trajets hôtel ↔ cérémonie ↔ réception, ou pour les invités qui restent surtout près de leur logement.": "Uma solução simples se vocês não quiserem dirigir. Ideal para os trajetos hotel ↔ cerimônia ↔ recepção, ou para convidados que ficarão principalmente perto da hospedagem.", "À privilégier le soir du mariage pour rentrer tranquillement, sans se soucier du stationnement ou de la conduite.": "Recomendado na noite do casamento para voltar com tranquilidade, sem se preocupar com estacionamento ou direção.", "Notre recommandation": "Nossa recomendação", "Pour un séjour court : Uber peut suffire. Pour un séjour de plusieurs jours à Beach Park, avec sorties et plages : une voiture de location sera plus pratique.": "Para uma estadia curta, Uber pode ser suficiente. Para vários dias no Beach Park, com passeios e praias, um carro alugado será mais prático.", "Se repérer facilement": "Localizar-se facilmente", "Aéroport de Fortaleza": "Aeroporto de Fortaleza", "Ouvrir dans Google Maps →": "Abrir no Google Maps →", "Igreja Matriz de São João Eudes →": "Igreja Matriz de São João Eudes →", "Maison C’est Si Bon →": "Maison C’est Si Bon →", "Nous serions ravis de vous compter parmi nous pour célébrer notre mariage à Fortaleza le": "Será uma grande alegria contar com a sua presença para celebrar o nosso casamento em Fortaleza no dia", "Merci de bien vouloir confirmer votre présence avant le": "Por favor, confirme a sua presença até", "Ne pas remplir": "Não preencher", "Nom complet": "Nome completo", "Serez-vous présent ?": "Você estará presente?", "Choisir": "Escolher", "Oui, bien sûr !": "Sim, claro!", "Non, malheureusement": "Não, infelizmente", "Nombre d’accompagnant(s)": "Número de acompanhantes", "Accompagnant(s) — nom(s) et prénom(s)": "Acompanhante(s) — nome completo", "Pointure(s)": "Número de sapato", "Message aux mariés": "Mensagem para os noivos", "Confirmer ma réponse": "Confirmar resposta", "Ouvrir le formulaire Google": "Abrir formulário Google", "Votre réponse est envoyée directement via le formulaire sécurisé. Le lien Google reste disponible en secours.": "A sua resposta é enviada diretamente pelo formulário seguro. O link do Google fica disponível como alternativa.", "Votre présence à nos côtés sera déjà le plus beau des cadeaux. Pour ceux qui souhaitent nous faire plaisir,\n        voici quelques expériences et projets qui accompagneront le début de notre vie à deux.": "A presença de vocês ao nosso lado já será o presente mais bonito. Para quem desejar nos presentear, aqui estão algumas experiências e projetos que acompanharão o início da nossa vida a dois.", "Bonjour / Salut": "Olá / Oi", "Merci": "Obrigado / Obrigada", "(homme)": "(homem)", "(femme)": "(mulher)", "S’il vous plaît": "Por favor", "Excusez-moi": "Com licença", "Parlez-vous anglais ?": "Você fala inglês?", "Je ne comprends pas": "Não entendo", "Combien ça coûte ?": "Quanto custa?", "Où est la plage ?": "Onde fica a praia?", "Une bière, s’il vous plaît": "Uma cerveja, por favor", "L’addition, s’il vous plaît": "A conta, por favor", "Tout va bien ?": "Tudo bem?", "À bientôt": "Até logo", "Avec amour — Mirna & Victor": "Com amor — Mirna & Victor", "23h30": "1h00", "1h00": "1h00", "Au revoir": "Tchau / Até logo"};
+
+  const phrasesFR = [
+    ["Bonjour / Salut", "Olá / Oi"],
+    ["Merci", "Obrigado <em>(homme)</em> / Obrigada <em>(femme)</em>"],
+    ["S’il vous plaît", "Por favor"],
+    ["Excusez-moi", "Com licença"],
+    ["Parlez-vous anglais ?", "Você fala inglês?"],
+    ["Je ne comprends pas", "Não entendo"],
+    ["Combien ça coûte ?", "Quanto custa?"],
+    ["Où est la plage ?", "Onde fica a praia?"],
+    ["Une bière, s’il vous plaît", "Uma cerveja, por favor"],
+    ["L’addition, s’il vous plaît", "A conta, por favor"],
+    ["Tout va bien ?", "Tudo bem?"],
+    ["À bientôt", "Até logo"],
+    ["Au revoir", "Tchau / Até logo"]
+  ];
+
+  const phrasesPT = [
+    ["Olá / Oi", "Bonjour / Salut"],
+    ["Obrigado / Obrigada", "Merci <em>(homme / femme)</em>"],
+    ["Por favor", "S’il vous plaît"],
+    ["Com licença", "Excusez-moi"],
+    ["Você fala inglês?", "Parlez-vous anglais ?"],
+    ["Não entendo", "Je ne comprends pas"],
+    ["Quanto custa?", "Combien ça coûte ?"],
+    ["Onde fica a praia?", "Où est la plage ?"],
+    ["Uma cerveja, por favor", "Une bière, s’il vous plaît"],
+    ["A conta, por favor", "L’addition, s’il vous plaît"],
+    ["Tudo bem?", "Tout va bien ?"],
+    ["Até logo", "À bientôt"],
+    ["Tchau / Até logo", "Au revoir"]
+  ];
+
+  function norm(s){ return (s || "").replace(/\s+/g, " ").trim(); }
+
+  function shouldSkip(node){
+    const el = node.nodeType === 1 ? node : node.parentElement;
+    if(!el) return true;
+    if(el.closest("script,style,noscript,svg")) return true;
+    if(el.closest("#mots-utiles .mv-phrase-grid")) return true;
+    if(el.closest(".premium-rsvp-shell")) return true;
+    if(el.closest("[data-no-translate]")) return true;
+    return false;
+  }
+
+  function textNodes(){
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode(node){
+        if(shouldSkip(node)) return NodeFilter.FILTER_REJECT;
+        if(!norm(node.nodeValue)) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    const nodes = [];
+    while(walker.nextNode()) nodes.push(walker.currentNode);
+    return nodes;
+  }
+
+  function renderPhrases(lang){
+    const grid = document.querySelector("#mots-utiles .mv-phrase-grid, #phraseGrid");
+    if(!grid) return;
+    const data = lang === "pt" ? phrasesPT : phrasesFR;
+    grid.setAttribute("data-no-translate", "");
+    grid.innerHTML = data.map(function(pair){
+      return '<div class="mv-phrase-card"><strong>' + pair[0] + '</strong><span>' + pair[1] + '</span></div>';
+    }).join("");
+    const eyebrow = document.getElementById("phraseEyebrow");
+    const title = document.getElementById("phraseTitle");
+    const intro = document.getElementById("phraseIntro");
+    if(eyebrow) eyebrow.textContent = lang === "pt" ? "Mini guia português / francês" : "Mini guide français / portugais";
+    if(title) title.textContent = lang === "pt" ? "Algumas palavras úteis" : "Quelques mots utiles";
+    if(intro) intro.textContent = lang === "pt"
+      ? "Algumas frases simples para se orientar, pedir, agradecer e aproveitar a estadia."
+      : "Quelques phrases simples pour se repérer, commander, remercier et profiter du séjour au Brésil.";
+  }
+
+  function applyLanguage(lang){
+    lang = lang === "pt" ? "pt" : "fr";
+    document.body.classList.toggle("pt", lang === "pt");
+    document.documentElement.lang = lang === "pt" ? "pt-BR" : "fr";
+
+    textNodes().forEach(function(node){
+      if(!node.__mvOriginalFr) node.__mvOriginalFr = node.nodeValue;
+      const base = node.__mvOriginalFr;
+      const key = norm(base);
+      if(lang === "pt" && dict[key]) {
+        node.nodeValue = base.replace(key, dict[key]);
+      } else {
+        node.nodeValue = base;
+      }
+    });
+
+    document.querySelectorAll("[placeholder]").forEach(function(el){
+      if(!el.__mvOriginalPlaceholder) el.__mvOriginalPlaceholder = el.getAttribute("placeholder") || "";
+      const base = el.__mvOriginalPlaceholder;
+      const key = norm(base);
+      el.setAttribute("placeholder", lang === "pt" && dict[key] ? dict[key] : base);
+    });
+
+    renderPhrases(lang);
+
+    document.querySelectorAll("[data-lang-toggle]").forEach(function(btn){
+      btn.classList.toggle("active", btn.getAttribute("data-lang-toggle") === lang);
+    });
+
+    try { localStorage.setItem("mv-lang", lang); } catch(e) {}
+  }
+
+  function init(){
+    let initial = "fr";
+    try { initial = localStorage.getItem("mv-lang") || "fr"; } catch(e) {}
+    applyLanguage(initial);
+    document.querySelectorAll("[data-lang-toggle]").forEach(function(btn){
+      btn.addEventListener("click", function(e){
+        e.preventDefault();
+        const lang = btn.getAttribute("data-lang-toggle") === "pt" ? "pt" : "fr";
+        applyLanguage(lang);
+        setTimeout(function(){ applyLanguage(lang); }, 80);
+        setTimeout(function(){ applyLanguage(lang); }, 250);
+      });
+    });
+  }
+
+  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+
+  window.mvApplyLang = applyLanguage;
+  window.mvForceLang = applyLanguage;
+})();
+</script>
+
+
+
+<script id="mv-audio-phrases-js">
+(function(){
+
+  function getVoiceForLang(lang){
+    const voices = speechSynthesis.getVoices() || [];
+    const lower = lang.toLowerCase();
+
+    return voices.find(v => v.lang && v.lang.toLowerCase() === lower)
+      || voices.find(v => v.lang && v.lang.toLowerCase().startsWith(lower.split("-")[0]))
+      || null;
+  }
+
+  function speak(text, lang){
+    if(!window.speechSynthesis) return;
+
+    window.speechSynthesis.cancel();
+
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = lang;
+    utter.rate = lang.startsWith("fr") ? 0.94 : 0.92;
+    utter.pitch = 1;
+
+    const voice = getVoiceForLang(lang);
+    if(voice) utter.voice = voice;
+
+    speechSynthesis.speak(utter);
+  }
+
+  function cleanText(text){
+    return (text || "")
+      .replace(/\(homme\)/gi, "")
+      .replace(/\(femme\)/gi, "")
+      .replace(/\(homme \/ femme\)/gi, "")
+      .replace(/<[^>]*>/g, "")
+      .trim();
+  }
+
+  function attachAudioButtons(){
+
+    document.querySelectorAll(".mv-phrase-card").forEach(card => {
+
+      let btn = card.querySelector(".mv-audio-btn");
+
+      if(!btn){
+        btn = document.createElement("button");
+        btn.className = "mv-audio-btn";
+        btn.setAttribute("type", "button");
+
+        btn.innerHTML = `
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M11 5L6 9H3v6h3l5 4V5z"/>
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M15.5 8.5a5 5 0 010 7"/>
+          </svg>
+        `;
+
+        card.appendChild(btn);
+      }
+
+      btn.onclick = function(e){
+        e.preventDefault();
+        e.stopPropagation();
+
+        const isPT = document.body.classList.contains("pt");
+        const span = card.querySelector("span");
+        if(!span) return;
+
+        let text = cleanText(span.textContent || "");
+
+        // On lit la première proposition lorsqu'il y a deux options séparées par "/"
+        text = text.split("/").map(s => s.trim()).filter(Boolean)[0] || text;
+
+        if(isPT){
+          // Site en portugais : le span contient la traduction française.
+          speak(text, "fr-FR");
+        } else {
+          // Site en français : le span contient la traduction portugaise.
+          speak(text, "pt-BR");
+        }
+      };
+
+      btn.setAttribute(
+        "aria-label",
+        document.body.classList.contains("pt")
+          ? "Écouter la prononciation en français"
+          : "Écouter la prononciation en portugais"
+      );
+    });
+  }
+
+  function init(){
+    attachAudioButtons();
+    setTimeout(attachAudioButtons, 200);
+    setTimeout(attachAudioButtons, 700);
+  }
+
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+
+  document.addEventListener("click", function(e){
+    if(e.target && (e.target.matches("[data-lang-toggle]") || e.target.closest("[data-lang-toggle]"))){
+      setTimeout(init, 150);
+      setTimeout(init, 400);
+    }
+  }, true);
+
+  if(window.speechSynthesis){
+    speechSynthesis.onvoiceschanged = init;
+  }
+
+})();
+</script>
+
 
 </body>
 </html>
