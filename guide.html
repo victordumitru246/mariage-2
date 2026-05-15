@@ -219,6 +219,114 @@ h2{
   main{padding-top:56px}
 }
 </style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="preconnect" href="https://images.trvl-media.com">
+
+
+<style id="mv-performance-upgrade">
+/* =========================================================
+   OPTIMISATION FLUIDITÉ — SANS CHANGER LE DESIGN
+   ========================================================= */
+html{
+  scroll-behavior:smooth;
+  -webkit-text-size-adjust:100%;
+}
+
+body{
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+img{
+  max-width:100%;
+  height:auto;
+}
+
+/* Les grosses sections sont rendues plus intelligemment par le navigateur */
+section,
+.card,
+.resort-card,
+.timeline-card,
+.info,
+.photo-card,
+.photo-large,
+.photo-small{
+  content-visibility:auto;
+  contain-intrinsic-size:1px 700px;
+}
+
+/* Accélération légère des éléments animés, sans modifier l'apparence */
+.card,
+.resort-card,
+.timeline-card,
+.photo-card,
+.photo-large,
+.photo-small,
+.btn{
+  transform:translateZ(0);
+  backface-visibility:hidden;
+}
+
+/* Sur mobile, on garde l'esthétique mais on allège les effets coûteux */
+@media(max-width:768px){
+  *{
+    scroll-behavior:auto!important;
+  }
+
+  .reveal,
+  .card,
+  .resort-card,
+  .timeline-card,
+  .photo-card,
+  .photo-large,
+  .photo-small{
+    transition-duration:.22s!important;
+    animation-duration:.22s!important;
+  }
+
+  [style*="backdrop-filter"],
+  .photo-caption,
+  .photo-overlay,
+  .overlay,
+  .resort-overlay,
+  .timeline-card,
+  .pix-card-premium,
+  .premium-rsvp-shell{
+    backdrop-filter:blur(6px)!important;
+    -webkit-backdrop-filter:blur(6px)!important;
+  }
+
+  .card:hover,
+  .resort-card:hover,
+  .photo-card:hover,
+  .photo-large:hover,
+  .photo-small:hover{
+    transform:none!important;
+  }
+
+  .resort-card img,
+  .card img,
+  .photo-card img{
+    transition:none!important;
+  }
+}
+
+/* Respecte les utilisateurs qui réduisent les animations */
+@media(prefers-reduced-motion:reduce){
+  *,
+  *::before,
+  *::after{
+    animation-duration:.001ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.001ms!important;
+    scroll-behavior:auto!important;
+  }
+}
+</style>
+
 </head>
 <body>
 <header class="topbar">
@@ -247,7 +355,7 @@ h2{
 
       <div class="grid">
         <article class="card">
-          <img src="https://images.trvl-media.com/lodging/99000000/98240000/98232100/98232083/256c5054.jpg?h=600&impolicy=fcrop&p=1&q=medium&w=1200" alt="Beach Park Resort Suites">
+          <img decoding="async" loading="lazy" src="https://images.trvl-media.com/lodging/99000000/98240000/98232100/98232083/256c5054.jpg?h=600&impolicy=fcrop&p=1&q=medium&w=1200" alt="Beach Park Resort Suites">
           <div class="card-content">
             <h3>Beach Park Resort Suites</h3>
             <p>Un choix très cohérent pour les invités : résidence agréable, accès plage, proximité du parc et ambiance vacances.</p>
@@ -260,7 +368,7 @@ h2{
         </article>
 
         <article class="card">
-          <img src="https://images.trvl-media.com/lodging/3000000/2480000/2478300/2478285/f3e7e622.jpg?h=600&impolicy=fcrop&p=1&q=medium&w=1200" alt="Wellness Beach Park Resort">
+          <img decoding="async" loading="lazy" src="https://images.trvl-media.com/lodging/3000000/2480000/2478300/2478285/f3e7e622.jpg?h=600&impolicy=fcrop&p=1&q=medium&w=1200" alt="Wellness Beach Park Resort">
           <div class="card-content">
             <h3>Wellness Beach Park Resort</h3>
             <p>Plus calme et sophistiqué, idéal pour les couples qui veulent une atmosphère détente et un peu plus premium.</p>
@@ -273,7 +381,7 @@ h2{
         </article>
 
         <article class="card">
-          <img src="https://beachpark.com.br/app/uploads/2024/06/Acqua-1-750x554.webp" alt="Acqua Beach Park Resort">
+          <img decoding="async" loading="lazy" src="https://beachpark.com.br/app/uploads/2024/06/Acqua-1-750x554.webp" alt="Acqua Beach Park Resort">
           <div class="card-content">
             <h3>Acqua Beach Park Resort</h3>
             <p>Très beau compromis pour couples et familles, avec piscines, appartements et accès facile à Porto das Dunas.</p>
@@ -286,7 +394,7 @@ h2{
         </article>
 
         <article class="card">
-          <img src="https://images.trvl-media.com/lodging/7000000/6340000/6332800/6332786/fad695af.jpg?h=600&impolicy=fcrop&p=1&q=medium&w=1200" alt="Beach Living Porto das Dunas">
+          <img decoding="async" loading="lazy" src="https://images.trvl-media.com/lodging/7000000/6340000/6332800/6332786/fad695af.jpg?h=600&impolicy=fcrop&p=1&q=medium&w=1200" alt="Beach Living Porto das Dunas">
           <div class="card-content">
             <h3>Beach Living</h3>
             <p>Résidence très pratique près de Beach Park, souvent proposée en appartements confortables et bien équipés.</p>
@@ -299,7 +407,7 @@ h2{
         </article>
 
         <article class="card">
-          <img src="https://images.trvl-media.com/lodging/5000000/4020000/4018700/4018643/fdb1ebfc.jpg?h=600&impolicy=fcrop&p=1&q=medium&w=1200" alt="Golf Ville Resort">
+          <img decoding="async" loading="lazy" src="https://images.trvl-media.com/lodging/5000000/4020000/4018700/4018643/fdb1ebfc.jpg?h=600&impolicy=fcrop&p=1&q=medium&w=1200" alt="Golf Ville Resort">
           <div class="card-content">
             <h3>Golf Ville Resort</h3>
             <p>Option plus haut de gamme, avec grands appartements, espace, piscine, lagune et cadre très élégant.</p>
@@ -312,7 +420,7 @@ h2{
         </article>
 
         <article class="card">
-          <img src="https://images.trvl-media.com/lodging/102000000/101110000/101106300/101106286/14887024.jpg?h=600&impolicy=fcrop&p=1&q=medium&w=1200" alt="Appartements Porto das Dunas">
+          <img decoding="async" loading="lazy" src="https://images.trvl-media.com/lodging/102000000/101110000/101106300/101106286/14887024.jpg?h=600&impolicy=fcrop&p=1&q=medium&w=1200" alt="Appartements Porto das Dunas">
           <div class="card-content">
             <h3>Appartements Porto das Dunas</h3>
             <p>Beaucoup d’appartements Airbnb très agréables existent autour de Beach Park : pratique pour les familles et petits groupes.</p>
