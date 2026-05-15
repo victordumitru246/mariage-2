@@ -2273,7 +2273,7 @@ section,
 
 <style id="mv-paper-texture-style">
 /* =========================================================
-   FOND PAPIER FAIRE-PART — BEIGE TEXTURÉ
+   FOND PAPIER  — BEIGE TEXTURÉ
    ========================================================= */
 html, body{
   background-color:#f2e6d0!important;
@@ -2316,10 +2316,9 @@ section:not(.mv-luxe-intro):not(.lux-intro):not(.welcome-couple-section)::before
 }
 </style>
 
-
 <style id="welcome-couple-style">
 /* =========================================================
-   ACCUEIL PHOTO COUPLE — VERSION PAPIER ÉLÉGANTE
+   ACCUEIL COUPLE — UNE SEULE SECTION, PHOTO NON COUPÉE
    ========================================================= */
 .welcome-pt{display:none!important}
 body.pt .welcome-fr{display:none!important}
@@ -2329,37 +2328,25 @@ body.pt .welcome-pt{display:block!important}
   position:relative;
   min-height:100svh;
   display:grid;
-  grid-template-columns:minmax(280px, 43%) minmax(320px, 54%);
-  gap:clamp(30px,6vw,80px);
+  grid-template-columns:minmax(300px, 42%) minmax(300px, 52%);
+  gap:clamp(32px,6vw,78px);
   align-items:center;
-  padding:clamp(88px,9vw,132px) clamp(26px,6vw,86px) clamp(76px,8vw,110px);
+  padding:clamp(88px,9vw,130px) clamp(24px,6vw,88px) clamp(80px,8vw,110px);
   background:transparent!important;
+  border-bottom:1px solid rgba(169,149,116,.20);
   overflow:hidden;
-  border-bottom:1px solid rgba(169,149,116,.22);
-}
-
-.welcome-couple-section::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  background:
-    radial-gradient(circle at 10% 15%, rgba(255,255,255,.20), transparent 34%),
-    radial-gradient(circle at 88% 92%, rgba(169,149,116,.12), transparent 38%);
-  z-index:0;
 }
 
 .welcome-couple-content{
   position:relative;
   z-index:2;
-  color:#2f2923;
-  align-self:center;
   max-width:560px;
+  color:#332c25;
 }
 
 .welcome-small{
   margin:0 0 22px!important;
-  font-family:"Inter", "Aptos", Arial, sans-serif!important;
+  font-family:"Inter","Aptos",Arial,sans-serif!important;
   text-transform:uppercase;
   letter-spacing:.28em;
   font-size:11px!important;
@@ -2370,8 +2357,8 @@ body.pt .welcome-pt{display:block!important}
   margin:0!important;
   text-align:left!important;
   font-family:"Cormorant Garamond", Georgia, serif!important;
-  font-size:clamp(52px,7.3vw,96px)!important;
-  line-height:.90!important;
+  font-size:clamp(52px,7.2vw,94px)!important;
+  line-height:.92!important;
   font-weight:400!important;
   color:#332c25!important;
   letter-spacing:-.015em!important;
@@ -2380,9 +2367,8 @@ body.pt .welcome-pt{display:block!important}
 .welcome-couple-content h2 em{
   display:block;
   font-style:italic;
-  font-size:.62em;
+  font-size:.60em;
   color:#a3875c;
-  letter-spacing:.005em;
   margin-top:8px;
 }
 
@@ -2396,7 +2382,7 @@ body.pt .welcome-pt{display:block!important}
 .welcome-text{
   margin:0!important;
   max-width:480px;
-  font-family:"Inter", "Aptos", Arial, sans-serif!important;
+  font-family:"Inter","Aptos",Arial,sans-serif!important;
   font-size:16px!important;
   line-height:1.85!important;
   color:#50483f!important;
@@ -2412,38 +2398,27 @@ body.pt .welcome-pt{display:block!important}
 .welcome-photo-wrap{
   position:relative;
   z-index:2;
-  width:min(100%, 620px);
   justify-self:center;
-  background:#f7ead7;
-  box-shadow:0 30px 90px rgba(61,48,34,.12);
+  width:min(100%, 560px);
+  margin:0;
+  padding:0;
+  background:rgba(255,251,244,.42);
   border:1px solid rgba(80,59,37,.18);
-  overflow:hidden;
+  box-shadow:0 30px 90px rgba(61,48,34,.12);
+  overflow:visible;
 }
 
-.welcome-photo-wrap::before{
-  content:"";
-  display:block;
-  aspect-ratio:4/5.6;
-}
-
-/* Photo rectangulaire nette, sans bande noire/triangulaire autour */
+/* IMPORTANT : photo affichée entière, sans crop ni bande */
 .welcome-couple-image{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center center;
-  filter:saturate(.98) contrast(1.02);
+  display:block!important;
+  position:relative!important;
+  width:100%!important;
+  height:auto!important;
+  max-height:78svh!important;
+  object-fit:contain!important;
+  object-position:center!important;
   transform:none!important;
-}
-
-.welcome-photo-wrap::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
+  filter:saturate(.98) contrast(1.02);
 }
 
 .welcome-discover{
@@ -2453,7 +2428,7 @@ body.pt .welcome-pt{display:block!important}
   transform:translateX(-50%);
   z-index:4;
   text-align:center;
-  font-family:"Inter", "Aptos", Arial, sans-serif!important;
+  font-family:"Inter","Aptos",Arial,sans-serif!important;
   font-size:11px;
   letter-spacing:.24em;
   text-transform:uppercase;
@@ -2474,7 +2449,7 @@ body.pt .welcome-pt{display:block!important}
     grid-template-columns:1fr;
     min-height:auto;
     padding:84px 22px 92px;
-    gap:36px;
+    gap:34px;
   }
 
   .welcome-couple-content{
@@ -2499,7 +2474,7 @@ body.pt .welcome-pt{display:block!important}
 
   .welcome-photo-wrap{
     order:2;
-    width:min(100%, 420px);
+    width:min(100%, 430px);
   }
 
   .welcome-discover{
@@ -2510,7 +2485,7 @@ body.pt .welcome-pt{display:block!important}
     transform:none;
     grid-column:1;
     order:3;
-    margin-top:8px;
+    margin-top:4px;
   }
 }
 </style>
@@ -2558,7 +2533,7 @@ body.pt .welcome-pt{display:block!important}
           <div class="lux-cover-left"></div>
           <div class="lux-cover-right"></div>
           <div class="lux-monogram logo-signature" aria-hidden="true"><img decoding="async" loading="lazy" id="heroMvLogo" src="" alt="MV"></div>
-          <p class="lux-overline"></p>
+          
           <h1 class="lux-title">Mirna<br>&amp; Victor</h1>
           <div class="lux-line"></div>
           <p class="lux-subtitle">Fortaleza, Brésil</p>
@@ -2598,37 +2573,7 @@ body.pt .welcome-pt{display:block!important}
   </section>
 
 
-
-  <section class="welcome-couple-section" id="bienvenue">
-    <div class="welcome-photo-wrap">
-      <img src="assets/welcome-couple.jpg" alt="Mirna et Victor" class="welcome-couple-image" loading="eager" decoding="async">
-    </div>
-    <div class="welcome-couple-content">
-      <p class="welcome-small welcome-fr">Bienvenue</p>
-      <p class="welcome-small welcome-pt">Bem-vindos</p>
-
-      <h2 class="welcome-fr">Nous avons hâte de vous retrouver</h2>
-      <h2 class="welcome-pt">Estamos ansiosos para recebê-los</h2>
-
-      <div class="welcome-divider"></div>
-
-      <p class="welcome-text welcome-fr">
-        Merci de faire partie de cette aventure à nos côtés. Nous serions très heureux de vous retrouver à Fortaleza
-        pour célébrer notre mariage le 5 novembre 2027.
-      </p>
-      <p class="welcome-text welcome-pt">
-        Obrigado por fazerem parte desta aventura ao nosso lado. Será uma grande alegria recebê-los em Fortaleza
-        para celebrar o nosso casamento no dia 5 de novembro de 2027.
-      </p>
-
-      <p class="welcome-signature">Mirna &amp; Victor</p>
-    </div>
-  </section>
-
-
-
-
-  <section class="section-story" data-scroll-panel>
+<section class="section-story" data-scroll-panel>
     <div class="story-sticky">
       <div class="story-wrap">
         <div class="story-copy">
@@ -3991,8 +3936,6 @@ else attach();
 })();
 </script>
 
-
-
 <script id="mv-remove-fairepart-intro-js">
 (function(){
   function cleanIntroWords(){
@@ -4009,8 +3952,8 @@ else attach();
   else cleanIntroWords();
   document.addEventListener("click", function(e){
     if(e.target && (e.target.matches("[data-lang-toggle], .mv-lang-btn") || e.target.closest("[data-lang-toggle], .mv-lang-btn"))){
-      setTimeout(cleanIntroWords, 80);
-      setTimeout(cleanIntroWords, 300);
+      setTimeout(cleanIntroWords,80);
+      setTimeout(cleanIntroWords,300);
     }
   }, true);
 })();
