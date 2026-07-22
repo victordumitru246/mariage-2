@@ -2532,9 +2532,6 @@ body.pt .welcome-pt{display:block!important}
   }
 }
 </style>
-
-<link rel="preload" as="image" href="assets/welcome-couple.jpg">
-
 <style id="mv-paper-background-realistic">
 /* =========================================================
    FOND PAPIER TEXTURÉ FINAL — IMAGE FOURNIE
@@ -2959,6 +2956,85 @@ section{content-visibility:auto;contain-intrinsic-size:1px 900px;}
   };
 })();
 </script>
+<style id="mv-mobile-photo-reliable-fix">
+.welcome-couple-picture{
+  display:block!important;
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+}
+
+.welcome-couple-picture .welcome-couple-image,
+.welcome-couple-picture img{
+  display:block!important;
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center 40%!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+
+@media(max-width:768px){
+  .welcome-photo-wrap{
+    min-height:520px!important;
+    background:#efe4d0!important;
+  }
+
+  .welcome-photo-wrap::before{
+    aspect-ratio:4/5.6!important;
+  }
+
+  .welcome-couple-picture .welcome-couple-image,
+  .welcome-couple-picture img{
+    object-position:center 38%!important;
+  }
+}
+</style>
+
+<link rel="preload" as="image" href="assets/welcome-couple-mobile.jpg" media="(max-width: 768px)">
+<link rel="preload" as="image" href="assets/welcome-couple.jpg" media="(min-width: 769px)">
+
+<style id="mv-photo-couple-final-fix">
+.welcome-photo-wrap{
+  position:relative!important;
+  overflow:hidden!important;
+  background:#efe4d0!important;
+}
+
+.welcome-couple-picture{
+  display:block!important;
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+}
+
+.welcome-couple-picture img{
+  display:block!important;
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center 40%!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+
+@media(max-width:768px){
+  .welcome-photo-wrap{
+    min-height:520px!important;
+  }
+
+  .welcome-couple-picture img{
+    object-position:center 38%!important;
+  }
+}
+</style>
 
 </head>
 
@@ -3036,7 +3112,10 @@ section{content-visibility:auto;contain-intrinsic-size:1px 900px;}
     </div>
 
     <figure class="welcome-photo-wrap">
-      <img src="assets/welcome-couple.jpg" alt="Mirna et Victor" class="welcome-couple-image" loading="eager" decoding="async" fetchpriority="high">
+      <picture class="welcome-couple-picture">
+  <source media="(max-width: 768px)" srcset="assets/welcome-couple-mobile.jpg">
+  <img src="assets/welcome-couple.jpg" alt="Mirna et Victor" class="welcome-couple-image" loading="eager" decoding="async" fetchpriority="high">
+</picture>
     </figure>
 
     <a class="welcome-discover welcome-fr" href="#programme">Découvrir le mariage<span>⌄</span></a>
