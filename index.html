@@ -2754,21 +2754,6 @@ main,
   letter-spacing:.01em!important;
 }
 </style>
-
-
-<style id="mv-stable-language-css">
-.programme-pt,.rsvp-pt,.welcome-pt,.guide-pt,.liste-pt,.sejour-pt,.transports-pt,.carte-pt,.countdown-pt{
-  display:none!important;
-}
-body.pt .programme-fr,body.pt .rsvp-fr,body.pt .welcome-fr,body.pt .guide-fr,body.pt .liste-fr,body.pt .sejour-fr,body.pt .transports-fr,body.pt .carte-fr,body.pt .countdown-fr{
-  display:none!important;
-}
-body.pt .programme-pt,body.pt .rsvp-pt,body.pt .welcome-pt,body.pt .guide-pt,body.pt .liste-pt,body.pt .sejour-pt,body.pt .transports-pt,body.pt .carte-pt,body.pt .countdown-pt{
-  display:block!important;
-}
-</style>
-
-
 <style id="mv-audio-phrases-style">
 .mv-phrase-card{
   position:relative;
@@ -2981,6 +2966,26 @@ section{content-visibility:auto;contain-intrinsic-size:1px 900px;}
   .welcome-photo-wrap .welcome-couple-image{
     object-position:center 38%!important;
   }
+}
+</style>
+
+
+<style id="mv-unified-language-css">
+.programme-pt,.rsvp-pt,.welcome-pt,.guide-pt,.liste-pt,.sejour-pt,.transports-pt,.carte-pt,.countdown-pt{
+  display:none!important;
+}
+body.pt .programme-fr,body.pt .rsvp-fr,body.pt .welcome-fr,body.pt .guide-fr,body.pt .liste-fr,body.pt .sejour-fr,body.pt .transports-fr,body.pt .carte-fr,body.pt .countdown-fr{
+  display:none!important;
+}
+body.pt .programme-pt,body.pt .rsvp-pt,body.pt .welcome-pt,body.pt .guide-pt,body.pt .liste-pt,body.pt .sejour-pt,body.pt .transports-pt,body.pt .carte-pt,body.pt .countdown-pt{
+  display:block!important;
+}
+/* Romanian uses the French structural blocks, translated in place. */
+body.ro .programme-pt,body.ro .rsvp-pt,body.ro .welcome-pt,body.ro .guide-pt,body.ro .liste-pt,body.ro .sejour-pt,body.ro .transports-pt,body.ro .carte-pt,body.ro .countdown-pt{
+  display:none!important;
+}
+body.ro .programme-fr,body.ro .rsvp-fr,body.ro .welcome-fr,body.ro .guide-fr,body.ro .liste-fr,body.ro .sejour-fr,body.ro .transports-fr,body.ro .carte-fr,body.ro .countdown-fr{
+  display:block!important;
 }
 </style>
 
@@ -4030,143 +4035,6 @@ else attach();
   }, true);
 })();
 </script>
-
-<script id="mv-stable-language-and-phrases">
-(function(){
-  const dict = {"Cadeaux": "Presentes", "Liste de mariage": "Lista de presentes", "Votre présence à nos côtés sera déjà le plus beau des cadeaux. Pour ceux qui souhaitent nous faire plaisir, voici quelques expériences et projets qui accompagneront le début de notre vie à deux.": "A presença de vocês ao nosso lado já será o presente mais bonito. Para quem desejar nos presentear, aqui estão algumas experiências e projetos que acompanharão o início da nossa vida a dois.", "Voyage de noces": "Lua de mel", "Participer à quelques jours hors du temps, entre mer, découverte et souvenirs à deux.": "Participar de alguns dias fora do tempo, entre mar, descobertas e lembranças a dois.", "Participation libre": "Contribuição livre", "Dîner face à l’océan": "Jantar de frente para o oceano", "Un moment simple et précieux, les pieds presque dans le sable, pour prolonger la magie du Brésil.": "Um momento simples e precioso, quase com os pés na areia, para prolongar a magia do Brasil.", "À partir de 80 €": "A partir de 80 €", "Excursion dans les dunes": "Passeio pelas dunas", "Une échappée lumineuse dans les paysages du Nordeste, entre sable, lagunes et horizon.": "Uma escapada luminosa pelas paisagens do Nordeste, entre areia, lagoas e horizonte.", "À partir de 120 €": "A partir de 120 €", "Notre futur chez-nous": "Nosso futuro lar", "Nous aider à construire un intérieur chaleureux, pensé pour recevoir famille et amis.": "Nos ajudar a construir um lar acolhedor, pensado para receber família e amigos.", "Moment bien-être": "Momento de bem-estar", "Une parenthèse spa ou détente après les festivités, pour savourer doucement les premiers jours.": "Uma pausa de spa ou descanso depois das celebrações, para aproveitar com calma os primeiros dias.", "À partir de 60 €": "A partir de 60 €", "Souvenir symbolique": "Lembrança simbólica", "Un objet ou une attention qui restera comme une trace délicate de cette célébration au Brésil.": "Um objeto ou gesto que ficará como uma lembrança delicada desta celebração no Brasil.", "Montant libre": "Valor livre", "Participer à la liste": "Participar da lista", "Programme": "Programa", "Lieux": "Locais", "Séjour": "Estadia", "Transports": "Transportes", "Carte": "Mapa", "RSVP": "RSVP", "Liste": "Presentes", "Fortaleza, Brésil": "Fortaleza, Brasil", "Découvrir": "Descobrir", "Un mariage entre deux cultures, sous la lumière du Brésil": "Um casamento entre duas culturas, sob a luz do Brasil", "Nous serions ravis de vous retrouver au Brésil pour partager notre joie avec vous.": "Teremos muita alegria em recebê-los no Brasil para compartilhar a nossa felicidade com vocês.", "5 novembre 2027": "5 de novembro de 2027", "Programme de la journée": "Programa do dia", "Cérémonie": "Cerimônia", "Cocktail au coucher du soleil": "Coquetel ao pôr do sol", "Dîner": "Jantar", "Soirée & danse": "Festa e dança", "Fortaleza nous attend": "Fortaleza nos espera", "Un compte à rebours  avant de nous retrouver au Brésil.": "Uma contagem regressiva a antes de nos encontrarmos no Brasil.", "jours": "dias", "heures": "horas", "minutes": "minutos", "Mini guide français / portugais": "Mini guia francês / português", "Quelques mots utiles": "Algumas palavras úteis", "Quelques phrases simples pour se repérer, commander, remercier et profiter du séjour au Brésil.": "Algumas frases simples para se orientar, pedir, agradecer e aproveitar a estadia no Brasil.", "Informations pratiques": "Informações práticas", "Préparer le séjour": "Preparar a estadia", "Un guide pratique sera disponible ici pour organiser le voyage : hébergement, transferts, conseils sur place et informations utiles.": "Um guia prático estará disponível aqui para organizar a viagem: hospedagem, transfers, dicas no local e informações úteis.", "Ouvrir le guide": "Abrir o guia", "Réponse": "Resposta", "Carte interactive": "Mapa interativo", "Voir sur Google Maps": "Ver no Google Maps", "Zone recommandée pour loger →": "Região recomendada para hospedagem →", "Zone balnéaire →": "Região à beira-mar →", "Aéroport →": "Aeroporto →", "Lieu de célébration →": "Local da celebração →", "Hébergement": "Hospedagem", "Transport": "Transporte", "Merci de confirmer votre présence avant le": "Por favor, confirme a sua presença até", "Ouvrir le formulaire RSVP": "Abrir formulário RSVP", "Mariage Mirna & Victor": "Casamento Mirna & Victor", "Fortaleza · Brésil": "Fortaleza · Brasil", "Entrer": "Entrar", "Cérémonie religieuse": "Cerimônia religiosa", "Messe à 14h30": "Missa às 14h30", "📍 Voir l’église": "📍 Ver a igreja", "Réception": "Recepção", "16h30 à 1h00": "16h30 às 1h00", "📍 Voir la réception": "📍 Ver a recepção", "Cérémonie religieuse à l’église": "Cerimônia religiosa na igreja", "Accueil des invités & cocktail à Club Armonia": "Recepção dos convidados e coquetel na Club Armonia", "Fin de la réception": "Fim da recepção", "Les lieux": "Os locais", "Fortaleza, Beach Park et le littoral": "Fortaleza, Beach Park e o litoral", "lumière dorée, brise marine, jardins tropicaux et élégance paisible du Nordeste.": "luz dourada, brisa do mar, jardins tropicais e elegância serena do Nordeste.", "Un rivage clair, des horizons ouverts et cette lumière douce qui donne au séjour son rythme de vacances.": "Uma orla clara, horizontes abertos e uma luz suave que dá à estadia um ritmo de férias.", "Cocotiers": "Coqueiros", "Des palmiers, le vent de mer et une atmosphère tropicale simple, élégante et naturellement chaleureuse.": "Palmeiras, brisa do mar e uma atmosfera tropical simples, elegante e naturalmente acolhedora.", "Un écrin balnéaire entre jardins, piscines et mer turquoise, pensé pour prolonger la fête en douceur.": "Um refúgio à beira-mar entre jardins, piscinas e mar turquesa, pensado para prolongar a festa com suavidade.", "Séjour recommandé": "Estadia recomendada", "Où loger ?": "Onde se hospedar?", "Nous recommandons aux invités de privilégier la zone de": "Recomendamos que os convidados deem preferência à região de", ". C’est une zone agréable pour profiter de belles plages, de logements confortables et d’un cadre plus calme, tout en restant accessible pour les événements du mariage.": ". É uma região agradável para aproveitar belas praias, hospedagens confortáveis e um ambiente mais tranquilo, mantendo fácil acesso aos eventos do casamento.", "Idéal pour ceux qui veulent profiter de la plage, rester dans une ambiance vacances et éviter d’être au centre-ville.": "Ideal para quem deseja aproveitar a praia, ficar em clima de férias e evitar o centro da cidade.", "📍 Voir la zone": "📍 Ver a região", "Logements": "Hospedagens", "On y trouve des appartements, résidences avec piscine, resorts et logements familiaux adaptés aux séjours de plusieurs jours.": "Há apartamentos, condomínios com piscina, resorts e hospedagens familiares adequadas para estadias de vários dias.", "Plages": "Praias", "La zone est appréciée pour ses grandes plages, ses cocotiers et une ambiance plus balnéaire, parfaite pour prolonger le séjour autour du mariage.": "A região é apreciada por suas praias amplas, coqueiros e atmosfera litorânea, perfeita para prolongar a estadia em torno do casamento.", "Se déplacer": "Como se deslocar", "Voiture de location ou Uber": "Carro alugado ou Uber", "Pour être autonome pendant le séjour, nous recommandons soit de louer une voiture, soit d’utiliser Uber pour les trajets principaux. La voiture est pratique si vous restez plusieurs jours, si vous logez vers Beach Park ou si vous souhaitez visiter les plages autour de Fortaleza.": "Para ter autonomia durante a estadia, recomendamos alugar um carro ou usar Uber para os principais trajetos. O carro é prático se vocês ficarem vários dias, se estiverem hospedados perto do Beach Park ou se quiserem visitar as praias ao redor de Fortaleza.", "Location de voiture": "Aluguel de carro", "Solution confortable pour les familles et les invités qui veulent visiter les environs. Enseignes à regarder :": "Uma solução confortável para famílias e convidados que desejam visitar os arredores. Empresas para consultar:", "et agences à l’aéroport de Fortaleza.": "e agências no aeroporto de Fortaleza.", "Ordre de prix indicatif : environ": "Estimativa de preço: cerca de", "pour une économique ou compacte,": "para um carro econômico ou compacto,", "pour un SUV simple, et davantage pour les grands véhicules.": "para um SUV simples, e mais para veículos maiores.", "📍 Voir l’aéroport": "📍 Ver o aeroporto", "Uber / chauffeur": "Uber / motorista", "Solution simple si vous ne voulez pas conduire. Idéal pour les trajets hôtel ↔ cérémonie ↔ réception, ou pour les invités qui restent surtout près de leur logement.": "Uma solução simples se vocês não quiserem dirigir. Ideal para os trajetos hotel ↔ cerimônia ↔ recepção, ou para convidados que ficarão principalmente perto da hospedagem.", "À privilégier le soir du mariage pour rentrer tranquillement, sans se soucier du stationnement ou de la conduite.": "Recomendado na noite do casamento para voltar com tranquilidade, sem se preocupar com estacionamento ou direção.", "Notre recommandation": "Nossa recomendação", "Pour un séjour court : Uber peut suffire. Pour un séjour de plusieurs jours à Beach Park, avec sorties et plages : une voiture de location sera plus pratique.": "Para uma estadia curta, Uber pode ser suficiente. Para vários dias no Beach Park, com passeios e praias, um carro alugado será mais prático.", "Se repérer facilement": "Localizar-se facilmente", "Aéroport de Fortaleza": "Aeroporto de Fortaleza", "Ouvrir dans Google Maps →": "Abrir no Google Maps →", "Igreja Matriz de São João Eudes →": "Igreja Matriz de São João Eudes →", "Club Armonia →": "Club Armonia →", "Nous serions ravis de vous compter parmi nous pour célébrer notre mariage à Fortaleza le": "Será uma grande alegria contar com a sua presença para celebrar o nosso casamento em Fortaleza no dia", "Merci de bien vouloir confirmer votre présence avant le": "Por favor, confirme a sua presença até", "Ne pas remplir": "Não preencher", "Nom complet": "Nome completo", "Serez-vous présent ?": "Você estará presente?", "Choisir": "Escolher", "Oui, bien sûr !": "Sim, claro!", "Non, malheureusement": "Não, infelizmente", "Nombre d’accompagnant(s)": "Número de acompanhantes", "Accompagnant(s) — nom(s) et prénom(s)": "Acompanhante(s) — nome completo", "Pointure(s)": "Número de sapato", "Message aux mariés": "Mensagem para os noivos", "Confirmer ma réponse": "Confirmar resposta", "Ouvrir le formulaire Google": "Abrir formulário Google", "Votre réponse est envoyée directement via le formulaire sécurisé. Le lien Google reste disponible en secours.": "A sua resposta é enviada diretamente pelo formulário seguro. O link do Google fica disponível como alternativa.", "Votre présence à nos côtés sera déjà le plus beau des cadeaux. Pour ceux qui souhaitent nous faire plaisir,\n        voici quelques expériences et projets qui accompagneront le début de notre vie à deux.": "A presença de vocês ao nosso lado já será o presente mais bonito. Para quem desejar nos presentear, aqui estão algumas experiências e projetos que acompanharão o início da nossa vida a dois.", "Bonjour / Salut": "Olá / Oi", "Merci": "Obrigado / Obrigada", "(homme)": "(homem)", "(femme)": "(mulher)", "S’il vous plaît": "Por favor", "Excusez-moi": "Com licença", "Parlez-vous anglais ?": "Você fala inglês?", "Je ne comprends pas": "Não entendo", "Combien ça coûte ?": "Quanto custa?", "Où est la plage ?": "Onde fica a praia?", "Une bière, s’il vous plaît": "Uma cerveja, por favor", "L’addition, s’il vous plaît": "A conta, por favor", "Tout va bien ?": "Tudo bem?", "À bientôt": "Até logo", "Avec amour — Mirna & Victor": "Com amor — Mirna & Victor", "23h30": "1h00", "1h00": "1h00", "Au revoir": "Tchau / Até logo"};
-
-  const phrasesFR = [
-    ["Bonjour / Salut", "Olá / Oi"],
-    ["Merci", "Obrigado <em>(homme)</em> / Obrigada <em>(femme)</em>"],
-    ["S’il vous plaît", "Por favor"],
-    ["Excusez-moi", "Com licença"],
-    ["Parlez-vous anglais ?", "Você fala inglês?"],
-    ["Je ne comprends pas", "Não entendo"],
-    ["Combien ça coûte ?", "Quanto custa?"],
-    ["Où est la plage ?", "Onde fica a praia?"],
-    ["Une bière, s’il vous plaît", "Uma cerveja, por favor"],
-    ["L’addition, s’il vous plaît", "A conta, por favor"],
-    ["Tout va bien ?", "Tudo bem?"],
-    ["À bientôt", "Até logo"],
-    ["Au revoir", "Tchau / Até logo"]
-  ];
-
-  const phrasesPT = [
-    ["Olá / Oi", "Bonjour / Salut"],
-    ["Obrigado / Obrigada", "Merci <em>(homme / femme)</em>"],
-    ["Por favor", "S’il vous plaît"],
-    ["Com licença", "Excusez-moi"],
-    ["Você fala inglês?", "Parlez-vous anglais ?"],
-    ["Não entendo", "Je ne comprends pas"],
-    ["Quanto custa?", "Combien ça coûte ?"],
-    ["Onde fica a praia?", "Où est la plage ?"],
-    ["Uma cerveja, por favor", "Une bière, s’il vous plaît"],
-    ["A conta, por favor", "L’addition, s’il vous plaît"],
-    ["Tudo bem?", "Tout va bien ?"],
-    ["Até logo", "À bientôt"],
-    ["Tchau / Até logo", "Au revoir"]
-  ];
-
-  function norm(s){ return (s || "").replace(/\s+/g, " ").trim(); }
-
-  function shouldSkip(node){
-    const el = node.nodeType === 1 ? node : node.parentElement;
-    if(!el) return true;
-    if(el.closest("script,style,noscript,svg")) return true;
-    if(el.closest("#mots-utiles .mv-phrase-grid")) return true;
-    if(el.closest(".premium-rsvp-shell")) return true;
-    if(el.closest("[data-no-translate]")) return true;
-    return false;
-  }
-
-  function textNodes(){
-    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
-      acceptNode(node){
-        if(shouldSkip(node)) return NodeFilter.FILTER_REJECT;
-        if(!norm(node.nodeValue)) return NodeFilter.FILTER_REJECT;
-        return NodeFilter.FILTER_ACCEPT;
-      }
-    });
-    const nodes = [];
-    while(walker.nextNode()) nodes.push(walker.currentNode);
-    return nodes;
-  }
-
-  function renderPhrases(lang){
-    const grid = document.querySelector("#mots-utiles .mv-phrase-grid, #phraseGrid");
-    if(!grid) return;
-    const data = lang === "pt" ? phrasesPT : phrasesFR;
-    grid.setAttribute("data-no-translate", "");
-    grid.innerHTML = data.map(function(pair){
-      return '<div class="mv-phrase-card"><strong>' + pair[0] + '</strong><span>' + pair[1] + '</span></div>';
-    }).join("");
-    const eyebrow = document.getElementById("phraseEyebrow");
-    const title = document.getElementById("phraseTitle");
-    const intro = document.getElementById("phraseIntro");
-    if(eyebrow) eyebrow.textContent = lang === "pt" ? "Mini guia português / francês" : "Mini guide français / portugais";
-    if(title) title.textContent = lang === "pt" ? "Algumas palavras úteis" : "Quelques mots utiles";
-    if(intro) intro.textContent = lang === "pt"
-      ? "Algumas frases simples para se orientar, pedir, agradecer e aproveitar a estadia."
-      : "Quelques phrases simples pour se repérer, commander, remercier et profiter du séjour au Brésil.";
-  }
-
-  function applyLanguage(lang){
-    lang = lang === "pt" ? "pt" : "fr";
-    document.body.classList.toggle("pt", lang === "pt");
-    document.documentElement.lang = lang === "pt" ? "pt-BR" : "fr";
-
-    textNodes().forEach(function(node){
-      if(!node.__mvOriginalFr) node.__mvOriginalFr = node.nodeValue;
-      const base = node.__mvOriginalFr;
-      const key = norm(base);
-      if(lang === "pt" && dict[key]) {
-        node.nodeValue = base.replace(key, dict[key]);
-      } else {
-        node.nodeValue = base;
-      }
-    });
-
-    document.querySelectorAll("[placeholder]").forEach(function(el){
-      if(!el.__mvOriginalPlaceholder) el.__mvOriginalPlaceholder = el.getAttribute("placeholder") || "";
-      const base = el.__mvOriginalPlaceholder;
-      const key = norm(base);
-      el.setAttribute("placeholder", lang === "pt" && dict[key] ? dict[key] : base);
-    });
-
-    renderPhrases(lang);
-
-    document.querySelectorAll("[data-lang-toggle]").forEach(function(btn){
-      btn.classList.toggle("active", btn.getAttribute("data-lang-toggle") === lang);
-    });
-
-    try { localStorage.setItem("mv-lang", lang); } catch(e) {}
-  }
-
-  function init(){
-    let initial = "fr";
-    try { initial = localStorage.getItem("mv-lang") || "fr"; } catch(e) {}
-    applyLanguage(initial);
-    document.querySelectorAll("[data-lang-toggle]").forEach(function(btn){
-      btn.addEventListener("click", function(e){
-        e.preventDefault();
-        const lang = btn.getAttribute("data-lang-toggle") === "pt" ? "pt" : "fr";
-        applyLanguage(lang);
-        setTimeout(function(){ applyLanguage(lang); }, 80);
-        setTimeout(function(){ applyLanguage(lang); }, 250);
-      });
-    });
-  }
-
-  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
-  else init();
-
-  window.mvApplyLang = applyLanguage;
-  window.mvForceLang = applyLanguage;
-})();
-</script>
-
-
-
 <script id="mv-audio-phrases-js">
 (function(){
 
@@ -4337,112 +4205,6 @@ else attach();
 
 })();
 </script>
-
-
-<style id="mv-romanian-full-style">
-.mv-lang-btn[data-lang-toggle="ro"]{ letter-spacing:.18em; }
-body.ro .mv-lang-btn[data-lang-toggle="ro"]{ opacity:1!important; }
-</style>
-
-<script id="mv-romanian-full-language">
-(function(){
-  const roDict = {"html": "", "Mariage Mirna & Victor": "Nunta Mirna & Victor", "MIRNA & VICTOR": "MIRNA & VICTOR", "Fortaleza · Brésil": "Fortaleza · Brazilia", "Entrer": "Intră", "M / V": "M / V", "Programme": "Program", "Lieux": "Locuri", "Séjour": "Ședere", "Transports": "Transport", "Carte": "Hartă", "RSVP": "RSVP", "Liste": "Cadouri", "FR": "FR", "PT": "PT", "RO": "RO", "Mirna": "Mirna", "& Victor": "& Victor", "Fortaleza, Brésil": "Fortaleza, Brazilia", "Découvrir": "Descoperiți", "5 novembre 2027": "5 noiembrie 2027", "Bienvenue": "Bine ați venit", "à tous nos proches": "tuturor celor dragi", "Nous avons hâte de vous retrouver à Fortaleza pour célébrer avec vous notre mariage le 5 novembre 2027.": "Abia așteptăm să vă revedem la Fortaleza pentru a sărbători împreună nunta noastră pe 5 noiembrie 2027.", "Mirna & Victor": "Mirna & Victor", "Découvrir le mariage": "Descoperiți nunta", "Programme de la journée": "Programul zilei", "Programa do dia": "Programul zilei", "Um dia pensado como uma sequência suave: a cerimônia, o coquetel, o jantar e a celebração.": "O zi gândită ca o desfășurare firească: ceremonia, cocktailul, cina, apoi sărbătoarea.", "14h30": "14h30", "Cérémonie religieuse": "Ceremonie religioasă", "Messe à l’église": "Slujbă la biserică", "Igreja Matriz de São João Eudes": "Igreja Matriz de São João Eudes", "Voir l’église": "Vezi biserica", "16h30": "16h30", "Accueil & cocktail": "Primire & cocktail", "Club Armonia": "Club Armonia", "Accueil des invités, cocktail et premières lumières de fin de journée.": "Primirea invitaților, cocktail și primele lumini ale sfârșitului de zi.", "Voir la réception": "Vezi recepția", "18h00": "18h00", "Dîner": "Cină", "Un moment à table": "Un moment la masă", "Dîner, discours et instants partagés avec nos familles et nos amis.": "Cină, discursuri și momente împărtășite cu familiile și prietenii noștri.", "21h00": "21h00", "Soirée": "Petrecere", "Danse & célébration": "Dans & sărbătoare", "La fête se prolonge en musique, dans une ambiance simple, élégante et chaleureuse.": "Petrecerea continuă cu muzică, într-o atmosferă simplă, elegantă și caldă.", "1h00": "1h00", "Fin de réception": "Sfârșitul recepției", "Retour en douceur": "Întoarcere liniștită", "Nous vous recommandons de prévoir un retour en voiture ou en application de transport.": "Vă recomandăm să vă organizați întoarcerea cu mașina sau printr-o aplicație de transport.", "Les lieux": "Locațiile", "Fortaleza, Beach Park et le littoral": "Fortaleza, Beach Park și litoralul", "lumière dorée, brise marine, jardins tropicaux et élégance paisible du Nordeste.": "lumină aurie, briză marină, grădini tropicale și eleganța liniștită a Nordeste.", "Beach Park / Porto das Dunuas": "Beach Park / Porto das Dunas", "Beach Park / Porto das Dunas": "Beach Park / Porto das Dunas", "Un rivage clair, des horizons ouverts et cette lumière douce qui donne au séjour son rythme de vacances.": "Un țărm luminos, orizonturi deschise și acea lumină blândă care dă șederii un ritm de vacanță.", "Cocotiers": "Cocotieri", "Des palmiers, le vent de mer et une atmosphère tropicale simple, élégante et naturellement chaleureuse.": "Palmieri, vânt de mare și o atmosferă tropicală simplă, elegantă și natural caldă.", "Beach Park Resort": "Beach Park Resort", "Un écrin balnéaire entre jardins, piscines et mer turquoise, pensé pour prolonger la fête en douceur.": "Un cadru de litoral între grădini, piscine și mare turcoaz, gândit pentru a prelungi sărbătoarea în liniște.", "Séjour recommandé": "Ședere recomandată", "Où loger ?": "Unde să vă cazați?", "Nous recommandons aux invités de privilégier la zone de": "Recomandăm invitaților să aleagă zona", "Beach Park / Porto das Dunas / Aquiraz": "Beach Park / Porto das Dunas / Aquiraz", ". C’est une zone agréable pour profiter de belles plages, de logements confortables et d’un cadre plus calme, tout en restant accessible pour les événements du mariage.": ". Este o zonă plăcută pentru a vă bucura de plaje frumoase, cazări confortabile și un cadru mai liniștit, rămânând totodată aproape de evenimentele nunții.", "Idéal pour ceux qui veulent profiter de la plage, rester dans une ambiance vacances et éviter d’être au centre-ville.": "Ideal pentru cei care vor să se bucure de plajă, să rămână într-o atmosferă de vacanță și să evite centrul orașului.", "📍 Voir la zone": "📍 Vezi zona", "Logements": "Cazări", "On y trouve des appartements, résidences avec piscine, resorts et logements familiaux adaptés aux séjours de plusieurs jours.": "Acolo găsiți apartamente, reședințe cu piscină, resorturi și cazări familiale potrivite pentru șederi de câteva zile.", "Plages": "Plaje", "La zone est appréciée pour ses grandes plages, ses cocotiers et une ambiance plus balnéaire, parfaite pour prolonger le séjour autour du mariage.": "Zona este apreciată pentru plajele întinse, cocotieri și atmosfera de litoral, perfectă pentru a prelungi șederea în jurul nunții.", "Se déplacer": "Deplasare", "Voiture de location ou Uber": "Mașină închiriată sau Uber", "Pour être autonome pendant le séjour, nous recommandons soit de louer une voiture, soit d’utiliser Uber pour les trajets principaux. La voiture est pratique si vous restez plusieurs jours, si vous logez vers Beach Park ou si vous souhaitez visiter les plages autour de Fortaleza.": "Pentru autonomie în timpul șederii, recomandăm fie închirierea unei mașini, fie folosirea Uber pentru principalele deplasări. Mașina este practică dacă rămâneți mai multe zile, dacă stați lângă Beach Park sau dacă doriți să vizitați plajele din jurul Fortalezei.", "Location de voiture": "Închiriere mașină", "Solution confortable pour les familles et les invités qui veulent visiter les environs. Enseignes à regarder :": "O soluție confortabilă pentru familii și invitații care vor să viziteze împrejurimile. Companii de verificat:", "et agences à l’aéroport de Fortaleza.": "și agenții la aeroportul din Fortaleza.", "Ordre de prix indicatif : environ": "Preț orientativ: aproximativ", "20–30 €/jour": "20–30 €/zi", "pour une économique ou compacte,": "pentru o mașină economică sau compactă,", "27–40 €/jour": "27–40 €/zi", "pour un SUV simple, et davantage pour les grands véhicules.": "pentru un SUV simplu și mai mult pentru vehiculele mari.", "📍 Voir l’aéroport": "📍 Vezi aeroportul", "Uber / chauffeur": "Uber / șofer", "Solution simple si vous ne voulez pas conduire. Idéal pour les trajets hôtel ↔ cérémonie ↔ réception, ou pour les invités qui restent surtout près de leur logement.": "Soluție simplă dacă nu doriți să conduceți. Ideală pentru traseele hotel ↔ ceremonie ↔ recepție sau pentru invitații care rămân mai ales în apropierea cazării.", "À privilégier le soir du mariage pour rentrer tranquillement, sans se soucier du stationnement ou de la conduite.": "De preferat în seara nunții, pentru a vă întoarce liniștiți, fără grija parcării sau a condusului.", "Notre recommandation": "Recomandarea noastră", "Pour un séjour court : Uber peut suffire. Pour un séjour de plusieurs jours à Beach Park, avec sorties et plages : une voiture de location sera plus pratique.": "Pentru o ședere scurtă: Uber poate fi suficient. Pentru mai multe zile la Beach Park, cu ieșiri și plaje: o mașină închiriată va fi mai practică.", "Se repérer facilement": "Orientare ușoară", "Aéroport de Fortaleza": "Aeroportul din Fortaleza", "Ouvrir dans Google Maps →": "Deschide în Google Maps →", "Cérémonie": "Ceremonie", "Igreja Matriz de São João Eudes →": "Igreja Matriz de São João Eudes →", "Réception": "Recepție", "Club Armonia →": "Club Armonia →", "Zone balnéaire →": "Zonă de litoral →", "Porto das Dunas": "Porto das Dunas", "Zone recommandée pour loger →": "Zonă recomandată pentru cazare →", "Réponse": "Răspuns", "Nous serions ravis de vous compter parmi nous pour célébrer notre mariage à Fortaleza le": "Ne-ar face mare plăcere să vă avem alături pentru a sărbători nunta noastră la Fortaleza pe", "Merci de bien vouloir confirmer votre présence avant le": "Vă rugăm să confirmați prezența înainte de", "01/01/2027": "01/01/2027", "Ne pas remplir": "Nu completați", "Nom complet": "Nume complet", "Email": "Email", "Serez-vous présent ?": "Veți fi prezent(ă)?", "Choisir": "Alegeți", "Oui, bien sûr !": "Da, desigur!", "Non, malheureusement": "Nu, din păcate", "Nombre d’accompagnant(s)": "Număr de însoțitori", "Accompagnant(s) — nom(s) et prénom(s)": "Însoțitor(i) — nume și prenume", "Pointure(s)": "Mărime/mărimi la încălțăminte", "Message aux mariés": "Mesaj pentru miri", "Confirmer ma réponse": "Confirm răspunsul", "Ouvrir le formulaire Google": "Deschide formularul Google", "Votre réponse est envoyée directement via le formulaire sécurisé. Le lien Google reste disponible en secours.": "Răspunsul dvs. este trimis direct prin formularul securizat. Linkul Google rămâne disponibil ca soluție de rezervă.", "Cadeaux": "Cadouri", "Liste de mariage": "Lista de cadouri", "Votre présence à nos côtés sera déjà le plus beau des cadeaux. Pour ceux qui souhaitent nous faire plaisir, nous avons imaginé quelques idées simples et élégantes pour accompagner le début de notre vie à deux.": "Prezența voastră alături de noi va fi deja cel mai frumos cadou. Pentru cei care doresc să ne facă o bucurie, am imaginat câteva idei simple și elegante pentru începutul vieții noastre în doi.", "Pour ceux qui préfèrent un cadeau concret, quelques inspirations seront également proposées dans la liste, comme une belle pièce pour la maison ou un objet utile du quotidien.": "Pentru cei care preferă un cadou concret, câteva inspirații vor fi propuse și în listă, precum o piesă frumoasă pentru casă sau un obiect util de zi cu zi.", "Notre futur chez-nous": "Viitorul nostru cămin", "Nous aider à créer un intérieur chaleureux, pensé pour accueillir famille et amis.": "Să ne ajutați să creăm un interior cald, gândit pentru a primi familia și prietenii.", "Participation libre": "Contribuție liberă", "Thalasso pour deux": "Thalasso pentru doi", "Une parenthèse de douceur après le mariage, pour prolonger ces moments à deux.": "O pauză de răsfăț după nuntă, pentru a prelungi aceste momente în doi.", "Expérience à deux": "Experiență în doi", "Contribution libre": "Contribuție liberă", "Une participation libre à notre nouvelle vie à deux, selon l’envie de chacun.": "O contribuție liberă la noua noastră viață în doi, după dorința fiecăruia.", "Montant libre": "Sumă liberă", "Sélectionnez une carte pour voir l’intention choisie, puis accédez à la liste.": "Selectați o carte pentru a vedea intenția aleasă, apoi accesați lista.", "Participer à la liste": "Participă la listă", "Pagamento via Pix": "Plată prin Pix", "Escaneie o QR code para contribuir com a nossa nova vida a dois.": "Scanați codul QR pentru a contribui la noua noastră viață în doi.", "Valor livre · contribuição em reais": "Sumă liberă · contribuție în reali", "Fortaleza nous attend": "Fortaleza ne așteaptă", "Un compte à rebours avant de nous retrouver au Brésil.": "Numărătoare inversă până când ne vom revedea în Brazilia.", "jours": "zile", "heures": "ore", "minutes": "minute", "Mini guide français / portugais": "Mini ghid român / portughez", "Quelques mots utiles": "Câteva cuvinte utile", "Quelques phrases simples pour se repérer, commander, remercier et profiter du séjour au Brésil.": "Câteva expresii simple pentru a vă orienta, a comanda, a mulțumi și a vă bucura de șederea în Brazilia.", "Informations pratiques": "Informații practice", "Préparer le séjour": "Pregătiți șederea", "Un guide pratique sera disponible ici pour organiser le voyage : hébergement, transferts, conseils sur place et informations utiles.": "Un ghid practic va fi disponibil aici pentru organizarea călătoriei: cazare, transferuri, recomandări la fața locului și informații utile.", "Ouvrir le guide": "Deschide ghidul", "Avec amour — Mirna & Victor": "Cu drag — Mirna & Victor"};
-  const roPhrases = [["Bună / Salut", "Olá / Oi"], ["Mulțumesc", "Obrigado / Obrigada"], ["Vă rog", "Por favor"], ["Scuzați-mă", "Com licença"], ["Vorbiți engleză?", "Você fala inglês?"], ["Nu înțeleg", "Não entendo"], ["Cât costă?", "Quanto custa?"], ["Unde este plaja?", "Onde fica a praia?"], ["O bere, vă rog", "Uma cerveja, por favor"], ["Nota, vă rog", "A conta, por favor"], ["Totul este bine?", "Tudo bem?"], ["Pe curând", "Até logo"], ["La revedere", "Tchau / Até logo"]];
-
-  function norm(s){ return (s || "").replace(/\s+/g, " ").trim(); }
-
-  function shouldSkip(node){
-    const el = node.nodeType === 1 ? node : node.parentElement;
-    if(!el) return true;
-    if(el.closest("script,style,noscript,svg")) return true;
-    if(el.closest("#mots-utiles .mv-phrase-grid, #phraseGrid")) return true;
-    return false;
-  }
-
-  function allTextNodes(){
-    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
-      acceptNode(node){
-        if(shouldSkip(node)) return NodeFilter.FILTER_REJECT;
-        if(!norm(node.nodeValue)) return NodeFilter.FILTER_REJECT;
-        return NodeFilter.FILTER_ACCEPT;
-      }
-    });
-    const nodes = [];
-    while(walker.nextNode()) nodes.push(walker.currentNode);
-    return nodes;
-  }
-
-  function translateTextNodes(){
-    allTextNodes().forEach(function(node){
-      if(!node.__mvRoBase) node.__mvRoBase = node.nodeValue;
-      const base = node.__mvRoBase;
-      const key = norm(base);
-      if(roDict[key]){
-        node.nodeValue = base.replace(key, roDict[key]);
-      }
-    });
-  }
-
-  function renderPhrases(){
-    const grid = document.querySelector("#mots-utiles .mv-phrase-grid, #phraseGrid");
-    if(!grid) return;
-    grid.setAttribute("data-no-translate", "");
-    grid.innerHTML = roPhrases.map(function(pair){
-      return '<div class="mv-phrase-card"><strong>' + pair[0] + '</strong><span>' + pair[1] + '</span></div>';
-    }).join("");
-
-    const eyebrow = document.getElementById("phraseEyebrow");
-    const title = document.getElementById("phraseTitle");
-    const intro = document.getElementById("phraseIntro");
-    if(eyebrow) eyebrow.textContent = "Mini ghid român / portughez";
-    if(title) title.textContent = "Câteva cuvinte utile";
-    if(intro) intro.textContent = "Câteva expresii simple pentru a vă orienta, a comanda, a mulțumi și a vă bucura de șederea în Brazilia.";
-  }
-
-  function setActive(){
-    document.querySelectorAll("[data-lang-toggle]").forEach(function(btn){
-      btn.classList.toggle("active", btn.getAttribute("data-lang-toggle") === "ro");
-    });
-  }
-
-  function applyRomanian(){
-    document.body.classList.remove("pt");
-    document.body.classList.add("ro");
-    document.documentElement.lang = "ro";
-    translateTextNodes();
-    renderPhrases();
-    setActive();
-    try{ localStorage.setItem("mv-lang", "ro"); }catch(e){}
-  }
-
-  function scheduleRomanian(){
-    applyRomanian();
-    setTimeout(applyRomanian, 80);
-    setTimeout(applyRomanian, 250);
-    setTimeout(applyRomanian, 600);
-    setTimeout(applyRomanian, 1200);
-  }
-
-  document.addEventListener("click", function(e){
-    const btn = e.target.closest("[data-lang-toggle='ro']");
-    if(!btn) return;
-    e.preventDefault();
-    e.stopPropagation();
-    if(e.stopImmediatePropagation) e.stopImmediatePropagation();
-    scheduleRomanian();
-  }, true);
-
-  document.addEventListener("DOMContentLoaded", function(){
-    let saved = "";
-    try{ saved = localStorage.getItem("mv-lang") || ""; }catch(e){}
-    if(saved === "ro") scheduleRomanian();
-  });
-
-  window.mvApplyRomanian = scheduleRomanian;
-})();
-</script>
-
-
 <script id="mv-club-armonia-final-fix">
 (function(){
   const maps = "https://www.google.com/maps/search/?api=1&query=Club%20Armonia%20Av.%20dos%20Golfinhos%202845%20Porto%20das%20Dunas%20Aquiraz%20CE%2061700-000%20Brasil";
@@ -4496,6 +4258,147 @@ body.ro .mv-lang-btn[data-lang-toggle="ro"]{ opacity:1!important; }
     }
   }, true);
 })();
+</script>
+
+
+<script id="mv-unified-language-manager">
+(function(){
+  const dictionaries = {
+    pt: {"Cadeaux": "Presentes", "Liste de mariage": "Lista de presentes", "Votre présence à nos côtés sera déjà le plus beau des cadeaux. Pour ceux qui souhaitent nous faire plaisir, voici quelques expériences et projets qui accompagneront le début de notre vie à deux.": "A presença de vocês ao nosso lado já será o presente mais bonito. Para quem desejar nos presentear, aqui estão algumas experiências e projetos que acompanharão o início da nossa vida a dois.", "Voyage de noces": "Lua de mel", "Participer à quelques jours hors du temps, entre mer, découverte et souvenirs à deux.": "Participar de alguns dias fora do tempo, entre mar, descobertas e lembranças a dois.", "Participation libre": "Contribuição livre", "Dîner face à l’océan": "Jantar de frente para o oceano", "Un moment simple et précieux, les pieds presque dans le sable, pour prolonger la magie du Brésil.": "Um momento simples e precioso, quase com os pés na areia, para prolongar a magia do Brasil.", "À partir de 80 €": "A partir de 80 €", "Excursion dans les dunes": "Passeio pelas dunas", "Une échappée lumineuse dans les paysages du Nordeste, entre sable, lagunes et horizon.": "Uma escapada luminosa pelas paisagens do Nordeste, entre areia, lagoas e horizonte.", "À partir de 120 €": "A partir de 120 €", "Notre futur chez-nous": "Nosso futuro lar", "Nous aider à construire un intérieur chaleureux, pensé pour recevoir famille et amis.": "Nos ajudar a construir um lar acolhedor, pensado para receber família e amigos.", "Moment bien-être": "Momento de bem-estar", "Une parenthèse spa ou détente après les festivités, pour savourer doucement les premiers jours.": "Uma pausa de spa ou descanso depois das celebrações, para aproveitar com calma os primeiros dias.", "À partir de 60 €": "A partir de 60 €", "Souvenir symbolique": "Lembrança simbólica", "Un objet ou une attention qui restera comme une trace délicate de cette célébration au Brésil.": "Um objeto ou gesto que ficará como uma lembrança delicada desta celebração no Brasil.", "Montant libre": "Valor livre", "Participer à la liste": "Participar da lista", "Programme": "Programa", "Lieux": "Locais", "Séjour": "Estadia", "Transports": "Transportes", "Carte": "Mapa", "RSVP": "RSVP", "Liste": "Presentes", "Fortaleza, Brésil": "Fortaleza, Brasil", "Découvrir": "Descobrir", "Un mariage entre deux cultures, sous la lumière du Brésil": "Um casamento entre duas culturas, sob a luz do Brasil", "Nous serions ravis de vous retrouver au Brésil pour partager notre joie avec vous.": "Teremos muita alegria em recebê-los no Brasil para compartilhar a nossa felicidade com vocês.", "5 novembre 2027": "5 de novembro de 2027", "Programme de la journée": "Programa do dia", "Cérémonie": "Cerimônia", "Cocktail au coucher du soleil": "Coquetel ao pôr do sol", "Dîner": "Jantar", "Soirée & danse": "Festa e dança", "Fortaleza nous attend": "Fortaleza nos espera", "Un compte à rebours  avant de nous retrouver au Brésil.": "Uma contagem regressiva a antes de nos encontrarmos no Brasil.", "jours": "dias", "heures": "horas", "minutes": "minutos", "Mini guide français / portugais": "Mini guia francês / português", "Quelques mots utiles": "Algumas palavras úteis", "Quelques phrases simples pour se repérer, commander, remercier et profiter du séjour au Brésil.": "Algumas frases simples para se orientar, pedir, agradecer e aproveitar a estadia no Brasil.", "Informations pratiques": "Informações práticas", "Préparer le séjour": "Preparar a estadia", "Un guide pratique sera disponible ici pour organiser le voyage : hébergement, transferts, conseils sur place et informations utiles.": "Um guia prático estará disponível aqui para organizar a viagem: hospedagem, transfers, dicas no local e informações úteis.", "Ouvrir le guide": "Abrir o guia", "Réponse": "Resposta", "Carte interactive": "Mapa interativo", "Voir sur Google Maps": "Ver no Google Maps", "Zone recommandée pour loger →": "Região recomendada para hospedagem →", "Zone balnéaire →": "Região à beira-mar →", "Aéroport →": "Aeroporto →", "Lieu de célébration →": "Local da celebração →", "Hébergement": "Hospedagem", "Transport": "Transporte", "Merci de confirmer votre présence avant le": "Por favor, confirme a sua presença até", "Ouvrir le formulaire RSVP": "Abrir formulário RSVP", "Mariage Mirna & Victor": "Casamento Mirna & Victor", "Fortaleza · Brésil": "Fortaleza · Brasil", "Entrer": "Entrar", "Cérémonie religieuse": "Cerimônia religiosa", "Messe à 14h30": "Missa às 14h30", "📍 Voir l’église": "📍 Ver a igreja", "Réception": "Recepção", "16h30 à 1h00": "16h30 às 1h00", "📍 Voir la réception": "📍 Ver a recepção", "Cérémonie religieuse à l’église": "Cerimônia religiosa na igreja", "Accueil des invités & cocktail à Club Armonia": "Recepção dos convidados e coquetel na Club Armonia", "Fin de la réception": "Fim da recepção", "Les lieux": "Os locais", "Fortaleza, Beach Park et le littoral": "Fortaleza, Beach Park e o litoral", "lumière dorée, brise marine, jardins tropicaux et élégance paisible du Nordeste.": "luz dourada, brisa do mar, jardins tropicais e elegância serena do Nordeste.", "Un rivage clair, des horizons ouverts et cette lumière douce qui donne au séjour son rythme de vacances.": "Uma orla clara, horizontes abertos e uma luz suave que dá à estadia um ritmo de férias.", "Cocotiers": "Coqueiros", "Des palmiers, le vent de mer et une atmosphère tropicale simple, élégante et naturellement chaleureuse.": "Palmeiras, brisa do mar e uma atmosfera tropical simples, elegante e naturalmente acolhedora.", "Un écrin balnéaire entre jardins, piscines et mer turquoise, pensé pour prolonger la fête en douceur.": "Um refúgio à beira-mar entre jardins, piscinas e mar turquesa, pensado para prolongar a festa com suavidade.", "Séjour recommandé": "Estadia recomendada", "Où loger ?": "Onde se hospedar?", "Nous recommandons aux invités de privilégier la zone de": "Recomendamos que os convidados deem preferência à região de", ". C’est une zone agréable pour profiter de belles plages, de logements confortables et d’un cadre plus calme, tout en restant accessible pour les événements du mariage.": ". É uma região agradável para aproveitar belas praias, hospedagens confortáveis e um ambiente mais tranquilo, mantendo fácil acesso aos eventos do casamento.", "Idéal pour ceux qui veulent profiter de la plage, rester dans une ambiance vacances et éviter d’être au centre-ville.": "Ideal para quem deseja aproveitar a praia, ficar em clima de férias e evitar o centro da cidade.", "📍 Voir la zone": "📍 Ver a região", "Logements": "Hospedagens", "On y trouve des appartements, résidences avec piscine, resorts et logements familiaux adaptés aux séjours de plusieurs jours.": "Há apartamentos, condomínios com piscina, resorts e hospedagens familiares adequadas para estadias de vários dias.", "Plages": "Praias", "La zone est appréciée pour ses grandes plages, ses cocotiers et une ambiance plus balnéaire, parfaite pour prolonger le séjour autour du mariage.": "A região é apreciada por suas praias amplas, coqueiros e atmosfera litorânea, perfeita para prolongar a estadia em torno do casamento.", "Se déplacer": "Como se deslocar", "Voiture de location ou Uber": "Carro alugado ou Uber", "Pour être autonome pendant le séjour, nous recommandons soit de louer une voiture, soit d’utiliser Uber pour les trajets principaux. La voiture est pratique si vous restez plusieurs jours, si vous logez vers Beach Park ou si vous souhaitez visiter les plages autour de Fortaleza.": "Para ter autonomia durante a estadia, recomendamos alugar um carro ou usar Uber para os principais trajetos. O carro é prático se vocês ficarem vários dias, se estiverem hospedados perto do Beach Park ou se quiserem visitar as praias ao redor de Fortaleza.", "Location de voiture": "Aluguel de carro", "Solution confortable pour les familles et les invités qui veulent visiter les environs. Enseignes à regarder :": "Uma solução confortável para famílias e convidados que desejam visitar os arredores. Empresas para consultar:", "et agences à l’aéroport de Fortaleza.": "e agências no aeroporto de Fortaleza.", "Ordre de prix indicatif : environ": "Estimativa de preço: cerca de", "pour une économique ou compacte,": "para um carro econômico ou compacto,", "pour un SUV simple, et davantage pour les grands véhicules.": "para um SUV simples, e mais para veículos maiores.", "📍 Voir l’aéroport": "📍 Ver o aeroporto", "Uber / chauffeur": "Uber / motorista", "Solution simple si vous ne voulez pas conduire. Idéal pour les trajets hôtel ↔ cérémonie ↔ réception, ou pour les invités qui restent surtout près de leur logement.": "Uma solução simples se vocês não quiserem dirigir. Ideal para os trajetos hotel ↔ cerimônia ↔ recepção, ou para convidados que ficarão principalmente perto da hospedagem.", "À privilégier le soir du mariage pour rentrer tranquillement, sans se soucier du stationnement ou de la conduite.": "Recomendado na noite do casamento para voltar com tranquilidade, sem se preocupar com estacionamento ou direção.", "Notre recommandation": "Nossa recomendação", "Pour un séjour court : Uber peut suffire. Pour un séjour de plusieurs jours à Beach Park, avec sorties et plages : une voiture de location sera plus pratique.": "Para uma estadia curta, Uber pode ser suficiente. Para vários dias no Beach Park, com passeios e praias, um carro alugado será mais prático.", "Se repérer facilement": "Localizar-se facilmente", "Aéroport de Fortaleza": "Aeroporto de Fortaleza", "Ouvrir dans Google Maps →": "Abrir no Google Maps →", "Igreja Matriz de São João Eudes →": "Igreja Matriz de São João Eudes →", "Club Armonia →": "Club Armonia →", "Nous serions ravis de vous compter parmi nous pour célébrer notre mariage à Fortaleza le": "Será uma grande alegria contar com a sua presença para celebrar o nosso casamento em Fortaleza no dia", "Merci de bien vouloir confirmer votre présence avant le": "Por favor, confirme a sua presença até", "Ne pas remplir": "Não preencher", "Nom complet": "Nome completo", "Serez-vous présent ?": "Você estará presente?", "Choisir": "Escolher", "Oui, bien sûr !": "Sim, claro!", "Non, malheureusement": "Não, infelizmente", "Nombre d’accompagnant(s)": "Número de acompanhantes", "Accompagnant(s) — nom(s) et prénom(s)": "Acompanhante(s) — nome completo", "Pointure(s)": "Número de sapato", "Message aux mariés": "Mensagem para os noivos", "Confirmer ma réponse": "Confirmar resposta", "Ouvrir le formulaire Google": "Abrir formulário Google", "Votre réponse est envoyée directement via le formulaire sécurisé. Le lien Google reste disponible en secours.": "A sua resposta é enviada diretamente pelo formulário seguro. O link do Google fica disponível como alternativa.", "Votre présence à nos côtés sera déjà le plus beau des cadeaux. Pour ceux qui souhaitent nous faire plaisir,\n        voici quelques expériences et projets qui accompagneront le début de notre vie à deux.": "A presença de vocês ao nosso lado já será o presente mais bonito. Para quem desejar nos presentear, aqui estão algumas experiências e projetos que acompanharão o início da nossa vida a dois.", "Bonjour / Salut": "Olá / Oi", "Merci": "Obrigado / Obrigada", "(homme)": "(homem)", "(femme)": "(mulher)", "S’il vous plaît": "Por favor", "Excusez-moi": "Com licença", "Parlez-vous anglais ?": "Você fala inglês?", "Je ne comprends pas": "Não entendo", "Combien ça coûte ?": "Quanto custa?", "Où est la plage ?": "Onde fica a praia?", "Une bière, s’il vous plaît": "Uma cerveja, por favor", "L’addition, s’il vous plaît": "A conta, por favor", "Tout va bien ?": "Tudo bem?", "À bientôt": "Até logo", "Avec amour — Mirna & Victor": "Com amor — Mirna & Victor", "23h30": "1h00", "1h00": "1h00", "Au revoir": "Tchau / Até logo"},
+    ro: {"html": "", "Mariage Mirna & Victor": "Nunta Mirna & Victor", "MIRNA & VICTOR": "MIRNA & VICTOR", "Fortaleza · Brésil": "Fortaleza · Brazilia", "Entrer": "Intră", "M / V": "M / V", "Programme": "Program", "Lieux": "Locuri", "Séjour": "Ședere", "Transports": "Transport", "Carte": "Hartă", "RSVP": "RSVP", "Liste": "Cadouri", "FR": "FR", "PT": "PT", "RO": "RO", "Mirna": "Mirna", "& Victor": "& Victor", "Fortaleza, Brésil": "Fortaleza, Brazilia", "Découvrir": "Descoperiți", "5 novembre 2027": "5 noiembrie 2027", "Bienvenue": "Bine ați venit", "à tous nos proches": "tuturor celor dragi", "Nous avons hâte de vous retrouver à Fortaleza pour célébrer avec vous notre mariage le 5 novembre 2027.": "Abia așteptăm să vă revedem la Fortaleza pentru a sărbători împreună nunta noastră pe 5 noiembrie 2027.", "Mirna & Victor": "Mirna & Victor", "Découvrir le mariage": "Descoperiți nunta", "Programme de la journée": "Programul zilei", "Programa do dia": "Programul zilei", "Um dia pensado como uma sequência suave: a cerimônia, o coquetel, o jantar e a celebração.": "O zi gândită ca o desfășurare firească: ceremonia, cocktailul, cina, apoi sărbătoarea.", "14h30": "14h30", "Cérémonie religieuse": "Ceremonie religioasă", "Messe à l’église": "Slujbă la biserică", "Igreja Matriz de São João Eudes": "Igreja Matriz de São João Eudes", "Voir l’église": "Vezi biserica", "16h30": "16h30", "Accueil & cocktail": "Primire & cocktail", "Club Armonia": "Club Armonia", "Accueil des invités, cocktail et premières lumières de fin de journée.": "Primirea invitaților, cocktail și primele lumini ale sfârșitului de zi.", "Voir la réception": "Vezi recepția", "18h00": "18h00", "Dîner": "Cină", "Un moment à table": "Un moment la masă", "Dîner, discours et instants partagés avec nos familles et nos amis.": "Cină, discursuri și momente împărtășite cu familiile și prietenii noștri.", "21h00": "21h00", "Soirée": "Petrecere", "Danse & célébration": "Dans & sărbătoare", "La fête se prolonge en musique, dans une ambiance simple, élégante et chaleureuse.": "Petrecerea continuă cu muzică, într-o atmosferă simplă, elegantă și caldă.", "1h00": "1h00", "Fin de réception": "Sfârșitul recepției", "Retour en douceur": "Întoarcere liniștită", "Nous vous recommandons de prévoir un retour en voiture ou en application de transport.": "Vă recomandăm să vă organizați întoarcerea cu mașina sau printr-o aplicație de transport.", "Les lieux": "Locațiile", "Fortaleza, Beach Park et le littoral": "Fortaleza, Beach Park și litoralul", "lumière dorée, brise marine, jardins tropicaux et élégance paisible du Nordeste.": "lumină aurie, briză marină, grădini tropicale și eleganța liniștită a Nordeste.", "Beach Park / Porto das Dunuas": "Beach Park / Porto das Dunas", "Beach Park / Porto das Dunas": "Beach Park / Porto das Dunas", "Un rivage clair, des horizons ouverts et cette lumière douce qui donne au séjour son rythme de vacances.": "Un țărm luminos, orizonturi deschise și acea lumină blândă care dă șederii un ritm de vacanță.", "Cocotiers": "Cocotieri", "Des palmiers, le vent de mer et une atmosphère tropicale simple, élégante et naturellement chaleureuse.": "Palmieri, vânt de mare și o atmosferă tropicală simplă, elegantă și natural caldă.", "Beach Park Resort": "Beach Park Resort", "Un écrin balnéaire entre jardins, piscines et mer turquoise, pensé pour prolonger la fête en douceur.": "Un cadru de litoral între grădini, piscine și mare turcoaz, gândit pentru a prelungi sărbătoarea în liniște.", "Séjour recommandé": "Ședere recomandată", "Où loger ?": "Unde să vă cazați?", "Nous recommandons aux invités de privilégier la zone de": "Recomandăm invitaților să aleagă zona", "Beach Park / Porto das Dunas / Aquiraz": "Beach Park / Porto das Dunas / Aquiraz", ". C’est une zone agréable pour profiter de belles plages, de logements confortables et d’un cadre plus calme, tout en restant accessible pour les événements du mariage.": ". Este o zonă plăcută pentru a vă bucura de plaje frumoase, cazări confortabile și un cadru mai liniștit, rămânând totodată aproape de evenimentele nunții.", "Idéal pour ceux qui veulent profiter de la plage, rester dans une ambiance vacances et éviter d’être au centre-ville.": "Ideal pentru cei care vor să se bucure de plajă, să rămână într-o atmosferă de vacanță și să evite centrul orașului.", "📍 Voir la zone": "📍 Vezi zona", "Logements": "Cazări", "On y trouve des appartements, résidences avec piscine, resorts et logements familiaux adaptés aux séjours de plusieurs jours.": "Acolo găsiți apartamente, reședințe cu piscină, resorturi și cazări familiale potrivite pentru șederi de câteva zile.", "Plages": "Plaje", "La zone est appréciée pour ses grandes plages, ses cocotiers et une ambiance plus balnéaire, parfaite pour prolonger le séjour autour du mariage.": "Zona este apreciată pentru plajele întinse, cocotieri și atmosfera de litoral, perfectă pentru a prelungi șederea în jurul nunții.", "Se déplacer": "Deplasare", "Voiture de location ou Uber": "Mașină închiriată sau Uber", "Pour être autonome pendant le séjour, nous recommandons soit de louer une voiture, soit d’utiliser Uber pour les trajets principaux. La voiture est pratique si vous restez plusieurs jours, si vous logez vers Beach Park ou si vous souhaitez visiter les plages autour de Fortaleza.": "Pentru autonomie în timpul șederii, recomandăm fie închirierea unei mașini, fie folosirea Uber pentru principalele deplasări. Mașina este practică dacă rămâneți mai multe zile, dacă stați lângă Beach Park sau dacă doriți să vizitați plajele din jurul Fortalezei.", "Location de voiture": "Închiriere mașină", "Solution confortable pour les familles et les invités qui veulent visiter les environs. Enseignes à regarder :": "O soluție confortabilă pentru familii și invitații care vor să viziteze împrejurimile. Companii de verificat:", "et agences à l’aéroport de Fortaleza.": "și agenții la aeroportul din Fortaleza.", "Ordre de prix indicatif : environ": "Preț orientativ: aproximativ", "20–30 €/jour": "20–30 €/zi", "pour une économique ou compacte,": "pentru o mașină economică sau compactă,", "27–40 €/jour": "27–40 €/zi", "pour un SUV simple, et davantage pour les grands véhicules.": "pentru un SUV simplu și mai mult pentru vehiculele mari.", "📍 Voir l’aéroport": "📍 Vezi aeroportul", "Uber / chauffeur": "Uber / șofer", "Solution simple si vous ne voulez pas conduire. Idéal pour les trajets hôtel ↔ cérémonie ↔ réception, ou pour les invités qui restent surtout près de leur logement.": "Soluție simplă dacă nu doriți să conduceți. Ideală pentru traseele hotel ↔ ceremonie ↔ recepție sau pentru invitații care rămân mai ales în apropierea cazării.", "À privilégier le soir du mariage pour rentrer tranquillement, sans se soucier du stationnement ou de la conduite.": "De preferat în seara nunții, pentru a vă întoarce liniștiți, fără grija parcării sau a condusului.", "Notre recommandation": "Recomandarea noastră", "Pour un séjour court : Uber peut suffire. Pour un séjour de plusieurs jours à Beach Park, avec sorties et plages : une voiture de location sera plus pratique.": "Pentru o ședere scurtă: Uber poate fi suficient. Pentru mai multe zile la Beach Park, cu ieșiri și plaje: o mașină închiriată va fi mai practică.", "Se repérer facilement": "Orientare ușoară", "Aéroport de Fortaleza": "Aeroportul din Fortaleza", "Ouvrir dans Google Maps →": "Deschide în Google Maps →", "Cérémonie": "Ceremonie", "Igreja Matriz de São João Eudes →": "Igreja Matriz de São João Eudes →", "Réception": "Recepție", "Club Armonia →": "Club Armonia →", "Zone balnéaire →": "Zonă de litoral →", "Porto das Dunas": "Porto das Dunas", "Zone recommandée pour loger →": "Zonă recomandată pentru cazare →", "Réponse": "Răspuns", "Nous serions ravis de vous compter parmi nous pour célébrer notre mariage à Fortaleza le": "Ne-ar face mare plăcere să vă avem alături pentru a sărbători nunta noastră la Fortaleza pe", "Merci de bien vouloir confirmer votre présence avant le": "Vă rugăm să confirmați prezența înainte de", "01/01/2027": "01/01/2027", "Ne pas remplir": "Nu completați", "Nom complet": "Nume complet", "Email": "Email", "Serez-vous présent ?": "Veți fi prezent(ă)?", "Choisir": "Alegeți", "Oui, bien sûr !": "Da, desigur!", "Non, malheureusement": "Nu, din păcate", "Nombre d’accompagnant(s)": "Număr de însoțitori", "Accompagnant(s) — nom(s) et prénom(s)": "Însoțitor(i) — nume și prenume", "Pointure(s)": "Mărime/mărimi la încălțăminte", "Message aux mariés": "Mesaj pentru miri", "Confirmer ma réponse": "Confirm răspunsul", "Ouvrir le formulaire Google": "Deschide formularul Google", "Votre réponse est envoyée directement via le formulaire sécurisé. Le lien Google reste disponible en secours.": "Răspunsul dvs. este trimis direct prin formularul securizat. Linkul Google rămâne disponibil ca soluție de rezervă.", "Cadeaux": "Cadouri", "Liste de mariage": "Lista de cadouri", "Votre présence à nos côtés sera déjà le plus beau des cadeaux. Pour ceux qui souhaitent nous faire plaisir, nous avons imaginé quelques idées simples et élégantes pour accompagner le début de notre vie à deux.": "Prezența voastră alături de noi va fi deja cel mai frumos cadou. Pentru cei care doresc să ne facă o bucurie, am imaginat câteva idei simple și elegante pentru începutul vieții noastre în doi.", "Pour ceux qui préfèrent un cadeau concret, quelques inspirations seront également proposées dans la liste, comme une belle pièce pour la maison ou un objet utile du quotidien.": "Pentru cei care preferă un cadou concret, câteva inspirații vor fi propuse și în listă, precum o piesă frumoasă pentru casă sau un obiect util de zi cu zi.", "Notre futur chez-nous": "Viitorul nostru cămin", "Nous aider à créer un intérieur chaleureux, pensé pour accueillir famille et amis.": "Să ne ajutați să creăm un interior cald, gândit pentru a primi familia și prietenii.", "Participation libre": "Contribuție liberă", "Thalasso pour deux": "Thalasso pentru doi", "Une parenthèse de douceur après le mariage, pour prolonger ces moments à deux.": "O pauză de răsfăț după nuntă, pentru a prelungi aceste momente în doi.", "Expérience à deux": "Experiență în doi", "Contribution libre": "Contribuție liberă", "Une participation libre à notre nouvelle vie à deux, selon l’envie de chacun.": "O contribuție liberă la noua noastră viață în doi, după dorința fiecăruia.", "Montant libre": "Sumă liberă", "Sélectionnez une carte pour voir l’intention choisie, puis accédez à la liste.": "Selectați o carte pentru a vedea intenția aleasă, apoi accesați lista.", "Participer à la liste": "Participă la listă", "Pagamento via Pix": "Plată prin Pix", "Escaneie o QR code para contribuir com a nossa nova vida a dois.": "Scanați codul QR pentru a contribui la noua noastră viață în doi.", "Valor livre · contribuição em reais": "Sumă liberă · contribuție în reali", "Fortaleza nous attend": "Fortaleza ne așteaptă", "Un compte à rebours avant de nous retrouver au Brésil.": "Numărătoare inversă până când ne vom revedea în Brazilia.", "jours": "zile", "heures": "ore", "minutes": "minute", "Mini guide français / portugais": "Mini ghid român / portughez", "Quelques mots utiles": "Câteva cuvinte utile", "Quelques phrases simples pour se repérer, commander, remercier et profiter du séjour au Brésil.": "Câteva expresii simple pentru a vă orienta, a comanda, a mulțumi și a vă bucura de șederea în Brazilia.", "Informations pratiques": "Informații practice", "Préparer le séjour": "Pregătiți șederea", "Un guide pratique sera disponible ici pour organiser le voyage : hébergement, transferts, conseils sur place et informations utiles.": "Un ghid practic va fi disponibil aici pentru organizarea călătoriei: cazare, transferuri, recomandări la fața locului și informații utile.", "Ouvrir le guide": "Deschide ghidul", "Avec amour — Mirna & Victor": "Cu drag — Mirna & Victor"}
+  };
+  const phrases = {"fr": [["Bonjour / Salut", "Olá / Oi"], ["Merci", "Obrigado / Obrigada"], ["S’il vous plaît", "Por favor"], ["Excusez-moi", "Com licença"], ["Parlez-vous anglais ?", "Você fala inglês?"], ["Je ne comprends pas", "Não entendo"], ["Combien ça coûte ?", "Quanto custa?"], ["Où est la plage ?", "Onde fica a praia?"], ["Une bière, s’il vous plaît", "Uma cerveja, por favor"], ["L’addition, s’il vous plaît", "A conta, por favor"], ["Tout va bien ?", "Tudo bem?"], ["À bientôt", "Até logo"], ["Au revoir", "Tchau / Até logo"]], "pt": [["Olá / Oi", "Bonjour / Salut"], ["Obrigado / Obrigada", "Merci"], ["Por favor", "S’il vous plaît"], ["Com licença", "Excusez-moi"], ["Você fala inglês?", "Parlez-vous anglais ?"], ["Não entendo", "Je ne comprends pas"], ["Quanto custa?", "Combien ça coûte ?"], ["Onde fica a praia?", "Où est la plage ?"], ["Uma cerveja, por favor", "Une bière, s’il vous plaît"], ["A conta, por favor", "L’addition, s’il vous plaît"], ["Tudo bem?", "Tout va bien ?"], ["Até logo", "À bientôt"], ["Tchau / Até logo", "Au revoir"]], "ro": [["Bună / Salut", "Olá / Oi"], ["Mulțumesc", "Obrigado / Obrigada"], ["Vă rog", "Por favor"], ["Scuzați-mă", "Com licença"], ["Vorbiți engleză?", "Você fala inglês?"], ["Nu înțeleg", "Não entendo"], ["Cât costă?", "Quanto custa?"], ["Unde este plaja?", "Onde fica a praia?"], ["O bere, vă rog", "Uma cerveja, por favor"], ["Nota, vă rog", "A conta, por favor"], ["Totul este bine?", "Tudo bem?"], ["Pe curând", "Até logo"], ["La revedere", "Tchau / Até logo"]]};
+  const phraseTitles = {"fr": {"eyebrow": "Mini guide français / portugais", "title": "Quelques mots utiles", "intro": "Quelques phrases simples pour se repérer, commander, remercier et profiter du séjour au Brésil."}, "pt": {"eyebrow": "Mini guia português / francês", "title": "Algumas palavras úteis", "intro": "Algumas frases simples para se orientar, pedir, agradecer e aproveitar a estadia."}, "ro": {"eyebrow": "Mini ghid român / portughez", "title": "Câteva cuvinte utile", "intro": "Câteva expresii simple pentru a vă orienta, a comanda, a mulțumi și a vă bucura de șederea în Brazilia."}};
+
+  const originalText = new WeakMap();
+  const originalPlaceholder = new WeakMap();
+
+  function norm(value){
+    return (value || "").replace(/\s+/g, " ").trim();
+  }
+
+  function shouldSkip(node){
+    const el = node.nodeType === 1 ? node : node.parentElement;
+    if(!el) return true;
+    if(el.closest("script,style,noscript,svg")) return true;
+    if(el.closest("#mots-utiles .mv-phrase-grid, #phraseGrid")) return true;
+    if(el.closest("[data-no-translate]")) return true;
+    if(document.body.classList.contains("ro") && el.closest(".rsvp-pt")) return true;
+    return false;
+  }
+
+  function allTextNodes(){
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode(node){
+        if(shouldSkip(node)) return NodeFilter.FILTER_REJECT;
+        if(!norm(node.nodeValue)) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    const nodes = [];
+    while(walker.nextNode()) nodes.push(walker.currentNode);
+    return nodes;
+  }
+
+  function snapshot(){
+    allTextNodes().forEach(function(node){
+      if(!originalText.has(node)) originalText.set(node, node.nodeValue);
+    });
+    document.querySelectorAll("[placeholder]").forEach(function(el){
+      if(!originalPlaceholder.has(el)) originalPlaceholder.set(el, el.getAttribute("placeholder") || "");
+    });
+  }
+
+  function translateExact(base, lang){
+    if(lang === "fr") return base;
+    const key = norm(base);
+    const translated = dictionaries[lang] && dictionaries[lang][key];
+    return translated ? base.replace(key, translated) : base;
+  }
+
+  function renderPhrases(lang){
+    const grid = document.querySelector("#mots-utiles .mv-phrase-grid, #phraseGrid");
+    if(!grid) return;
+    grid.setAttribute("data-no-translate", "");
+    grid.innerHTML = phrases[lang].map(function(pair){
+      return '<div class="mv-phrase-card"><strong>' + pair[0] + '</strong><span>' + pair[1] + '</span></div>';
+    }).join("");
+
+    const labels = phraseTitles[lang];
+    const eyebrow = document.getElementById("phraseEyebrow");
+    const title = document.getElementById("phraseTitle");
+    const intro = document.getElementById("phraseIntro");
+    if(eyebrow) eyebrow.textContent = labels.eyebrow;
+    if(title) title.textContent = labels.title;
+    if(intro) intro.textContent = labels.intro;
+  }
+
+  function updateButtons(lang){
+    document.querySelectorAll("[data-lang-toggle]").forEach(function(btn){
+      btn.classList.toggle("active", btn.getAttribute("data-lang-toggle") === lang);
+      btn.setAttribute("aria-pressed", btn.getAttribute("data-lang-toggle") === lang ? "true" : "false");
+    });
+  }
+
+  function applyLanguage(lang){
+    lang = ["fr","pt","ro"].includes(lang) ? lang : "fr";
+
+    document.body.classList.remove("pt","ro");
+    if(lang !== "fr") document.body.classList.add(lang);
+    document.documentElement.lang = lang === "pt" ? "pt-BR" : lang;
+
+    snapshot();
+
+    allTextNodes().forEach(function(node){
+      const base = originalText.get(node) || node.nodeValue;
+      node.nodeValue = translateExact(base, lang);
+    });
+
+    document.querySelectorAll("[placeholder]").forEach(function(el){
+      const base = originalPlaceholder.get(el) || el.getAttribute("placeholder") || "";
+      el.setAttribute("placeholder", translateExact(base, lang));
+    });
+
+    renderPhrases(lang);
+    updateButtons(lang);
+
+    try{ localStorage.setItem("mv-lang", lang); }catch(e){}
+    document.dispatchEvent(new CustomEvent("mv:languagechange", {detail:{lang:lang}}));
+  }
+
+  function handleClick(e){
+    const btn = e.target.closest("[data-lang-toggle]");
+    if(!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
+    if(e.stopImmediatePropagation) e.stopImmediatePropagation();
+    applyLanguage(btn.getAttribute("data-lang-toggle"));
+  }
+
+  function init(){
+    document.addEventListener("click", handleClick, true);
+    let saved = "fr";
+    try{ saved = localStorage.getItem("mv-lang") || "fr"; }catch(e){}
+    applyLanguage(saved);
+  }
+
+  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+
+  window.mvApplyLang = applyLanguage;
+  window.mvForceLang = applyLanguage;
+  window.mvApplyRomanian = function(){ applyLanguage("ro"); };
+})();
+</script>
+
+
+<script id="mv-audio-language-refresh">
+document.addEventListener("mv:languagechange", function(){
+  document.querySelectorAll(".mv-audio-btn").forEach(function(btn){ btn.remove(); });
+  setTimeout(function(){
+    document.dispatchEvent(new Event("click"));
+  }, 50);
+});
 </script>
 
 </body>
