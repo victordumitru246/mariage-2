@@ -3559,9 +3559,9 @@ body.ro .rsvp-ro{display:block!important;}
       <div class="mv-divider"></div>
       <p class="center">Un guide pratique sera disponible ici pour organiser le voyage : hébergement, transferts, conseils sur place et informations utiles.</p>
       <div class="mv-extra-actions">
-        <a href="guide.html" class="btn" >Ouvrir le guide</a>
+        <a href="guide.html" class="btn" id="openGuideBtn">Ouvrir le guide</a>
       </div>
-      <p class="mv-extra-note">.</p>
+      
     </div>
   </section>
 
@@ -4484,5 +4484,13 @@ document.addEventListener("mv:languagechange", function(){
 });
 </script>
 
+<script id="mv-guide-button-trilingual-fix">
+(function(){
+ const text={fr:'Ouvrir le guide',pt:'Abrir o guia',ro:'Deschide ghidul'};
+ function update(){let l='fr';try{l=localStorage.getItem('mv-lang')||'fr'}catch(e){};const b=document.getElementById('openGuideBtn');if(b)b.textContent=text[l]||text.fr;}
+ document.addEventListener('mv:languagechange',e=>{const b=document.getElementById('openGuideBtn');if(b)b.textContent=text[e.detail.lang]||text.fr;});
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',update);else update();
+})();
+</script>
 </body>
 </html>
